@@ -19,6 +19,7 @@ namespace Vistainn
         public Dashboard()
         {
             InitializeComponent();
+            loadForm(new reportsForm());
         }
 
         //loadForm
