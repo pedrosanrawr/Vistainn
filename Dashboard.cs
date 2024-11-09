@@ -26,7 +26,7 @@ namespace Vistainn
         public void loadForm(object Form)
         {
             if (this.mainPanel.Controls.Count > 0)
-            this.mainPanel.Controls.RemoveAt(0);
+            this.mainPanel.Controls.Clear();
             Form f = Form as Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
@@ -39,6 +39,7 @@ namespace Vistainn
         private void reportsButton_Click(object sender, EventArgs e)
         {
             loadForm(new reportsForm());
+
         }
 
         private void roomButton_Click(object sender, EventArgs e)
@@ -65,12 +66,6 @@ namespace Vistainn
     // database class
     class Database
     {
-        private static string connectionString = "Server=localhost;Database=Vistainn; Uid=root; Pwd;";
-
-        public MySqlConnection GetConnection()
-        {
-            return new MySqlConnection(connectionString);
-
-        }
+        public string connectionString = "Server=localhost;Database=vistainn; Uid=root; Pwd=";
     }
 }

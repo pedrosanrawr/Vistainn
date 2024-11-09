@@ -17,13 +17,21 @@ namespace Vistainn
         public startPage()
         {
             InitializeComponent();
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void booknowButton_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
-            dashboard.Show();
-            this.Hide();
+            if (hotelEmailTextBox.Text == "0" && hotelPasswordTextBox.Text == "0")
+            {
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Email or Password");
+            }
         }
     }
 }

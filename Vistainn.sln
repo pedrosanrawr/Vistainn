@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vistainn", "Vistainn.csproj", "{F13C96F2-C165-4CFB-B0E3-1AED683BBFA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vistainn_Kiosk", "..\Vistainn_Kiosk\Vistainn_Kiosk.csproj", "{548A514B-CC2D-46D2-9738-7E61057D254A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F13C96F2-C165-4CFB-B0E3-1AED683BBFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F13C96F2-C165-4CFB-B0E3-1AED683BBFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F13C96F2-C165-4CFB-B0E3-1AED683BBFA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{548A514B-CC2D-46D2-9738-7E61057D254A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548A514B-CC2D-46D2-9738-7E61057D254A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548A514B-CC2D-46D2-9738-7E61057D254A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548A514B-CC2D-46D2-9738-7E61057D254A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
