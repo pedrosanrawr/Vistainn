@@ -65,8 +65,12 @@ namespace Vistainn
     // database class
     class Database
     {
-        public string connectionString = "Server=localhost;Database=Vistainn; Uid=root; Pwd=";
+        private static string connectionString = "Server=localhost;Database=Vistainn; Uid=root; Pwd;";
 
-       
+        public MySqlConnection GetConnection()
+        {
+            return new MySqlConnection(connectionString);
+
+        }
     }
 }
