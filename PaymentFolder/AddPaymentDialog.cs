@@ -9,11 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Vistainn.BookFolder
+
+namespace Vistainn.PaymentFolder
 {
-    public partial class editBookDialog : Form
+    public partial class AddPaymentDialog : Form
     {
-        public editBookDialog()
+        public AddPaymentDialog()
         {
             InitializeComponent();
         }

@@ -66,6 +66,6 @@ namespace Vistainn
     // database class
     class Database
     {
-        public string connectionString = "Server=localhost;Database=vistainn; Uid=root; Pwd=";
+        public string connectionString = "Server=localhost;Database=vistainn; Uid=root; Pwd=;";
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Vistainn.BookFolder
+﻿namespace Vistainn.RoomFolder
 {
-    partial class editBookDialog
+    partial class addRoomDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.updateButton = new Guna.UI2.WinForms.Guna2Button();
+            this.addButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.bookingHistoryTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -51,35 +51,35 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 30;
             this.guna2Panel1.BorderThickness = 3;
-            this.guna2Panel1.Controls.Add(this.updateButton);
+            this.guna2Panel1.Controls.Add(this.addButton);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 507);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(447, 144);
-            this.guna2Panel1.TabIndex = 69;
+            this.guna2Panel1.TabIndex = 45;
             // 
-            // updateButton
+            // addButton
             // 
-            this.updateButton.BackColor = System.Drawing.Color.Transparent;
-            this.updateButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.updateButton.BorderColor = System.Drawing.Color.Transparent;
-            this.updateButton.BorderRadius = 10;
-            this.updateButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.updateButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.updateButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.updateButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.updateButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.updateButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.updateButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
-            this.updateButton.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.updateButton.Location = new System.Drawing.Point(168, 37);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.updateButton.Size = new System.Drawing.Size(103, 26);
-            this.updateButton.TabIndex = 31;
-            this.updateButton.Text = "UPDATE";
+            this.addButton.BackColor = System.Drawing.Color.Transparent;
+            this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addButton.BorderColor = System.Drawing.Color.Transparent;
+            this.addButton.BorderRadius = 10;
+            this.addButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.addButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.addButton.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.addButton.Location = new System.Drawing.Point(165, 37);
+            this.addButton.Name = "addButton";
+            this.addButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.addButton.Size = new System.Drawing.Size(103, 26);
+            this.addButton.TabIndex = 31;
+            this.addButton.Text = "ADD";
             // 
             // guna2Panel3
             // 
@@ -92,7 +92,7 @@
             this.guna2Panel3.Location = new System.Drawing.Point(-1, -25);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(447, 144);
-            this.guna2Panel3.TabIndex = 68;
+            this.guna2Panel3.TabIndex = 44;
             // 
             // label4
             // 
@@ -100,11 +100,11 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label4.Location = new System.Drawing.Point(118, 80);
+            this.label4.Location = new System.Drawing.Point(144, 80);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(218, 32);
+            this.label4.Size = new System.Drawing.Size(166, 32);
             this.label4.TabIndex = 18;
-            this.label4.Text = "EDIT BOOKINGS";
+            this.label4.Text = "ADD ROOM";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bookingHistoryTextBox
@@ -125,7 +125,7 @@
             this.bookingHistoryTextBox.PlaceholderText = "";
             this.bookingHistoryTextBox.SelectedText = "";
             this.bookingHistoryTextBox.Size = new System.Drawing.Size(160, 26);
-            this.bookingHistoryTextBox.TabIndex = 67;
+            this.bookingHistoryTextBox.TabIndex = 43;
             // 
             // label7
             // 
@@ -136,7 +136,7 @@
             this.label7.Location = new System.Drawing.Point(131, 378);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 15);
-            this.label7.TabIndex = 66;
+            this.label7.TabIndex = 42;
             this.label7.Text = "LABEL";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -149,7 +149,7 @@
             this.label6.Location = new System.Drawing.Point(236, 284);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 15);
-            this.label6.TabIndex = 65;
+            this.label6.TabIndex = 41;
             this.label6.Text = "LABEL";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -171,7 +171,7 @@
             this.emailTextBox.PlaceholderText = "";
             this.emailTextBox.SelectedText = "";
             this.emailTextBox.Size = new System.Drawing.Size(160, 26);
-            this.emailTextBox.TabIndex = 64;
+            this.emailTextBox.TabIndex = 40;
             // 
             // phoneNoTextBox
             // 
@@ -191,7 +191,7 @@
             this.phoneNoTextBox.PlaceholderText = "";
             this.phoneNoTextBox.SelectedText = "";
             this.phoneNoTextBox.Size = new System.Drawing.Size(157, 26);
-            this.phoneNoTextBox.TabIndex = 63;
+            this.phoneNoTextBox.TabIndex = 39;
             // 
             // label5
             // 
@@ -202,7 +202,7 @@
             this.label5.Location = new System.Drawing.Point(51, 284);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 15);
-            this.label5.TabIndex = 62;
+            this.label5.TabIndex = 38;
             this.label5.Text = "LABEL";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -224,7 +224,7 @@
             this.fullNameTextBox.PlaceholderText = "";
             this.fullNameTextBox.SelectedText = "";
             this.fullNameTextBox.Size = new System.Drawing.Size(220, 26);
-            this.fullNameTextBox.TabIndex = 61;
+            this.fullNameTextBox.TabIndex = 37;
             // 
             // label3
             // 
@@ -235,7 +235,7 @@
             this.label3.Location = new System.Drawing.Point(176, 191);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 60;
+            this.label3.TabIndex = 36;
             this.label3.Text = "LABEL";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -258,7 +258,7 @@
             this.customerIdTextBox.ReadOnly = true;
             this.customerIdTextBox.SelectedText = "";
             this.customerIdTextBox.Size = new System.Drawing.Size(78, 26);
-            this.customerIdTextBox.TabIndex = 59;
+            this.customerIdTextBox.TabIndex = 35;
             // 
             // label2
             // 
@@ -269,11 +269,11 @@
             this.label2.Location = new System.Drawing.Point(51, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 58;
+            this.label2.TabIndex = 34;
             this.label2.Text = "LABEL";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // editBookDialog
+            // addRoomDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -291,10 +291,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.customerIdTextBox);
             this.Controls.Add(this.label2);
-            this.MaximizeBox = false;
-            this.Name = "editBookDialog";
+            this.Name = "addRoomDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EDIT BOOKINGS";
+            this.Text = "ADD ROOM";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
@@ -306,7 +305,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Button updateButton;
+        private Guna.UI2.WinForms.Guna2Button addButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Label label4;
         public Guna.UI2.WinForms.Guna2TextBox bookingHistoryTextBox;

@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -136,22 +137,46 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="paymentForm.cs">
+    <Compile Include="PaymentFolder\AddPaymentDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="paymentForm.Designer.cs">
+    <Compile Include="PaymentFolder\AddPaymentDialog.Designer.cs">
+      <DependentUpon>AddPaymentDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentFolder\EditPaymentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentFolder\EditPaymentDialog.Designer.cs">
+      <DependentUpon>EditPaymentDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentFolder\paymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentFolder\paymentForm.Designer.cs">
       <DependentUpon>paymentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="reportsForm.cs">
+    <Compile Include="ReportsFolder\reportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="reportsForm.Designer.cs">
+    <Compile Include="ReportsFolder\reportsForm.Designer.cs">
       <DependentUpon>reportsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="roomForm.cs">
+    <Compile Include="RoomFolder\addRoomDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="roomForm.Designer.cs">
+    <Compile Include="RoomFolder\addRoomDialog.Designer.cs">
+      <DependentUpon>addRoomDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomFolder\editRoomDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomFolder\editRoomDialog.Designer.cs">
+      <DependentUpon>editRoomDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomFolder\roomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomFolder\roomForm.Designer.cs">
       <DependentUpon>roomForm.cs</DependentUpon>
     </Compile>
     <Compile Include="startPage.cs">
@@ -177,13 +202,25 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="paymentForm.resx">
+    <EmbeddedResource Include="PaymentFolder\AddPaymentDialog.resx">
+      <DependentUpon>AddPaymentDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentFolder\EditPaymentDialog.resx">
+      <DependentUpon>EditPaymentDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentFolder\paymentForm.resx">
       <DependentUpon>paymentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reportsForm.resx">
+    <EmbeddedResource Include="ReportsFolder\reportsForm.resx">
       <DependentUpon>reportsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="roomForm.resx">
+    <EmbeddedResource Include="RoomFolder\addRoomDialog.resx">
+      <DependentUpon>addRoomDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomFolder\editRoomDialog.resx">
+      <DependentUpon>editRoomDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomFolder\roomForm.resx">
       <DependentUpon>roomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="startPage.resx">
@@ -197,6 +234,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

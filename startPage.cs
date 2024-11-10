@@ -22,16 +22,16 @@ namespace Vistainn
 
         private void booknowButton_Click(object sender, EventArgs e)
         {
-            if (hotelEmailTextBox.Text == "0" && hotelPasswordTextBox.Text == "0")
-            {
+     //       if (hotelEmailTextBox.Text == "0" && hotelPasswordTextBox.Text == "0")
+      //      {
                 Dashboard dashboard = new Dashboard();
                 dashboard.Show();
                 this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Incorrect Email or Password");
-            }
+       //     }
+           // else
+      //      {
+              //  MessageBox.Show("Incorrect Email or Password");
+    //        }
         }
     }
 }

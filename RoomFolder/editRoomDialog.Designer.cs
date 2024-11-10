@@ -1,6 +1,6 @@
-﻿namespace Vistainn.BookFolder
+﻿namespace Vistainn.RoomFolder
 {
-    partial class editBookDialog
+    partial class editRoomDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.updateButton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.bookingHistoryTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -52,12 +53,13 @@
             this.guna2Panel1.BorderRadius = 30;
             this.guna2Panel1.BorderThickness = 3;
             this.guna2Panel1.Controls.Add(this.updateButton);
+            this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 507);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(447, 144);
-            this.guna2Panel1.TabIndex = 69;
+            this.guna2Panel1.TabIndex = 57;
             // 
             // updateButton
             // 
@@ -74,12 +76,34 @@
             this.updateButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.updateButton.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.updateButton.Location = new System.Drawing.Point(168, 37);
+            this.updateButton.Location = new System.Drawing.Point(230, 37);
             this.updateButton.Name = "updateButton";
             this.updateButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.updateButton.Size = new System.Drawing.Size(103, 26);
             this.updateButton.TabIndex = 31;
             this.updateButton.Text = "UPDATE";
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.guna2Button1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.DarkRed;
+            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.guna2Button1.Location = new System.Drawing.Point(99, 37);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.guna2Button1.Size = new System.Drawing.Size(103, 26);
+            this.guna2Button1.TabIndex = 30;
+            this.guna2Button1.Text = "DELETE";
             // 
             // guna2Panel3
             // 
@@ -92,7 +116,7 @@
             this.guna2Panel3.Location = new System.Drawing.Point(-1, -25);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(447, 144);
-            this.guna2Panel3.TabIndex = 68;
+            this.guna2Panel3.TabIndex = 56;
             // 
             // label4
             // 
@@ -100,11 +124,11 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label4.Location = new System.Drawing.Point(118, 80);
+            this.label4.Location = new System.Drawing.Point(144, 80);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(218, 32);
+            this.label4.Size = new System.Drawing.Size(160, 32);
             this.label4.TabIndex = 18;
-            this.label4.Text = "EDIT BOOKINGS";
+            this.label4.Text = "EDIT ROOM";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bookingHistoryTextBox
@@ -125,7 +149,7 @@
             this.bookingHistoryTextBox.PlaceholderText = "";
             this.bookingHistoryTextBox.SelectedText = "";
             this.bookingHistoryTextBox.Size = new System.Drawing.Size(160, 26);
-            this.bookingHistoryTextBox.TabIndex = 67;
+            this.bookingHistoryTextBox.TabIndex = 55;
             // 
             // label7
             // 
@@ -136,7 +160,7 @@
             this.label7.Location = new System.Drawing.Point(131, 378);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 15);
-            this.label7.TabIndex = 66;
+            this.label7.TabIndex = 54;
             this.label7.Text = "LABEL";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -149,7 +173,7 @@
             this.label6.Location = new System.Drawing.Point(236, 284);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 15);
-            this.label6.TabIndex = 65;
+            this.label6.TabIndex = 53;
             this.label6.Text = "LABEL";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -171,7 +195,7 @@
             this.emailTextBox.PlaceholderText = "";
             this.emailTextBox.SelectedText = "";
             this.emailTextBox.Size = new System.Drawing.Size(160, 26);
-            this.emailTextBox.TabIndex = 64;
+            this.emailTextBox.TabIndex = 52;
             // 
             // phoneNoTextBox
             // 
@@ -191,7 +215,7 @@
             this.phoneNoTextBox.PlaceholderText = "";
             this.phoneNoTextBox.SelectedText = "";
             this.phoneNoTextBox.Size = new System.Drawing.Size(157, 26);
-            this.phoneNoTextBox.TabIndex = 63;
+            this.phoneNoTextBox.TabIndex = 51;
             // 
             // label5
             // 
@@ -202,7 +226,7 @@
             this.label5.Location = new System.Drawing.Point(51, 284);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 15);
-            this.label5.TabIndex = 62;
+            this.label5.TabIndex = 50;
             this.label5.Text = "LABEL";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -224,7 +248,7 @@
             this.fullNameTextBox.PlaceholderText = "";
             this.fullNameTextBox.SelectedText = "";
             this.fullNameTextBox.Size = new System.Drawing.Size(220, 26);
-            this.fullNameTextBox.TabIndex = 61;
+            this.fullNameTextBox.TabIndex = 49;
             // 
             // label3
             // 
@@ -235,7 +259,7 @@
             this.label3.Location = new System.Drawing.Point(176, 191);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 60;
+            this.label3.TabIndex = 48;
             this.label3.Text = "LABEL";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -258,7 +282,7 @@
             this.customerIdTextBox.ReadOnly = true;
             this.customerIdTextBox.SelectedText = "";
             this.customerIdTextBox.Size = new System.Drawing.Size(78, 26);
-            this.customerIdTextBox.TabIndex = 59;
+            this.customerIdTextBox.TabIndex = 47;
             // 
             // label2
             // 
@@ -269,11 +293,11 @@
             this.label2.Location = new System.Drawing.Point(51, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 58;
+            this.label2.TabIndex = 46;
             this.label2.Text = "LABEL";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // editBookDialog
+            // editRoomDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -291,10 +315,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.customerIdTextBox);
             this.Controls.Add(this.label2);
-            this.MaximizeBox = false;
-            this.Name = "editBookDialog";
+            this.Name = "editRoomDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EDIT BOOKINGS";
+            this.Text = "EDIT ROOM";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
@@ -307,6 +330,7 @@
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button updateButton;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Label label4;
         public Guna.UI2.WinForms.Guna2TextBox bookingHistoryTextBox;

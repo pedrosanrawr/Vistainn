@@ -1,6 +1,6 @@
 ﻿namespace Vistainn
 {
-    partial class bookForm
+    partial class paymentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,15 +37,15 @@
             this.hotelEmailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.refreshButton = new Guna.UI2.WinForms.Guna2Button();
             this.editButton = new Guna.UI2.WinForms.Guna2Button();
+            this.addButton = new Guna.UI2.WinForms.Guna2Button();
             this.customerTable = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.PaymentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentMethod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dates = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refreshButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).BeginInit();
@@ -117,9 +117,9 @@
             this.guna2Panel2.BorderThickness = 3;
             this.guna2Panel2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel2.Location = new System.Drawing.Point(875, 309);
+            this.guna2Panel2.Location = new System.Drawing.Point(875, 366);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(262, 196);
+            this.guna2Panel2.Size = new System.Drawing.Size(262, 139);
             this.guna2Panel2.TabIndex = 19;
             // 
             // guna2Panel1
@@ -129,32 +129,13 @@
             this.guna2Panel1.BorderThickness = 3;
             this.guna2Panel1.Controls.Add(this.refreshButton);
             this.guna2Panel1.Controls.Add(this.editButton);
+            this.guna2Panel1.Controls.Add(this.addButton);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel1.Location = new System.Drawing.Point(875, 155);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(250, 148);
+            this.guna2Panel1.Size = new System.Drawing.Size(250, 205);
             this.guna2Panel1.TabIndex = 18;
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.BackColor = System.Drawing.Color.Transparent;
-            this.refreshButton.BorderColor = System.Drawing.Color.Transparent;
-            this.refreshButton.BorderRadius = 18;
-            this.refreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.refreshButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.refreshButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.refreshButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.refreshButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.refreshButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
-            this.refreshButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.refreshButton.Location = new System.Drawing.Point(39, 81);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.refreshButton.Size = new System.Drawing.Size(154, 41);
-            this.refreshButton.TabIndex = 15;
-            this.refreshButton.Text = "RESFRESH";
             // 
             // editButton
             // 
@@ -169,12 +150,32 @@
             this.editButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.editButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.editButton.Location = new System.Drawing.Point(39, 24);
+            this.editButton.Location = new System.Drawing.Point(39, 81);
             this.editButton.Name = "editButton";
             this.editButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.editButton.Size = new System.Drawing.Size(154, 41);
-            this.editButton.TabIndex = 14;
+            this.editButton.TabIndex = 15;
             this.editButton.Text = "EDIT";
+            // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.Color.Transparent;
+            this.addButton.BorderColor = System.Drawing.Color.Transparent;
+            this.addButton.BorderRadius = 18;
+            this.addButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.addButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.addButton.Location = new System.Drawing.Point(39, 24);
+            this.addButton.Name = "addButton";
+            this.addButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.addButton.Size = new System.Drawing.Size(154, 41);
+            this.addButton.TabIndex = 14;
+            this.addButton.Text = "ADD";
             // 
             // customerTable
             // 
@@ -200,12 +201,11 @@
             this.customerTable.ColumnHeadersHeight = 25;
             this.customerTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.customerTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PaymentId,
             this.BookingId,
-            this.Status,
-            this.fullName,
-            this.RoomNo,
-            this.RoomType,
-            this.Dates});
+            this.Amount,
+            this.PaymentMethod,
+            this.Status});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -255,13 +255,33 @@
             this.customerTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.customerTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             // 
+            // PaymentId
+            // 
+            this.PaymentId.DataPropertyName = "PaymentId";
+            this.PaymentId.HeaderText = "PAYMENT ID";
+            this.PaymentId.Name = "PaymentId";
+            this.PaymentId.ReadOnly = true;
+            // 
             // BookingId
             // 
             this.BookingId.DataPropertyName = "BookingId";
             this.BookingId.HeaderText = "BOOKING ID";
             this.BookingId.Name = "BookingId";
             this.BookingId.ReadOnly = true;
-            this.BookingId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "AMOUNT";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // PaymentMethod
+            // 
+            this.PaymentMethod.DataPropertyName = "PaymentMethod";
+            this.PaymentMethod.HeaderText = "PAYMENT METHOD";
+            this.PaymentMethod.Name = "PaymentMethod";
+            this.PaymentMethod.ReadOnly = true;
             // 
             // Status
             // 
@@ -269,41 +289,28 @@
             this.Status.HeaderText = "STATUS";
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
-            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // fullName
+            // refreshButton
             // 
-            this.fullName.DataPropertyName = "FullName";
-            this.fullName.HeaderText = "CUSTOMER NAME";
-            this.fullName.Name = "fullName";
-            this.fullName.ReadOnly = true;
-            this.fullName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.refreshButton.BackColor = System.Drawing.Color.Transparent;
+            this.refreshButton.BorderColor = System.Drawing.Color.Transparent;
+            this.refreshButton.BorderRadius = 18;
+            this.refreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.refreshButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.refreshButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.refreshButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.refreshButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.refreshButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.refreshButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.refreshButton.Location = new System.Drawing.Point(39, 137);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.refreshButton.Size = new System.Drawing.Size(154, 41);
+            this.refreshButton.TabIndex = 16;
+            this.refreshButton.Text = "RESFRESH";
             // 
-            // RoomNo
-            // 
-            this.RoomNo.DataPropertyName = "RoomNo";
-            this.RoomNo.HeaderText = "ROOM NUMBER";
-            this.RoomNo.Name = "RoomNo";
-            this.RoomNo.ReadOnly = true;
-            this.RoomNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // RoomType
-            // 
-            this.RoomType.DataPropertyName = "RoomType";
-            this.RoomType.HeaderText = "ROOM TYPE";
-            this.RoomType.Name = "RoomType";
-            this.RoomType.ReadOnly = true;
-            this.RoomType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Dates
-            // 
-            this.Dates.DataPropertyName = "Dates";
-            this.Dates.HeaderText = "BOOKING DATES";
-            this.Dates.Name = "Dates";
-            this.Dates.ReadOnly = true;
-            this.Dates.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // bookForm
+            // paymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -314,8 +321,8 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.customerTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "bookForm";
-            this.Text = "bookForm";
+            this.Name = "paymentForm";
+            this.Text = "paymentForm";
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).EndInit();
@@ -330,14 +337,14 @@
         private Guna.UI2.WinForms.Guna2TextBox hotelEmailTextBox;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Button refreshButton;
         private Guna.UI2.WinForms.Guna2Button editButton;
+        private Guna.UI2.WinForms.Guna2Button addButton;
         public Guna.UI2.WinForms.Guna2DataGridView customerTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaymentId;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookingId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaymentMethod;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dates;
+        private Guna.UI2.WinForms.Guna2Button refreshButton;
     }
 }

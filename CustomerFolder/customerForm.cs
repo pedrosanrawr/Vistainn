@@ -32,7 +32,7 @@ namespace Vistainn
         //load data
         public void LoadData()
         {
-            string query = "SELECT * FROM customer";
+            string query = "SELECT CustomerId, FullName, email, phoneNo, BookingHistory FROM customer";
 
             using (MySqlConnection con = new MySqlConnection(database.connectionString))
             {
@@ -80,23 +80,7 @@ namespace Vistainn
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM customer";
-
-            using (MySqlConnection con = new MySqlConnection(database.connectionString))
-            {
-                try
-                {
-                    con.Open();
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    customerTable.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
+            LoadData();
         }
     }
 }

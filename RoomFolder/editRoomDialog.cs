@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Vistainn.BookFolder
+namespace Vistainn.RoomFolder
 {
-    public partial class editBookDialog : Form
+    public partial class editRoomDialog : Form
     {
-        public editBookDialog()
+        public editRoomDialog()
         {
             InitializeComponent();
         }

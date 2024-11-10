@@ -36,7 +36,6 @@ namespace Vistainn
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(startPage));
             this.guna2Shapes1 = new Guna.UI2.WinForms.Guna2Shapes();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.logInButton = new Guna.UI2.WinForms.Guna2Button();
@@ -64,16 +63,6 @@ namespace Vistainn
             this.guna2Shapes1.TabIndex = 11;
             this.guna2Shapes1.Text = "guna2Shapes1";
             this.guna2Shapes1.Zoom = 80;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(323, 61);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(95, 90);
-            this.panel1.TabIndex = 10;
             // 
             // label2
             // 
@@ -222,7 +211,6 @@ namespace Vistainn
             this.Controls.Add(this.label3);
             this.Controls.Add(this.logInButton);
             this.Controls.Add(this.guna2Shapes1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
@@ -237,7 +225,6 @@ namespace Vistainn
         }
         #endregion
         private Guna.UI2.WinForms.Guna2Shapes guna2Shapes1;
-        private Panel panel1;
         private Label label2;
         private Label label1;
         private Guna.UI2.WinForms.Guna2Button logInButton;

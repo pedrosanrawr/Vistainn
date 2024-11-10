@@ -1,4 +1,7 @@
-﻿namespace Vistainn.CustomerFolder
+﻿using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
+namespace Vistainn.CustomerFolder
 {
     partial class editCustomerDialog
     {
@@ -26,6 +29,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
+
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
@@ -62,17 +67,18 @@
             // 
             // customerIdTextBox
             // 
-            this.customerIdTextBox.BorderRadius = 10;
-            this.customerIdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.customerIdTextBox.AutoRoundedCorners = true;
+            this.customerIdTextBox.BorderRadius = 12;
+            this.customerIdTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.customerIdTextBox.DefaultText = "";
             this.customerIdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.customerIdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.customerIdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.customerIdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.customerIdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.customerIdTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.customerIdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.customerIdTextBox.Location = new System.Drawing.Point(54, 209);
+            this.customerIdTextBox.FocusedState.BorderColor = System.Drawing.Color.Transparent;
+            this.customerIdTextBox.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.customerIdTextBox.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.customerIdTextBox.Location = new System.Drawing.Point(54, 210);
             this.customerIdTextBox.Name = "customerIdTextBox";
             this.customerIdTextBox.PasswordChar = '\0';
             this.customerIdTextBox.PlaceholderText = "";
@@ -104,7 +110,7 @@
             this.fullNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.fullNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.fullNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.fullNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.fullNameTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.fullNameTextBox.Location = new System.Drawing.Point(179, 209);
             this.fullNameTextBox.Name = "fullNameTextBox";
@@ -137,7 +143,7 @@
             this.phoneNoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.phoneNoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.phoneNoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.phoneNoTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.phoneNoTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneNoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.phoneNoTextBox.Location = new System.Drawing.Point(54, 302);
             this.phoneNoTextBox.Name = "phoneNoTextBox";
@@ -157,7 +163,7 @@
             this.emailTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.emailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.emailTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.emailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.emailTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.emailTextBox.Location = new System.Drawing.Point(239, 302);
             this.emailTextBox.Name = "emailTextBox";
@@ -203,7 +209,7 @@
             this.bookingHistoryTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.bookingHistoryTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.bookingHistoryTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.bookingHistoryTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bookingHistoryTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookingHistoryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.bookingHistoryTextBox.Location = new System.Drawing.Point(134, 396);
             this.bookingHistoryTextBox.Name = "bookingHistoryTextBox";
