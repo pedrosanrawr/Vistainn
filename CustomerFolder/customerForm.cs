@@ -23,32 +23,25 @@ namespace Vistainn
             InitializeComponent();
         }
 
-        //form function
+        //form - load
         private void customerForm_Load(object sender, EventArgs e)
         {
             LoadData();
+            searchData("");
         }
 
-        //load data
+        //load data - method
         public void LoadData()
         {
             string query = "SELECT CustomerId, FullName, email, phoneNo, BookingHistory FROM customer";
 
-            using (MySqlConnection con = new MySqlConnection(database.connectionString))
-            {
-                try
-                {
-                    con.Open();
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    customerTable.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
+            MySqlConnection con = new MySqlConnection(database.connectionString);
+            con.Open();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            customerTable.DataSource = dt;
+            con.Close();
         }
 
         //edit button - click
@@ -78,9 +71,34 @@ namespace Vistainn
             }
         }
 
+        //refresh button - click
         private void refreshButton_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        //search - method
+        public void searchData(string valueToSearch)
+        {
+            string query = "SELECT CustomerId, FullName, email, phoneNo, BookingHistory " +
+                           "FROM customer " +
+                           "WHERE CONCAT(`CustomerId`, `FullName`, `email`, `phoneNo`, `BookingHistory`) " +
+                           "like '%" + valueToSearch + "%'";
+
+            MySqlConnection con = new MySqlConnection(database.connectionString);
+            con.Open();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            customerTable.DataSource = dt;
+            con.Close();
+        }
+
+        //search button - click
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string valueToSearch = searchTextBox.Text.ToString();
+            searchData(valueToSearch);
         }
     }
 }

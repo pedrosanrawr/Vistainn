@@ -1,4 +1,6 @@
-﻿namespace Vistainn.RoomFolder
+﻿
+
+namespace Vistainn.RoomFolder
 {
     partial class addRoomDialog
     {
@@ -32,18 +34,22 @@
             this.addButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.bookingHistoryTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.emailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.phoneNoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.rateTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.roomTypeTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.fullNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.roomNoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.customerIdTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.descriptionTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.insertPhotoButton = new Guna.UI2.WinForms.Guna2Button();
+            this.roomPhotoPictureBox = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.availabilityComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomPhotoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -80,6 +86,7 @@
             this.addButton.Size = new System.Drawing.Size(103, 26);
             this.addButton.TabIndex = 31;
             this.addButton.Text = "ADD";
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // guna2Panel3
             // 
@@ -107,37 +114,17 @@
             this.label4.Text = "ADD ROOM";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bookingHistoryTextBox
-            // 
-            this.bookingHistoryTextBox.BorderRadius = 10;
-            this.bookingHistoryTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bookingHistoryTextBox.DefaultText = "";
-            this.bookingHistoryTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.bookingHistoryTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.bookingHistoryTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bookingHistoryTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bookingHistoryTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.bookingHistoryTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bookingHistoryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.bookingHistoryTextBox.Location = new System.Drawing.Point(134, 396);
-            this.bookingHistoryTextBox.Name = "bookingHistoryTextBox";
-            this.bookingHistoryTextBox.PasswordChar = '\0';
-            this.bookingHistoryTextBox.PlaceholderText = "";
-            this.bookingHistoryTextBox.SelectedText = "";
-            this.bookingHistoryTextBox.Size = new System.Drawing.Size(160, 26);
-            this.bookingHistoryTextBox.TabIndex = 43;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.label7.Location = new System.Drawing.Point(131, 378);
+            this.label7.Location = new System.Drawing.Point(249, 149);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 15);
+            this.label7.Size = new System.Drawing.Size(74, 15);
             this.label7.TabIndex = 42;
-            this.label7.Text = "LABEL";
+            this.label7.Text = "AVAILABILITY";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -146,52 +133,52 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.label6.Location = new System.Drawing.Point(236, 284);
+            this.label6.Location = new System.Drawing.Point(43, 261);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 15);
+            this.label6.Size = new System.Drawing.Size(33, 15);
             this.label6.TabIndex = 41;
-            this.label6.Text = "LABEL";
+            this.label6.Text = "RATE";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // emailTextBox
+            // rateTextBox
             // 
-            this.emailTextBox.BorderRadius = 10;
-            this.emailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.emailTextBox.DefaultText = "";
-            this.emailTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.emailTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.emailTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.emailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.emailTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.emailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.emailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.emailTextBox.Location = new System.Drawing.Point(239, 302);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.PasswordChar = '\0';
-            this.emailTextBox.PlaceholderText = "";
-            this.emailTextBox.SelectedText = "";
-            this.emailTextBox.Size = new System.Drawing.Size(160, 26);
-            this.emailTextBox.TabIndex = 40;
+            this.rateTextBox.BorderRadius = 10;
+            this.rateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.rateTextBox.DefaultText = "";
+            this.rateTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.rateTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.rateTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.rateTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.rateTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.rateTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.rateTextBox.Location = new System.Drawing.Point(46, 279);
+            this.rateTextBox.Name = "rateTextBox";
+            this.rateTextBox.PasswordChar = '\0';
+            this.rateTextBox.PlaceholderText = "";
+            this.rateTextBox.SelectedText = "";
+            this.rateTextBox.Size = new System.Drawing.Size(114, 26);
+            this.rateTextBox.TabIndex = 40;
             // 
-            // phoneNoTextBox
+            // roomTypeTextBox
             // 
-            this.phoneNoTextBox.BorderRadius = 10;
-            this.phoneNoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.phoneNoTextBox.DefaultText = "";
-            this.phoneNoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.phoneNoTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.phoneNoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.phoneNoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.phoneNoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.phoneNoTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.phoneNoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.phoneNoTextBox.Location = new System.Drawing.Point(54, 302);
-            this.phoneNoTextBox.Name = "phoneNoTextBox";
-            this.phoneNoTextBox.PasswordChar = '\0';
-            this.phoneNoTextBox.PlaceholderText = "";
-            this.phoneNoTextBox.SelectedText = "";
-            this.phoneNoTextBox.Size = new System.Drawing.Size(157, 26);
-            this.phoneNoTextBox.TabIndex = 39;
+            this.roomTypeTextBox.BorderRadius = 10;
+            this.roomTypeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.roomTypeTextBox.DefaultText = "";
+            this.roomTypeTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.roomTypeTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.roomTypeTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.roomTypeTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.roomTypeTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.roomTypeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.roomTypeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.roomTypeTextBox.Location = new System.Drawing.Point(46, 225);
+            this.roomTypeTextBox.Name = "roomTypeTextBox";
+            this.roomTypeTextBox.PasswordChar = '\0';
+            this.roomTypeTextBox.PlaceholderText = "";
+            this.roomTypeTextBox.SelectedText = "";
+            this.roomTypeTextBox.Size = new System.Drawing.Size(106, 26);
+            this.roomTypeTextBox.TabIndex = 39;
             // 
             // label5
             // 
@@ -199,32 +186,32 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.label5.Location = new System.Drawing.Point(51, 284);
+            this.label5.Location = new System.Drawing.Point(43, 207);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 15);
+            this.label5.Size = new System.Drawing.Size(70, 15);
             this.label5.TabIndex = 38;
-            this.label5.Text = "LABEL";
+            this.label5.Text = "ROOM TYPE";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // fullNameTextBox
+            // roomNoTextBox
             // 
-            this.fullNameTextBox.BorderRadius = 10;
-            this.fullNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fullNameTextBox.DefaultText = "";
-            this.fullNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.fullNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.fullNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.fullNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.fullNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.fullNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fullNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.fullNameTextBox.Location = new System.Drawing.Point(179, 209);
-            this.fullNameTextBox.Name = "fullNameTextBox";
-            this.fullNameTextBox.PasswordChar = '\0';
-            this.fullNameTextBox.PlaceholderText = "";
-            this.fullNameTextBox.SelectedText = "";
-            this.fullNameTextBox.Size = new System.Drawing.Size(220, 26);
-            this.fullNameTextBox.TabIndex = 37;
+            this.roomNoTextBox.BorderRadius = 10;
+            this.roomNoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.roomNoTextBox.DefaultText = "";
+            this.roomNoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.roomNoTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.roomNoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.roomNoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.roomNoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.roomNoTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.roomNoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.roomNoTextBox.Location = new System.Drawing.Point(46, 170);
+            this.roomNoTextBox.Name = "roomNoTextBox";
+            this.roomNoTextBox.PasswordChar = '\0';
+            this.roomNoTextBox.PlaceholderText = "";
+            this.roomNoTextBox.SelectedText = "";
+            this.roomNoTextBox.Size = new System.Drawing.Size(90, 26);
+            this.roomNoTextBox.TabIndex = 37;
             // 
             // label3
             // 
@@ -232,46 +219,117 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.label3.Location = new System.Drawing.Point(176, 191);
+            this.label3.Location = new System.Drawing.Point(43, 152);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
+            this.label3.Size = new System.Drawing.Size(91, 15);
             this.label3.TabIndex = 36;
-            this.label3.Text = "LABEL";
+            this.label3.Text = "ROOM NUMBER";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // customerIdTextBox
+            // label1
             // 
-            this.customerIdTextBox.BorderRadius = 10;
-            this.customerIdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.customerIdTextBox.DefaultText = "";
-            this.customerIdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.customerIdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.customerIdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.customerIdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.customerIdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.customerIdTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.customerIdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.customerIdTextBox.Location = new System.Drawing.Point(54, 209);
-            this.customerIdTextBox.Name = "customerIdTextBox";
-            this.customerIdTextBox.PasswordChar = '\0';
-            this.customerIdTextBox.PlaceholderText = "";
-            this.customerIdTextBox.ReadOnly = true;
-            this.customerIdTextBox.SelectedText = "";
-            this.customerIdTextBox.Size = new System.Drawing.Size(78, 26);
-            this.customerIdTextBox.TabIndex = 35;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.label1.Location = new System.Drawing.Point(43, 316);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 15);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "ROOM PHOTO";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // descriptionTextBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.label2.Location = new System.Drawing.Point(51, 191);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "LABEL";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.descriptionTextBox.BorderRadius = 10;
+            this.descriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.descriptionTextBox.DefaultText = "";
+            this.descriptionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.descriptionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.descriptionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.descriptionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.descriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.descriptionTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.descriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.descriptionTextBox.Location = new System.Drawing.Point(185, 243);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.PasswordChar = '\0';
+            this.descriptionTextBox.PlaceholderText = "";
+            this.descriptionTextBox.SelectedText = "";
+            this.descriptionTextBox.Size = new System.Drawing.Size(219, 228);
+            this.descriptionTextBox.TabIndex = 49;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.label8.Location = new System.Drawing.Point(182, 225);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 15);
+            this.label8.TabIndex = 48;
+            this.label8.Text = "DESCRIPTION";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // insertPhotoButton
+            // 
+            this.insertPhotoButton.BackColor = System.Drawing.Color.Transparent;
+            this.insertPhotoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.insertPhotoButton.BorderColor = System.Drawing.Color.Transparent;
+            this.insertPhotoButton.BorderRadius = 10;
+            this.insertPhotoButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.insertPhotoButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insertPhotoButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.insertPhotoButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.insertPhotoButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.insertPhotoButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.insertPhotoButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.insertPhotoButton.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insertPhotoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.insertPhotoButton.Location = new System.Drawing.Point(46, 445);
+            this.insertPhotoButton.Name = "insertPhotoButton";
+            this.insertPhotoButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.insertPhotoButton.Size = new System.Drawing.Size(114, 26);
+            this.insertPhotoButton.TabIndex = 32;
+            this.insertPhotoButton.Text = "INSERT PHOTO";
+            this.insertPhotoButton.Click += new System.EventHandler(this.insertPhotoButton_Click);
+            // 
+            // roomPhotoPictureBox
+            // 
+            this.roomPhotoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.roomPhotoPictureBox.BorderRadius = 10;
+            this.roomPhotoPictureBox.ErrorImage = null;
+            this.roomPhotoPictureBox.ImageRotate = 0F;
+            this.roomPhotoPictureBox.Location = new System.Drawing.Point(46, 334);
+            this.roomPhotoPictureBox.Name = "roomPhotoPictureBox";
+            this.roomPhotoPictureBox.Size = new System.Drawing.Size(114, 105);
+            this.roomPhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.roomPhotoPictureBox.TabIndex = 50;
+            this.roomPhotoPictureBox.TabStop = false;
+            // 
+            // availabilityComboBox
+            // 
+            this.availabilityComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.availabilityComboBox.BorderRadius = 10;
+            this.availabilityComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.availabilityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.availabilityComboBox.DropDownWidth = 105;
+            this.availabilityComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.availabilityComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.availabilityComboBox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.availabilityComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.availabilityComboBox.IntegralHeight = false;
+            this.availabilityComboBox.ItemHeight = 30;
+            this.availabilityComboBox.Items.AddRange(new object[] {
+            "Available",
+            "Occupied",
+            "Out of service"});
+            this.availabilityComboBox.Location = new System.Drawing.Point(252, 170);
+            this.availabilityComboBox.Name = "availabilityComboBox";
+            this.availabilityComboBox.Size = new System.Drawing.Size(152, 36);
+            this.availabilityComboBox.TabIndex = 106;
             // 
             // addRoomDialog
             // 
@@ -279,24 +337,28 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(446, 603);
+            this.Controls.Add(this.availabilityComboBox);
+            this.Controls.Add(this.roomPhotoPictureBox);
+            this.Controls.Add(this.insertPhotoButton);
+            this.Controls.Add(this.descriptionTextBox);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel3);
-            this.Controls.Add(this.bookingHistoryTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.emailTextBox);
-            this.Controls.Add(this.phoneNoTextBox);
+            this.Controls.Add(this.rateTextBox);
+            this.Controls.Add(this.roomTypeTextBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.fullNameTextBox);
+            this.Controls.Add(this.roomNoTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.customerIdTextBox);
-            this.Controls.Add(this.label2);
             this.Name = "addRoomDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ADD ROOM";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomPhotoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,15 +370,18 @@
         private Guna.UI2.WinForms.Guna2Button addButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Label label4;
-        public Guna.UI2.WinForms.Guna2TextBox bookingHistoryTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        public Guna.UI2.WinForms.Guna2TextBox emailTextBox;
-        public Guna.UI2.WinForms.Guna2TextBox phoneNoTextBox;
+        public Guna.UI2.WinForms.Guna2TextBox rateTextBox;
+        public Guna.UI2.WinForms.Guna2TextBox roomTypeTextBox;
         private System.Windows.Forms.Label label5;
-        public Guna.UI2.WinForms.Guna2TextBox fullNameTextBox;
+        public Guna.UI2.WinForms.Guna2TextBox roomNoTextBox;
         private System.Windows.Forms.Label label3;
-        public Guna.UI2.WinForms.Guna2TextBox customerIdTextBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        public Guna.UI2.WinForms.Guna2TextBox descriptionTextBox;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2Button insertPhotoButton;
+        public Guna.UI2.WinForms.Guna2PictureBox roomPhotoPictureBox;
+        public Guna.UI2.WinForms.Guna2ComboBox availabilityComboBox;
     }
 }

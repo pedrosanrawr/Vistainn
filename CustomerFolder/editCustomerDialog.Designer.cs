@@ -323,6 +323,7 @@ namespace Vistainn.CustomerFolder
             this.Controls.Add(this.customerIdTextBox);
             this.Controls.Add(this.label2);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "editCustomerDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CUSTOMER INFORMATION";
