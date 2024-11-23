@@ -15,6 +15,7 @@ namespace Vistainn.BookFolder
     public partial class editBookDialog : Form
     {
         Database database = new Database();
+        public event Action OnBookingUpdated;
 
         public editBookDialog()
         {
@@ -62,8 +63,6 @@ namespace Vistainn.BookFolder
         //update button - click
         private void updateButton_Click(object sender, EventArgs e)
         {
-            bookForm bookForm = new bookForm();
-
             if (checkInDateTimePicker.Value.Date > checkOutDateTimePicker.Value.Date)
             {
                 MessageBox.Show("Check-in date cannot be later than check-out date.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -75,7 +74,6 @@ namespace Vistainn.BookFolder
                 using (MySqlConnection conn = new MySqlConnection(database.connectionString))
                 {
                     conn.Open();
-
                     string query = "UPDATE booking SET FullName=@name, RoomNo=@roomno, RoomType=@roomtype, `check_in`=@in, `check_out`=@out, Status=@status WHERE BookingId=@bookingid";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
@@ -90,9 +88,10 @@ namespace Vistainn.BookFolder
                     cmd.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Booking updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                OnBookingUpdated?.Invoke();
 
-                bookForm.fillDGV();
+                MessageBox.Show("Booking updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception ex)
             {

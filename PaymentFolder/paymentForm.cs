@@ -1,50 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using System;
 using Vistainn.PaymentFolder;
 
 namespace Vistainn
 {
-
     public partial class paymentForm : Form
     {
-        //database instantiation
+        // database instantiation
         Database database = new Database();
 
         public paymentForm()
         {
             InitializeComponent();
         }
-        
-        //form - load
+
+        // form - Load
         private void paymentForm_Load(object sender, EventArgs e)
         {
-            LoadData();
             searchData("");
         }
 
-        //load data - method
+        // load data - method
         public void LoadData()
         {
-            string query = "SELECT PaymentId, BookingId, FullName, Amount, PaymentMethod, Status FROM payment;";
+            try
+            {
+                string query = "SELECT p.PaymentId, b.BookingId, c.FullName, p.Amount, p.PaymentMethod, p.Status " +
+                               "FROM payment p " +
+                               "JOIN booking b ON p.BookingId = b.BookingId " +
+                               "JOIN customer c ON b.FullName = c.FullName;";
 
-            MySqlConnection con = new MySqlConnection(database.connectionString);
-            con.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            paymentTable.DataSource = dt;
-            con.Close();
+                using (MySqlConnection con = new MySqlConnection(database.connectionString))
+                {
+                    con.Open();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    paymentTable.DataSource = dt;
+                }
+            }
+            catch (MySqlException sqlEx)
+            {
+                MessageBox.Show("Database error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading payment data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        //edit button - click
+        // edit button click - open the edit dialog
         private void editButton_Click(object sender, EventArgs e)
         {
             EditPaymentDialog editPaymentDialog = new EditPaymentDialog();
@@ -65,6 +72,8 @@ namespace Vistainn
                 editPaymentDialog.PaymentMethodTextBox.Text = paymentMethod;
                 editPaymentDialog.StatusComboBox.Text = status;
 
+                editPaymentDialog.dataUpdated += LoadData;
+
                 editPaymentDialog.ShowDialog();
             }
             else
@@ -73,30 +82,31 @@ namespace Vistainn
             }
         }
 
-        //refresh buttin - click
+        // refresh button click - reload data
         private void refreshButton_Click(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        //search data - method
+        // search data - method
         public void searchData(string ValueToSearch)
         {
             string query = "SELECT PaymentId, BookingId, FullName, Amount, PaymentMethod, Status " +
                            "FROM payment " +
                            "WHERE CONCAT(`PaymentId`, `BookingId`, `FullName`, `Amount`, `PaymentMethod`, `Status`) " +
-                           "like '%" + ValueToSearch + "%'";
+                           "LIKE '%" + ValueToSearch + "%'";
 
-            MySqlConnection con = new MySqlConnection(database.connectionString);
-            con.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            paymentTable.DataSource = dt;
-            con.Close();
+            using (MySqlConnection con = new MySqlConnection(database.connectionString))
+            {
+                con.Open();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                paymentTable.DataSource = dt;
+            }
         }
 
-        //search button - click
+        // search button click - search the data
         private void searchButton_Click(object sender, EventArgs e)
         {
             string valueToSearch = searchTextBox.Text.ToString();
@@ -104,4 +114,3 @@ namespace Vistainn
         }
     }
 }
-

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vistainn.CustomerFolder;
 using Vistainn.RoomFolder;
 
 namespace Vistainn
@@ -59,6 +60,10 @@ namespace Vistainn
         private void addButton_Click(object sender, EventArgs e)
         {
             addRoomDialog addRoomDialog = new addRoomDialog();
+            addRoomDialog.OnDataAdded += (s, args) =>
+            {
+                fillDGV("");
+            };
             addRoomDialog.ShowDialog();
         }
 
@@ -85,6 +90,11 @@ namespace Vistainn
                 editRoomDialog.availabilityComboBox.Text = availability;
                 editRoomDialog.roomPhotoPictureBox.Image = Image.FromStream(ms);
                 editRoomDialog.descriptionTextBox.Text = description;
+
+                editRoomDialog.OnDataUpdated += (s, args) =>
+                {
+                    fillDGV("");
+                };
 
                 editRoomDialog.ShowDialog();
             }

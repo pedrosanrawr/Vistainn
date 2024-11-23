@@ -13,6 +13,8 @@ namespace Vistainn.CustomerFolder
 {
     public partial class editCustomerDialog : Form
     {
+        public event EventHandler OnDataUpdated;
+
         public editCustomerDialog()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Vistainn.CustomerFolder
             customerForm customerForm = new customerForm();
 
             string query = "UPDATE customer " +
-                           "SET " + "FullName = @FullName, " + "phoneNo = @PhoneNo, " + "email = @Email, " + "BookingHistory = @BookingHistory " + 
+                           "SET FullName = @FullName, phoneNo = @PhoneNo, email = @Email, BookingHistory = @BookingHistory " +
                            "WHERE CustomerId = @CustomerId";
 
             MySqlConnection con = new MySqlConnection(database.connectionString);
@@ -38,10 +40,11 @@ namespace Vistainn.CustomerFolder
             cmd.Parameters.AddWithValue("@CustomerId", this.customerIdTextBox.Text);
 
             cmd.ExecuteNonQuery();
-            customerForm.LoadData();
+
+            OnDataUpdated?.Invoke(this, EventArgs.Empty);
 
             MessageBox.Show("Customer record has been updated successfully.");
+            this.Close();
         }
-
     }
 }

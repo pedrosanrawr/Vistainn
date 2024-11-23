@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using System;
 
 namespace Vistainn.PaymentFolder
 {
     public partial class EditPaymentDialog : Form
     {
+        public event Action dataUpdated;
+
         public EditPaymentDialog()
         {
             InitializeComponent();
@@ -21,27 +16,37 @@ namespace Vistainn.PaymentFolder
         //update button - click
         private void updateButton_Click(object sender, EventArgs e)
         {
-            Database database = new Database();
-            paymentForm paymentForm = new paymentForm();
+            try
+            {
+                Database database = new Database();
+                string query = "UPDATE payment " +
+                               "SET PaymentId = @PaymentId, BookingId = @BookingId, FullName = @FullName, Amount = @Amount, PaymentMethod = @PaymentMethod, Status = @Status " +
+                               "WHERE PaymentId = @PaymentId";
 
-            string query = "UPDATE payment " +
-                           "SET PaymentId = @PaymentId, BookingId = @BookingId, FullName = @FullName, Amount = @Amount, PaymentMethod = @PaymentMethod, Status = @Status " +
-                           "WHERE PaymentId = @PaymentId";
+                using (MySqlConnection con = new MySqlConnection(database.connectionString))
+                {
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@PaymentId", this.paymentIdTextBox.Text);
+                    cmd.Parameters.AddWithValue("@BookingId", this.bookingIdTextBox.Text);
+                    cmd.Parameters.AddWithValue("@FullName", this.FullNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@Amount", this.AmountTextBox.Text);
+                    cmd.Parameters.AddWithValue("@PaymentMethod", this.PaymentMethodTextBox.Text);
+                    cmd.Parameters.AddWithValue("@Status", this.StatusComboBox.Text);
 
-            MySqlConnection con = new MySqlConnection(database.connectionString);
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@PaymentId", this.paymentIdTextBox.Text);
-            cmd.Parameters.AddWithValue("@BookingId", this.bookingIdTextBox.Text);
-            cmd.Parameters.AddWithValue("@FullName", this.FullNameTextBox.Text);
-            cmd.Parameters.AddWithValue("@Amount", this.AmountTextBox.Text);
-            cmd.Parameters.AddWithValue("@PaymentMethod", this.PaymentMethodTextBox.Text);
-            cmd.Parameters.AddWithValue("@Status", this.StatusComboBox.Text);
+                    cmd.ExecuteNonQuery();
+                }
 
-            cmd.ExecuteNonQuery();
-            paymentForm.LoadData();
+                dataUpdated?.Invoke();
 
-            MessageBox.Show("Payment Record Has Been Updated");
+                this.Close();
+
+                MessageBox.Show("Payment Record Has Been Updated");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating payment: " + ex.Message);
+            }
         }
     }
 }

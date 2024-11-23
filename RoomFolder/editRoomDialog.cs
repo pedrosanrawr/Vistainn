@@ -17,6 +17,7 @@ namespace Vistainn.RoomFolder
     {
         roomForm roomForm = new roomForm();
         Database database = new Database();
+        public event EventHandler OnDataUpdated;
 
         public editRoomDialog()
         {
@@ -37,17 +38,16 @@ namespace Vistainn.RoomFolder
             }
         }
 
-        //update button - click
+        // update button - click
         private void updateButton_Click(object sender, EventArgs e)
         {
-
             if (string.IsNullOrWhiteSpace(roomNoTextBox.Text) ||
-                          string.IsNullOrWhiteSpace(roomTypeTextBox.Text) ||
-                          string.IsNullOrWhiteSpace(rateTextBox.Text) ||
-                          string.IsNullOrWhiteSpace(availabilityComboBox.Text) ||
-                          string.IsNullOrWhiteSpace(descriptionTextBox.Text))
+                string.IsNullOrWhiteSpace(roomTypeTextBox.Text) ||
+                string.IsNullOrWhiteSpace(rateTextBox.Text) ||
+                string.IsNullOrWhiteSpace(availabilityComboBox.Text) ||
+                string.IsNullOrWhiteSpace(descriptionTextBox.Text))
             {
-                MessageBox.Show("Please fill all the fields before inserting.");
+                MessageBox.Show("Please fill all the fields before updating.");
                 return;
             }
 
@@ -70,9 +70,10 @@ namespace Vistainn.RoomFolder
                     cmd.Parameters.Add("@description", MySqlDbType.VarChar).Value = descriptionTextBox.Text;
 
                     cmd.ExecuteNonQuery();
-                    roomForm.fillDGV("");
+                    OnDataUpdated?.Invoke(this, EventArgs.Empty);
 
                     MessageBox.Show("Room information has been updated successfully.");
+                    this.Close(); 
                 }
             }
             else
@@ -95,6 +96,7 @@ namespace Vistainn.RoomFolder
                 roomForm.fillDGV("");
                 clearfields();
                 MessageBox.Show("Data deleted successfully");
+                this.Close();
             }
         }
 

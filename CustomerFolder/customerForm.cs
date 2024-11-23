@@ -63,6 +63,11 @@ namespace Vistainn
                 editCustomerDialog.emailTextBox.Text = email;
                 editCustomerDialog.bookingHistoryTextBox.Text = bookingHistory;
 
+                editCustomerDialog.OnDataUpdated += (s, args) =>
+                {
+                    LoadData();
+                };
+
                 editCustomerDialog.ShowDialog();
             }
             else
@@ -70,6 +75,7 @@ namespace Vistainn
                 MessageBox.Show("You must select a row first.");
             }
         }
+
 
         //refresh button - click
         private void refreshButton_Click(object sender, EventArgs e)

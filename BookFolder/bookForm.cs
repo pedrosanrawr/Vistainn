@@ -38,7 +38,10 @@ namespace Vistainn
                 {
                     conn.Open();
 
-                    string query = "SELECT BookingId, FullName, RoomNo, RoomType, check_in, check_out, Status FROM booking";
+                    string query = "SELECT b.BookingId, c.FullName, b.RoomNo, b.RoomType, b.check_in, b.check_out, b.Status " +
+                                   "FROM booking b " +
+                                   "JOIN customer c ON b.FullName = c.FullName";
+
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -54,14 +57,14 @@ namespace Vistainn
             }
         }
 
+
         //edit button - click
         private void editButton_Click(object sender, EventArgs e)
         {
-
-            editBookDialog editBookDialog = new editBookDialog();
-
             if (bookTable.SelectedRows.Count > 0)
             {
+                editBookDialog editBookDialog = new editBookDialog();
+
                 string bookingId = bookTable.SelectedRows[0].Cells[0].Value + string.Empty;
                 string fullName = bookTable.SelectedRows[0].Cells[1].Value + string.Empty;
                 string roomNo = bookTable.SelectedRows[0].Cells[2].Value + string.Empty;
@@ -78,6 +81,8 @@ namespace Vistainn
                 editBookDialog.checkOutDateTimePicker.Text = checkOut;
                 editBookDialog.statusComboBox.Text = status;
 
+                editBookDialog.OnBookingUpdated += fillDGV;
+
                 editBookDialog.ShowDialog();
             }
             else
@@ -85,6 +90,7 @@ namespace Vistainn
                 MessageBox.Show("You must select a row first.");
             }
         }
+
 
         //refresh button - click
         private void refreshButton_Click(object sender, EventArgs e)
@@ -100,23 +106,33 @@ namespace Vistainn
                 using (MySqlConnection conn = new MySqlConnection(database.connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT * FROM booking WHERE BookingId LIKE @search OR FullName LIKE @search OR RoomNo LIKE @search";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
 
+                    string query = @"SELECT b.BookingId, c.FullName, b.RoomNo, b.RoomType, b.check_in, b.check_out, b.Status
+                             FROM booking b
+                             JOIN customer c ON b.FullName = c.FullName
+                             WHERE b.BookingId LIKE @search 
+                             OR c.FullName LIKE @search
+                             OR b.RoomNo LIKE @search";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
-
                     bookTable.DataSource = dt;
                     bookTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
             }
+            catch (MySqlException sqlEx)
+            {
+                MessageBox.Show("Database error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         //search button - click
         private void searchButton_Click(object sender, EventArgs e)

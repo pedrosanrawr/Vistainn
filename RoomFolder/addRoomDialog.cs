@@ -17,6 +17,7 @@ namespace Vistainn.RoomFolder
     {
         Database database = new Database();
         roomForm roomForm = new roomForm();
+        public event EventHandler OnDataAdded;
 
         public addRoomDialog()
         {
@@ -93,7 +94,8 @@ namespace Vistainn.RoomFolder
                     cmd.Parameters.Add("@description", MySqlDbType.VarChar).Value = descriptionTextBox.Text;
 
                     cmd.ExecuteNonQuery();
-                    roomForm.fillDGV("");
+
+                    OnDataAdded?.Invoke(this, EventArgs.Empty);
 
                     MessageBox.Show("Room information has been updated successfully.");
                 }
