@@ -34,6 +34,19 @@ namespace Vistainn
            //     MessageBox.Show("Incorrect Email or Password");
            // }
         }
+
+        private void managerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            managerPanel.Show();
+            staffPanel.Hide();
+        }
+
+        private void staffLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            staffPanel.Show();
+            managerPanel.Hide();
+        }
+
     }
 }
 

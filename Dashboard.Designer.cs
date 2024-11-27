@@ -218,7 +218,6 @@
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VISTAINN";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.ResumeLayout(false);
