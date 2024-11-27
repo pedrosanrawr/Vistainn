@@ -46,7 +46,6 @@ namespace Vistainn
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.searchButton = new Guna.UI2.WinForms.Guna2Button();
             this.searchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -64,6 +63,9 @@ namespace Vistainn
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             this.customerTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.customerTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.customerTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
@@ -166,6 +168,7 @@ namespace Vistainn
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 30;
             this.guna2Panel1.BorderThickness = 3;
@@ -180,6 +183,7 @@ namespace Vistainn
             // 
             // refreshButton
             // 
+            this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.refreshButton.BackColor = System.Drawing.Color.Transparent;
             this.refreshButton.BorderColor = System.Drawing.Color.Transparent;
             this.refreshButton.BorderRadius = 18;
@@ -201,6 +205,7 @@ namespace Vistainn
             // 
             // editButton
             // 
+            this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.editButton.BackColor = System.Drawing.Color.Transparent;
             this.editButton.BorderColor = System.Drawing.Color.Transparent;
             this.editButton.BorderRadius = 18;
@@ -222,6 +227,7 @@ namespace Vistainn
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderRadius = 30;
             this.guna2Panel3.BorderThickness = 3;
@@ -236,6 +242,7 @@ namespace Vistainn
             // 
             // searchButton
             // 
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchButton.BackColor = System.Drawing.Color.Transparent;
             this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.searchButton.BorderColor = System.Drawing.Color.Transparent;
@@ -259,6 +266,7 @@ namespace Vistainn
             // 
             // searchTextBox
             // 
+            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchTextBox.BackColor = System.Drawing.Color.Transparent;
             this.searchTextBox.BorderRadius = 15;
             this.searchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -280,18 +288,6 @@ namespace Vistainn
             this.searchTextBox.Size = new System.Drawing.Size(154, 36);
             this.searchTextBox.TabIndex = 15;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderRadius = 30;
-            this.guna2Panel2.BorderThickness = 3;
-            this.guna2Panel2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel2.Location = new System.Drawing.Point(875, 309);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(262, 196);
-            this.guna2Panel2.TabIndex = 15;
-            // 
             // customerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,7 +295,6 @@ namespace Vistainn
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(1095, 517);
             this.Controls.Add(this.guna2Panel3);
-            this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.customerTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -328,7 +323,6 @@ namespace Vistainn
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Button searchButton;
         private Guna.UI2.WinForms.Guna2TextBox searchTextBox;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Button refreshButton;
     }
 }

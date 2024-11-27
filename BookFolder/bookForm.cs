@@ -43,6 +43,7 @@ namespace Vistainn
                                    "JOIN customer c ON b.FullName = c.FullName";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
+
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);

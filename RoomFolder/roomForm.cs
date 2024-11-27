@@ -83,6 +83,7 @@ namespace Vistainn
                 MemoryStream ms = new MemoryStream(img);
                 string description = roomTable.SelectedRows[0].Cells[6].Value + string.Empty;
 
+
                 editRoomDialog.roomIdTextBox.Text = roomId;
                 editRoomDialog.roomNoTextBox.Text = roomNo;
                 editRoomDialog.roomTypeTextBox.Text = roomType;

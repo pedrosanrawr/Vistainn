@@ -41,6 +41,9 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Location = new System.Drawing.Point(0, 134);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(1095, 517);
@@ -48,6 +51,8 @@
             // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.guna2Panel2.BorderRadius = 30;
             this.guna2Panel2.BorderThickness = 3;
@@ -79,6 +84,7 @@
             // 
             // paymentButton
             // 
+            this.paymentButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.paymentButton.BackColor = System.Drawing.Color.Transparent;
             this.paymentButton.BorderColor = System.Drawing.Color.Transparent;
             this.paymentButton.BorderRadius = 18;
@@ -92,10 +98,10 @@
             this.paymentButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.paymentButton.IndicateFocus = true;
-            this.paymentButton.Location = new System.Drawing.Point(880, 126);
+            this.paymentButton.Location = new System.Drawing.Point(893, 130);
             this.paymentButton.Name = "paymentButton";
             this.paymentButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.paymentButton.Size = new System.Drawing.Size(154, 55);
+            this.paymentButton.Size = new System.Drawing.Size(137, 48);
             this.paymentButton.TabIndex = 19;
             this.paymentButton.Text = "PAYMENT";
             this.paymentButton.TextOffset = new System.Drawing.Point(0, -5);
@@ -103,6 +109,7 @@
             // 
             // bookButton
             // 
+            this.bookButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bookButton.BackColor = System.Drawing.Color.Transparent;
             this.bookButton.BorderColor = System.Drawing.Color.Transparent;
             this.bookButton.BorderRadius = 18;
@@ -116,10 +123,10 @@
             this.bookButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.bookButton.IndicateFocus = true;
-            this.bookButton.Location = new System.Drawing.Point(673, 126);
+            this.bookButton.Location = new System.Drawing.Point(686, 130);
             this.bookButton.Name = "bookButton";
             this.bookButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.bookButton.Size = new System.Drawing.Size(154, 55);
+            this.bookButton.Size = new System.Drawing.Size(149, 48);
             this.bookButton.TabIndex = 18;
             this.bookButton.Text = "BOOKINGS";
             this.bookButton.TextOffset = new System.Drawing.Point(0, -5);
@@ -127,6 +134,7 @@
             // 
             // customerButton
             // 
+            this.customerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customerButton.BackColor = System.Drawing.Color.Transparent;
             this.customerButton.BorderColor = System.Drawing.Color.Transparent;
             this.customerButton.BorderRadius = 18;
@@ -140,10 +148,10 @@
             this.customerButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.customerButton.IndicateFocus = true;
-            this.customerButton.Location = new System.Drawing.Point(466, 126);
+            this.customerButton.Location = new System.Drawing.Point(479, 130);
             this.customerButton.Name = "customerButton";
             this.customerButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.customerButton.Size = new System.Drawing.Size(154, 55);
+            this.customerButton.Size = new System.Drawing.Size(148, 48);
             this.customerButton.TabIndex = 17;
             this.customerButton.Text = "CUSTOMER";
             this.customerButton.TextOffset = new System.Drawing.Point(0, -5);
@@ -151,6 +159,7 @@
             // 
             // roomButton
             // 
+            this.roomButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.roomButton.BackColor = System.Drawing.Color.Transparent;
             this.roomButton.BorderColor = System.Drawing.Color.Transparent;
             this.roomButton.BorderRadius = 18;
@@ -164,10 +173,10 @@
             this.roomButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.roomButton.IndicateFocus = true;
-            this.roomButton.Location = new System.Drawing.Point(259, 126);
+            this.roomButton.Location = new System.Drawing.Point(272, 130);
             this.roomButton.Name = "roomButton";
             this.roomButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.roomButton.Size = new System.Drawing.Size(154, 55);
+            this.roomButton.Size = new System.Drawing.Size(116, 48);
             this.roomButton.TabIndex = 16;
             this.roomButton.Text = "ROOM";
             this.roomButton.TextOffset = new System.Drawing.Point(0, -5);
@@ -175,6 +184,7 @@
             // 
             // reportsButton
             // 
+            this.reportsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.reportsButton.BackColor = System.Drawing.Color.Transparent;
             this.reportsButton.BorderColor = System.Drawing.Color.Transparent;
             this.reportsButton.BorderRadius = 18;
@@ -188,10 +198,10 @@
             this.reportsButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.reportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.reportsButton.IndicateFocus = true;
-            this.reportsButton.Location = new System.Drawing.Point(52, 126);
+            this.reportsButton.Location = new System.Drawing.Point(65, 130);
             this.reportsButton.Name = "reportsButton";
             this.reportsButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.reportsButton.Size = new System.Drawing.Size(154, 55);
+            this.reportsButton.Size = new System.Drawing.Size(130, 48);
             this.reportsButton.TabIndex = 15;
             this.reportsButton.Text = "REPORTS";
             this.reportsButton.TextOffset = new System.Drawing.Point(0, -5);
@@ -208,6 +218,7 @@
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VISTAINN";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.ResumeLayout(false);

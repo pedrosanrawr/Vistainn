@@ -48,6 +48,7 @@ namespace Vistainn
             // 
             // guna2Shapes1
             // 
+            this.guna2Shapes1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.guna2Shapes1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Shapes1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.guna2Shapes1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
@@ -66,6 +67,7 @@ namespace Vistainn
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -79,6 +81,7 @@ namespace Vistainn
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,6 +95,8 @@ namespace Vistainn
             // 
             // logInButton
             // 
+            this.logInButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.logInButton.BackColor = System.Drawing.Color.Transparent;
             this.logInButton.BorderColor = System.Drawing.Color.Transparent;
             this.logInButton.BorderRadius = 20;
@@ -103,7 +108,8 @@ namespace Vistainn
             this.logInButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.logInButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logInButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.logInButton.Location = new System.Drawing.Point(454, 468);
+            this.logInButton.Location = new System.Drawing.Point(459, 444);
+            this.logInButton.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.logInButton.Name = "logInButton";
             this.logInButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.logInButton.Size = new System.Drawing.Size(180, 45);
@@ -113,6 +119,7 @@ namespace Vistainn
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,6 +133,8 @@ namespace Vistainn
             // 
             // hotelEmailTextBox
             // 
+            this.hotelEmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.hotelEmailTextBox.BackColor = System.Drawing.Color.Transparent;
             this.hotelEmailTextBox.BorderRadius = 15;
             this.hotelEmailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -139,7 +148,8 @@ namespace Vistainn
             this.hotelEmailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hotelEmailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.hotelEmailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.hotelEmailTextBox.Location = new System.Drawing.Point(442, 280);
+            this.hotelEmailTextBox.Location = new System.Drawing.Point(447, 256);
+            this.hotelEmailTextBox.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.hotelEmailTextBox.Name = "hotelEmailTextBox";
             this.hotelEmailTextBox.PasswordChar = '\0';
             this.hotelEmailTextBox.PlaceholderText = "";
@@ -149,6 +159,8 @@ namespace Vistainn
             // 
             // hotelPasswordTextBox
             // 
+            this.hotelPasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.hotelPasswordTextBox.BackColor = System.Drawing.Color.Transparent;
             this.hotelPasswordTextBox.BorderRadius = 15;
             this.hotelPasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -162,7 +174,8 @@ namespace Vistainn
             this.hotelPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hotelPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.hotelPasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.hotelPasswordTextBox.Location = new System.Drawing.Point(442, 368);
+            this.hotelPasswordTextBox.Location = new System.Drawing.Point(447, 344);
+            this.hotelPasswordTextBox.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.hotelPasswordTextBox.Name = "hotelPasswordTextBox";
             this.hotelPasswordTextBox.PasswordChar = '●';
             this.hotelPasswordTextBox.PlaceholderText = "";
@@ -172,11 +185,14 @@ namespace Vistainn
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label4.Location = new System.Drawing.Point(438, 257);
+            this.label4.Location = new System.Drawing.Point(443, 233);
+            this.label4.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(147, 20);
             this.label4.TabIndex = 16;
@@ -185,11 +201,14 @@ namespace Vistainn
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label5.Location = new System.Drawing.Point(438, 346);
+            this.label5.Location = new System.Drawing.Point(443, 321);
+            this.label5.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 20);
             this.label5.TabIndex = 17;
@@ -204,18 +223,17 @@ namespace Vistainn
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1094, 648);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.hotelPasswordTextBox);
-            this.Controls.Add(this.hotelEmailTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.logInButton);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.guna2Shapes1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.hotelEmailTextBox);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.MaximizeBox = false;
             this.Name = "startPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VISTAINN - ADMIN";

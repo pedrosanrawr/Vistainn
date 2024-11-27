@@ -45,7 +45,7 @@ namespace Vistainn.BookFolder
         //populate room type in combo box
         private void LoadRoomTypeCB()
         {
-            string query = "SELECT RoomType from Room";
+            string query = "SELECT RoomType from Room GROUP BY RoomType";
             MySqlConnection con = new MySqlConnection(database.connectionString);
             con.Open();
             MySqlCommand command = new MySqlCommand(query, con);

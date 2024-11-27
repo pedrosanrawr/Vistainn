@@ -17,23 +17,24 @@ namespace Vistainn
         public startPage()
         {
             InitializeComponent();
-            
+
         }
 
         //book now button - click
         private void booknowButton_Click(object sender, EventArgs e)
         {
-      //     if (hotelEmailTextBox.Text == "0" && hotelPasswordTextBox.Text == "0")
-      //     {
+            //if (hotelEmailTextBox.Text == "vistainn@email.com" && hotelPasswordTextBox.Text == "12345678")
+           // {
                 Dashboard dashboard = new Dashboard();
                 dashboard.Show();
                 this.Hide();
-      //     }
-      //     else
-      //     {
-      //        MessageBox.Show("Incorrect Email or Password");
-      //     }
+          //  }
+          //  else
+          //  {
+           //     MessageBox.Show("Incorrect Email or Password");
+           // }
         }
     }
 }
+
 
