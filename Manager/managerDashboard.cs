@@ -11,12 +11,12 @@ using MySql.Data.MySqlClient;
 
 namespace Vistainn
 {
-    public partial class Dashboard : Form
+    public partial class managerDashboard : Form
     {
         //database instantiation
         Database database = new Database();
 
-        public Dashboard()
+        public managerDashboard()
         {
             InitializeComponent();
             loadForm(new reportsForm());
@@ -47,11 +47,6 @@ namespace Vistainn
             loadForm(new roomForm());
         }
 
-        private void customerButton_Click(object sender, EventArgs e)
-        {
-            loadForm(new customerForm());
-        }
-
         private void bookButton_Click(object sender, EventArgs e)
         {
             loadForm(new bookForm());
@@ -66,6 +61,6 @@ namespace Vistainn
     // database class
     class Database
     {
-        public string connectionString = "Server=localhost;Database=vistainn; Uid=root; Pwd=;";
+        public string connectionString = "Server=localhost;Database=Vistainn_; Uid=root; Pwd=;";
     }
 }

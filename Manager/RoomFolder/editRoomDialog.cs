@@ -81,34 +81,5 @@ namespace Vistainn.RoomFolder
                 MessageBox.Show("Please select an image.");
             }
         }
-
-        //delete button - click
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-
-            using (MySqlConnection conn = new MySqlConnection(database.connectionString))
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("DELETE from room WHERE RoomId=@roomId", conn);
-                cmd.Parameters.Add("@roomId", MySqlDbType.Int32).Value = roomIdTextBox.Text;
-
-                cmd.ExecuteNonQuery();
-                roomForm.fillDGV("");
-                clearfields();
-                MessageBox.Show("Data deleted successfully");
-                this.Close();
-            }
-        }
-
-        //clear fields - method
-        public void clearfields()
-        {
-            roomNoTextBox.Text = "";
-            roomTypeTextBox.Text = "";
-            rateTextBox.Text = "";
-            availabilityComboBox.SelectedIndex = -1; ;
-            roomPhotoPictureBox.Image = null;
-            descriptionTextBox.Text = "";
-        }
     }
 }

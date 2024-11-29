@@ -101,6 +101,7 @@ namespace Vistainn
                 con.Open();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
+                
                 adapter.Fill(dt);
                 paymentTable.DataSource = dt;
             }

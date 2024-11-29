@@ -133,23 +133,11 @@
     <Compile Include="Manager\BookFolder\editDialogBook.Designer.cs">
       <DependentUpon>editDialogBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\CustomerFolder\customerForm.cs">
+    <Compile Include="Manager\managerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\CustomerFolder\customerForm.Designer.cs">
-      <DependentUpon>customerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manager\CustomerFolder\editCustomerDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager\CustomerFolder\editCustomerDialog.Designer.cs">
-      <DependentUpon>editCustomerDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <Compile Include="Manager\managerDashboard.Designer.cs">
+      <DependentUpon>managerDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\PaymentFolder\EditPaymentDialog.cs">
       <SubType>Form</SubType>
@@ -201,14 +189,8 @@
     <EmbeddedResource Include="Manager\BookFolder\editDialogBook.resx">
       <DependentUpon>editDialogBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\CustomerFolder\customerForm.resx">
-      <DependentUpon>customerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager\CustomerFolder\editCustomerDialog.resx">
-      <DependentUpon>editCustomerDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Manager\managerDashboard.resx">
+      <DependentUpon>managerDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\PaymentFolder\EditPaymentDialog.resx">
       <DependentUpon>EditPaymentDialog.cs</DependentUpon>

@@ -67,8 +67,7 @@ namespace Vistainn
             // 
             // staffLogInButton
             // 
-            this.staffLogInButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.staffLogInButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.staffLogInButton.BackColor = System.Drawing.Color.Transparent;
             this.staffLogInButton.BorderColor = System.Drawing.Color.Transparent;
             this.staffLogInButton.BorderRadius = 20;
@@ -105,8 +104,7 @@ namespace Vistainn
             // 
             // staffEmailTextBox
             // 
-            this.staffEmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.staffEmailTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.staffEmailTextBox.BackColor = System.Drawing.Color.Transparent;
             this.staffEmailTextBox.BorderRadius = 15;
             this.staffEmailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -131,8 +129,7 @@ namespace Vistainn
             // 
             // staffPasswordTextBox
             // 
-            this.staffPasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.staffPasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.staffPasswordTextBox.BackColor = System.Drawing.Color.Transparent;
             this.staffPasswordTextBox.BorderRadius = 15;
             this.staffPasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -157,8 +154,7 @@ namespace Vistainn
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,8 +169,7 @@ namespace Vistainn
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -189,8 +184,7 @@ namespace Vistainn
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -206,6 +200,7 @@ namespace Vistainn
             // staffForgotPasswordLabel
             // 
             this.staffForgotPasswordLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.staffForgotPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.staffForgotPasswordLabel.AutoSize = true;
             this.staffForgotPasswordLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staffForgotPasswordLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
@@ -220,6 +215,7 @@ namespace Vistainn
             // managerLinkLabel
             // 
             this.managerLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.managerLinkLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.managerLinkLabel.AutoSize = true;
             this.managerLinkLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.managerLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
@@ -234,8 +230,7 @@ namespace Vistainn
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,6 +246,7 @@ namespace Vistainn
             // managerForgotPasswordLinkLabel
             // 
             this.managerForgotPasswordLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.managerForgotPasswordLinkLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.managerForgotPasswordLinkLabel.AutoSize = true;
             this.managerForgotPasswordLinkLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.managerForgotPasswordLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
@@ -264,8 +260,7 @@ namespace Vistainn
             // 
             // manageLogInButton
             // 
-            this.manageLogInButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.manageLogInButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.manageLogInButton.BackColor = System.Drawing.Color.Transparent;
             this.manageLogInButton.BorderColor = System.Drawing.Color.Transparent;
             this.manageLogInButton.BorderRadius = 20;
@@ -284,11 +279,11 @@ namespace Vistainn
             this.manageLogInButton.Size = new System.Drawing.Size(180, 45);
             this.manageLogInButton.TabIndex = 12;
             this.manageLogInButton.Text = "LOG IN";
+            this.manageLogInButton.Click += new System.EventHandler(this.manageLogInButton_Click);
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -304,6 +299,7 @@ namespace Vistainn
             // staffLinkLabel
             // 
             this.staffLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.staffLinkLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.staffLinkLabel.AutoSize = true;
             this.staffLinkLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staffLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
@@ -318,8 +314,7 @@ namespace Vistainn
             // 
             // managerEmailTextBox
             // 
-            this.managerEmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.managerEmailTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.managerEmailTextBox.BackColor = System.Drawing.Color.Transparent;
             this.managerEmailTextBox.BorderRadius = 15;
             this.managerEmailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -344,8 +339,7 @@ namespace Vistainn
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -360,8 +354,7 @@ namespace Vistainn
             // 
             // managerPasswordTextBox
             // 
-            this.managerPasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.managerPasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.managerPasswordTextBox.BackColor = System.Drawing.Color.Transparent;
             this.managerPasswordTextBox.BorderRadius = 15;
             this.managerPasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -386,8 +379,7 @@ namespace Vistainn
             // 
             // staffPanel
             // 
-            this.staffPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.staffPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.staffPanel.BackColor = System.Drawing.Color.Transparent;
             this.staffPanel.BorderRadius = 30;
             this.staffPanel.BorderThickness = 3;
@@ -403,6 +395,7 @@ namespace Vistainn
             this.staffPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.staffPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.staffPanel.Location = new System.Drawing.Point(384, 192);
+            this.staffPanel.MaximumSize = new System.Drawing.Size(357, 415);
             this.staffPanel.Name = "staffPanel";
             this.staffPanel.Size = new System.Drawing.Size(327, 374);
             this.staffPanel.TabIndex = 21;
@@ -421,8 +414,7 @@ namespace Vistainn
             // 
             // managerPanel
             // 
-            this.managerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.managerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.managerPanel.BackColor = System.Drawing.Color.Transparent;
             this.managerPanel.BorderRadius = 30;
             this.managerPanel.BorderThickness = 3;
@@ -438,6 +430,7 @@ namespace Vistainn
             this.managerPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.managerPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.managerPanel.Location = new System.Drawing.Point(384, 192);
+            this.managerPanel.MaximumSize = new System.Drawing.Size(357, 415);
             this.managerPanel.Name = "managerPanel";
             this.managerPanel.Size = new System.Drawing.Size(327, 374);
             this.managerPanel.TabIndex = 22;
@@ -530,11 +523,13 @@ namespace Vistainn
             this.Controls.Add(this.label3);
             this.Controls.Add(this.staffPanel);
             this.Controls.Add(this.managerPanel);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "startPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VISTAINN - ADMIN";
+            this.Resize += new System.EventHandler(this.startPage_Resize);
             this.staffPanel.ResumeLayout(false);
             this.staffPanel.PerformLayout();
             this.managerPanel.ResumeLayout(false);
@@ -544,6 +539,40 @@ namespace Vistainn
             this.PerformLayout();
 
         }
+
+        private void startPage_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                int Width = this.ClientSize.Width / 2;
+                int Height = 800;
+
+                staffPanel.Width = Width;
+                staffPanel.Height = Height;
+                managerPanel.Width = Width;
+                managerPanel.Height = Height;
+
+                int staffPanelLeft = (this.ClientSize.Width - staffPanel.Width) / 2;
+                int managerPanelLeft = (this.ClientSize.Width - managerPanel.Width) / 2;
+
+                int panelTop = this.ClientSize.Height - Height + 100;
+
+                staffPanel.Location = new System.Drawing.Point(staffPanelLeft, panelTop);
+                managerPanel.Location = new System.Drawing.Point(managerPanelLeft, panelTop);
+            }
+            else
+            {
+                staffPanel.Width = 327;
+                staffPanel.Height = 374;
+                managerPanel.Width = 327;
+                managerPanel.Height = 374;
+
+                staffPanel.Location = new System.Drawing.Point(384, 192);
+                managerPanel.Location = new System.Drawing.Point(384, 192); // Slight offset for the manager panel
+            }
+        }
+
+
         #endregion
         private Guna.UI2.WinForms.Guna2Button staffLogInButton;
         private Label label3;
