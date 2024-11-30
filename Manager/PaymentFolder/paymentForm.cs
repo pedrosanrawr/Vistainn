@@ -27,10 +27,7 @@ namespace Vistainn
         {
             try
             {
-                string query = "SELECT p.PaymentId, b.BookingId, c.FullName, p.Amount, p.PaymentMethod, p.Status " +
-                               "FROM payment p " +
-                               "JOIN booking b ON p.BookingId = b.BookingId " +
-                               "JOIN customer c ON b.FullName = c.FullName;";
+                string query = "SELECT * FROM Payment";
 
                 using (MySqlConnection con = new MySqlConnection(database.connectionString))
                 {
@@ -91,9 +88,9 @@ namespace Vistainn
         // search data - method
         public void searchData(string ValueToSearch)
         {
-            string query = "SELECT PaymentId, BookingId, FullName, Amount, PaymentMethod, Status " +
+            string query = "SELECT * " +
                            "FROM payment " +
-                           "WHERE CONCAT(`PaymentId`, `BookingId`, `FullName`, `Amount`, `PaymentMethod`, `Status`) " +
+                           "WHERE CONCAT(`BookingId`, `FullName`, `Amount`, `PaymentMethod`, `Status`) " +
                            "LIKE '%" + ValueToSearch + "%'";
 
             using (MySqlConnection con = new MySqlConnection(database.connectionString))

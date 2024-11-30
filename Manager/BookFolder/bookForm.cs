@@ -38,9 +38,7 @@ namespace Vistainn
                 {
                     conn.Open();
 
-                    string query = "SELECT b.BookingId, c.FullName, b.RoomNo, b.RoomType, b.check_in, b.check_out, b.Status " +
-                                   "FROM booking b " +
-                                   "JOIN customer c ON b.FullName = c.FullName";
+                    string query = "SELECT * FROM booking";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
@@ -108,12 +106,7 @@ namespace Vistainn
                 {
                     conn.Open();
 
-                    string query = @"SELECT b.BookingId, c.FullName, b.RoomNo, b.RoomType, b.check_in, b.check_out, b.Status
-                             FROM booking b
-                             JOIN customer c ON b.FullName = c.FullName
-                             WHERE b.BookingId LIKE @search 
-                             OR c.FullName LIKE @search
-                             OR b.RoomNo LIKE @search";
+                    string query = "SELECT * FROM booking";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");

@@ -60,14 +60,15 @@ namespace Vistainn.RoomFolder
                     roomPhotoPictureBox.Image.Save(ms, roomPhotoPictureBox.Image.RawFormat);
                     byte[] img = ms.ToArray();
 
-                    MySqlCommand cmd = new MySqlCommand("UPDATE room SET RoomId=@roomId, RoomNo=@roomno, RoomType=@roomtype, Rate=@rate, Availability=@availability, picture=@picture, description=@description WHERE RoomId=@roomId", conn);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE room SET RoomId=@roomId, RoomNo=@roomno, RoomType=@roomtype, " +
+                        "Rate=@rate, Availability=@availability, picture=@picture, description=@description WHERE RoomId=@roomId", conn);
                     cmd.Parameters.Add("@roomid", MySqlDbType.Int32).Value = roomIdTextBox.Text;
                     cmd.Parameters.Add("@roomno", MySqlDbType.VarChar).Value = roomNoTextBox.Text;
                     cmd.Parameters.Add("@roomtype", MySqlDbType.VarChar).Value = roomTypeTextBox.Text;
                     cmd.Parameters.Add("@rate", MySqlDbType.Double).Value = rateTextBox.Text;
                     cmd.Parameters.Add("@availability", MySqlDbType.VarChar).Value = availabilityComboBox.Text;
                     cmd.Parameters.Add("@picture", MySqlDbType.Blob).Value = img;
-                    cmd.Parameters.Add("@description", MySqlDbType.VarChar).Value = descriptionTextBox.Text;
+                    //cmd.Parameters.Add("@description", MySqlDbType.VarChar).Value = descriptionTextBox.Text;
 
                     cmd.ExecuteNonQuery();
                     OnDataUpdated?.Invoke(this, EventArgs.Empty);

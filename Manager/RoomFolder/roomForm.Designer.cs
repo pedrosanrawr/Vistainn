@@ -443,6 +443,7 @@ namespace Vistainn
         private Guna.UI2.WinForms.Guna2Button editButton;
         private Guna.UI2.WinForms.Guna2Button addButton;
         private Guna.UI2.WinForms.Guna2Button refreshButton;
+        private Guna.UI2.WinForms.Guna2Button deleteButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomId;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
@@ -455,6 +456,5 @@ namespace Vistainn
         private System.Windows.Forms.DataGridViewTextBoxColumn Kitchen;
         private System.Windows.Forms.DataGridViewTextBoxColumn Technology;
         private System.Windows.Forms.DataGridViewTextBoxColumn General;
-        private Guna.UI2.WinForms.Guna2Button deleteButton;
     }
 }
