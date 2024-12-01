@@ -60,6 +60,8 @@ namespace Vistainn
             this.guna2Shapes1 = new Guna.UI2.WinForms.Guna2Shapes();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.guna2CheckBox2 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.staffPanel.SuspendLayout();
             this.managerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -383,6 +385,7 @@ namespace Vistainn
             this.staffPanel.BackColor = System.Drawing.Color.Transparent;
             this.staffPanel.BorderRadius = 30;
             this.staffPanel.BorderThickness = 3;
+            this.staffPanel.Controls.Add(this.guna2CheckBox1);
             this.staffPanel.Controls.Add(this.label10);
             this.staffPanel.Controls.Add(this.staffLogInButton);
             this.staffPanel.Controls.Add(this.label6);
@@ -418,6 +421,7 @@ namespace Vistainn
             this.managerPanel.BackColor = System.Drawing.Color.Transparent;
             this.managerPanel.BorderRadius = 30;
             this.managerPanel.BorderThickness = 3;
+            this.managerPanel.Controls.Add(this.guna2CheckBox2);
             this.managerPanel.Controls.Add(this.label11);
             this.managerPanel.Controls.Add(this.manageLogInButton);
             this.managerPanel.Controls.Add(this.label7);
@@ -507,6 +511,42 @@ namespace Vistainn
             this.label1.TabIndex = 23;
             this.label1.Text = "VISTAINN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2CheckBox1
+            // 
+            this.guna2CheckBox1.AutoSize = true;
+            this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.guna2CheckBox1.CheckedState.BorderRadius = 2;
+            this.guna2CheckBox1.CheckedState.BorderThickness = 0;
+            this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.guna2CheckBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.guna2CheckBox1.Location = new System.Drawing.Point(214, 156);
+            this.guna2CheckBox1.Name = "guna2CheckBox1";
+            this.guna2CheckBox1.Size = new System.Drawing.Size(53, 20);
+            this.guna2CheckBox1.TabIndex = 21;
+            this.guna2CheckBox1.Text = "VIEW";
+            this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2CheckBox1.UncheckedState.BorderRadius = 2;
+            this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
+            this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // guna2CheckBox2
+            // 
+            this.guna2CheckBox2.AutoSize = true;
+            this.guna2CheckBox2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.guna2CheckBox2.CheckedState.BorderRadius = 2;
+            this.guna2CheckBox2.CheckedState.BorderThickness = 0;
+            this.guna2CheckBox2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.guna2CheckBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.guna2CheckBox2.Location = new System.Drawing.Point(214, 156);
+            this.guna2CheckBox2.Name = "guna2CheckBox2";
+            this.guna2CheckBox2.Size = new System.Drawing.Size(53, 20);
+            this.guna2CheckBox2.TabIndex = 22;
+            this.guna2CheckBox2.Text = "VIEW";
+            this.guna2CheckBox2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2CheckBox2.UncheckedState.BorderRadius = 2;
+            this.guna2CheckBox2.UncheckedState.BorderThickness = 0;
+            this.guna2CheckBox2.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
             // startPage
             // 
@@ -599,6 +639,8 @@ namespace Vistainn
         private Guna.UI2.WinForms.Guna2Shapes guna2Shapes1;
         private Label label2;
         private Label label1;
+        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
+        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox2;
     }
 }
 

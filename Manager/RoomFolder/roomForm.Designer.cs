@@ -35,18 +35,6 @@ namespace Vistainn
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.roomTable = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.RoomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Availability = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Bathroom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bedroom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kitchen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Technology = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.General = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.searchButton = new Guna.UI2.WinForms.Guna2Button();
             this.searchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -55,6 +43,18 @@ namespace Vistainn
             this.refreshButton = new Guna.UI2.WinForms.Guna2Button();
             this.editButton = new Guna.UI2.WinForms.Guna2Button();
             this.addButton = new Guna.UI2.WinForms.Guna2Button();
+            this.RoomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Availability = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Bathroom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bedroom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kitchen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Technology = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.General = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.roomTable)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -92,7 +92,7 @@ namespace Vistainn
             this.RoomNo,
             this.RoomType,
             this.Rate,
-            this.Pax,
+            this.RoomCapacity,
             this.Availability,
             this.Picture,
             this.Bathroom,
@@ -148,102 +148,6 @@ namespace Vistainn
             this.roomTable.ThemeStyle.RowsStyle.Height = 20;
             this.roomTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.roomTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
-            // 
-            // RoomId
-            // 
-            this.RoomId.DataPropertyName = "RoomId";
-            this.RoomId.HeaderText = "ROOM ID";
-            this.RoomId.Name = "RoomId";
-            this.RoomId.ReadOnly = true;
-            this.RoomId.Width = 78;
-            // 
-            // RoomNo
-            // 
-            this.RoomNo.DataPropertyName = "RoomNo";
-            this.RoomNo.HeaderText = "ROOM NUMBER";
-            this.RoomNo.Name = "RoomNo";
-            this.RoomNo.ReadOnly = true;
-            this.RoomNo.Width = 114;
-            // 
-            // RoomType
-            // 
-            this.RoomType.DataPropertyName = "RoomType";
-            this.RoomType.HeaderText = "ROOM TYPE";
-            this.RoomType.Name = "RoomType";
-            this.RoomType.ReadOnly = true;
-            this.RoomType.Width = 93;
-            // 
-            // Rate
-            // 
-            this.Rate.DataPropertyName = "Rate";
-            this.Rate.HeaderText = "RATE";
-            this.Rate.Name = "Rate";
-            this.Rate.ReadOnly = true;
-            this.Rate.Width = 56;
-            // 
-            // Pax
-            // 
-            this.Pax.DataPropertyName = "Pax";
-            this.Pax.HeaderText = "PAX";
-            this.Pax.Name = "Pax";
-            this.Pax.ReadOnly = true;
-            this.Pax.Width = 52;
-            // 
-            // Availability
-            // 
-            this.Availability.DataPropertyName = "Availability";
-            this.Availability.HeaderText = "AVAILABILITY";
-            this.Availability.Name = "Availability";
-            this.Availability.ReadOnly = true;
-            this.Availability.Width = 97;
-            // 
-            // Picture
-            // 
-            this.Picture.DataPropertyName = "Picture";
-            this.Picture.HeaderText = "PICTURE";
-            this.Picture.Name = "Picture";
-            this.Picture.ReadOnly = true;
-            this.Picture.Width = 53;
-            // 
-            // Bathroom
-            // 
-            this.Bathroom.DataPropertyName = "Bathroom";
-            this.Bathroom.HeaderText = "BATHROOM";
-            this.Bathroom.Name = "Bathroom";
-            this.Bathroom.ReadOnly = true;
-            this.Bathroom.Width = 93;
-            // 
-            // Bedroom
-            // 
-            this.Bedroom.DataPropertyName = "Bedroom";
-            this.Bedroom.HeaderText = "BEDROOM";
-            this.Bedroom.Name = "Bedroom";
-            this.Bedroom.ReadOnly = true;
-            this.Bedroom.Width = 86;
-            // 
-            // Kitchen
-            // 
-            this.Kitchen.DataPropertyName = "Kitchen";
-            this.Kitchen.HeaderText = "KITCHEN";
-            this.Kitchen.Name = "Kitchen";
-            this.Kitchen.ReadOnly = true;
-            this.Kitchen.Width = 75;
-            // 
-            // Technology
-            // 
-            this.Technology.DataPropertyName = "Technology";
-            this.Technology.HeaderText = "TECHNOLOGY";
-            this.Technology.Name = "Technology";
-            this.Technology.ReadOnly = true;
-            this.Technology.Width = 105;
-            // 
-            // General
-            // 
-            this.General.DataPropertyName = "General";
-            this.General.HeaderText = "GENERAL";
-            this.General.Name = "General";
-            this.General.ReadOnly = true;
-            this.General.Width = 80;
             // 
             // guna2Panel3
             // 
@@ -413,6 +317,102 @@ namespace Vistainn
             this.addButton.Text = "ADD";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // RoomId
+            // 
+            this.RoomId.DataPropertyName = "RoomId";
+            this.RoomId.HeaderText = "ROOM ID";
+            this.RoomId.Name = "RoomId";
+            this.RoomId.ReadOnly = true;
+            this.RoomId.Width = 78;
+            // 
+            // RoomNo
+            // 
+            this.RoomNo.DataPropertyName = "RoomNo";
+            this.RoomNo.HeaderText = "ROOM NUMBER";
+            this.RoomNo.Name = "RoomNo";
+            this.RoomNo.ReadOnly = true;
+            this.RoomNo.Width = 114;
+            // 
+            // RoomType
+            // 
+            this.RoomType.DataPropertyName = "RoomType";
+            this.RoomType.HeaderText = "ROOM TYPE";
+            this.RoomType.Name = "RoomType";
+            this.RoomType.ReadOnly = true;
+            this.RoomType.Width = 93;
+            // 
+            // Rate
+            // 
+            this.Rate.DataPropertyName = "Rate";
+            this.Rate.HeaderText = "RATE";
+            this.Rate.Name = "Rate";
+            this.Rate.ReadOnly = true;
+            this.Rate.Width = 56;
+            // 
+            // RoomCapacity
+            // 
+            this.RoomCapacity.DataPropertyName = "RoomCapacity";
+            this.RoomCapacity.HeaderText = "ROOM CAPACITY";
+            this.RoomCapacity.Name = "RoomCapacity";
+            this.RoomCapacity.ReadOnly = true;
+            this.RoomCapacity.Width = 121;
+            // 
+            // Availability
+            // 
+            this.Availability.DataPropertyName = "Availability";
+            this.Availability.HeaderText = "AVAILABILITY";
+            this.Availability.Name = "Availability";
+            this.Availability.ReadOnly = true;
+            this.Availability.Width = 97;
+            // 
+            // Picture
+            // 
+            this.Picture.DataPropertyName = "Picture";
+            this.Picture.HeaderText = "PICTURE";
+            this.Picture.Name = "Picture";
+            this.Picture.ReadOnly = true;
+            this.Picture.Width = 53;
+            // 
+            // Bathroom
+            // 
+            this.Bathroom.DataPropertyName = "Bathroom";
+            this.Bathroom.HeaderText = "BATHROOM";
+            this.Bathroom.Name = "Bathroom";
+            this.Bathroom.ReadOnly = true;
+            this.Bathroom.Width = 93;
+            // 
+            // Bedroom
+            // 
+            this.Bedroom.DataPropertyName = "Bedroom";
+            this.Bedroom.HeaderText = "BEDROOM";
+            this.Bedroom.Name = "Bedroom";
+            this.Bedroom.ReadOnly = true;
+            this.Bedroom.Width = 86;
+            // 
+            // Kitchen
+            // 
+            this.Kitchen.DataPropertyName = "Kitchen";
+            this.Kitchen.HeaderText = "KITCHEN";
+            this.Kitchen.Name = "Kitchen";
+            this.Kitchen.ReadOnly = true;
+            this.Kitchen.Width = 75;
+            // 
+            // Technology
+            // 
+            this.Technology.DataPropertyName = "Technology";
+            this.Technology.HeaderText = "TECHNOLOGY";
+            this.Technology.Name = "Technology";
+            this.Technology.ReadOnly = true;
+            this.Technology.Width = 105;
+            // 
+            // General
+            // 
+            this.General.DataPropertyName = "General";
+            this.General.HeaderText = "GENERAL";
+            this.General.Name = "General";
+            this.General.ReadOnly = true;
+            this.General.Width = 80;
+            // 
             // roomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -448,7 +448,7 @@ namespace Vistainn
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomCapacity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Availability;
         private System.Windows.Forms.DataGridViewImageColumn Picture;
         private System.Windows.Forms.DataGridViewTextBoxColumn Bathroom;

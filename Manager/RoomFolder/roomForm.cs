@@ -50,7 +50,7 @@ namespace Vistainn
                 {
                     ImageLayout = DataGridViewImageCellLayout.Stretch
                 };
-                imgcol = (DataGridViewImageColumn)roomTable.Columns[6];
+                imgcol = (DataGridViewImageColumn)roomTable.Columns[5];
             }
         }
 
