@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vistainn.Staff;
 
 
 namespace Vistainn
@@ -20,19 +21,12 @@ namespace Vistainn
 
         }
 
-        //book now button - click
-        private void booknowButton_Click(object sender, EventArgs e)
+        //staff button - click
+        private void staffButton_Click(object sender, EventArgs e)
         {
-            //if (hotelEmailTextBox.Text == "vistainn@email.com" && hotelPasswordTextBox.Text == "12345678")
-           // {
-                ManagerDashboard dashboard = new ManagerDashboard();
-                dashboard.Show();
-                this.Hide();
-          //  }
-          //  else
-          //  {
-           //     MessageBox.Show("Incorrect Email or Password");
-           // }
+            StaffDashboard staffDashboard = new StaffDashboard();
+            staffDashboard.Show();
+            this.Hide();
         }
 
         private void managerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

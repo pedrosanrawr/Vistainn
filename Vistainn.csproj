@@ -128,116 +128,70 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Manager\MBookFolder\addDialogMBook.cs">
+    <Compile Include="BookFolder\addDialogBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MBookFolder\addDialogMBook.Designer.cs">
-      <DependentUpon>addDialogMBook.cs</DependentUpon>
+    <Compile Include="BookFolder\addDialogBook.Designer.cs">
+      <DependentUpon>addDialogBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MBookFolder\MBookForm.cs">
+    <Compile Include="BookFolder\bookFormm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MBookFolder\MBookForm.Designer.cs">
-      <DependentUpon>MBookForm.cs</DependentUpon>
+    <Compile Include="BookFolder\bookFormm.Designer.cs">
+      <DependentUpon>bookFormm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MBookFolder\editDialogMBook.cs">
+    <Compile Include="BookFolder\editDialogBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MBookFolder\editDialogMBook.Designer.cs">
-      <DependentUpon>editDialogMBook.cs</DependentUpon>
+    <Compile Include="BookFolder\editDialogBook.Designer.cs">
+      <DependentUpon>editDialogBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\ManagerDasboard.cs">
+    <Compile Include="ManagerDasboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\ManagerDasboard.Designer.cs">
+    <Compile Include="ManagerDasboard.Designer.cs">
       <DependentUpon>ManagerDasboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MPaymentFolder\AddMPaymentDialog.cs">
+    <Compile Include="PaymentFolder\editPaymentDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MPaymentFolder\AddMPaymentDialog.Designer.cs">
-      <DependentUpon>AddMPaymentDialog.cs</DependentUpon>
+    <Compile Include="PaymentFolder\editPaymentDialog.Designer.cs">
+      <DependentUpon>editPaymentDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MPaymentFolder\EditMPaymentDialog.cs">
+    <Compile Include="PaymentFolder\paymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MPaymentFolder\EditMPaymentDialog.Designer.cs">
-      <DependentUpon>EditMPaymentDialog.cs</DependentUpon>
+    <Compile Include="PaymentFolder\paymentForm.Designer.cs">
+      <DependentUpon>paymentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MPaymentFolder\MPaymentForm.cs">
+    <Compile Include="RoomFolder\addRoomDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MPaymentFolder\MPaymentForm.Designer.cs">
-      <DependentUpon>MPaymentForm.cs</DependentUpon>
+    <Compile Include="RoomFolder\addRoomDialog.Designer.cs">
+      <DependentUpon>addRoomDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MRoomFolder\addMRoomDialog.cs">
+    <Compile Include="RoomFolder\editRoomDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MRoomFolder\addMRoomDialog.Designer.cs">
-      <DependentUpon>addMRoomDialog.cs</DependentUpon>
+    <Compile Include="RoomFolder\editRoomDialog.Designer.cs">
+      <DependentUpon>editRoomDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MRoomFolder\editMRoomDialog.cs">
+    <Compile Include="RoomFolder\roomForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MRoomFolder\editMRoomDialog.Designer.cs">
-      <DependentUpon>editMRoomDialog.cs</DependentUpon>
+    <Compile Include="RoomFolder\roomForm.Designer.cs">
+      <DependentUpon>roomForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MRoomFolder\MRoomForm.cs">
+    <Compile Include="ReportsFolder\reportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MRoomFolder\MRoomForm.Designer.cs">
-      <DependentUpon>MRoomForm.cs</DependentUpon>
+    <Compile Include="ReportsFolder\reportsForm.Designer.cs">
+      <DependentUpon>reportsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MReportsFolder\MReportsForm.cs">
+    <Compile Include="StaffDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\MReportsFolder\MReportsForm.Designer.cs" />
-    <Compile Include="Staff\SBookFolder\editDialogSBook.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff\SBookFolder\editDialogSBook.Designer.cs">
-      <DependentUpon>editDialogSBook.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\SBookFolder\SBookForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff\SBookFolder\SBookForm.Designer.cs">
-      <DependentUpon>SBookForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\SPaymentFolder\editSPaymentDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff\SPaymentFolder\editSPaymentDialog.Designer.cs">
-      <DependentUpon>editSPaymentDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\SPaymentFolder\SPaymentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff\SPaymentFolder\SPaymentForm.Designer.cs">
-      <DependentUpon>SPaymentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\SRoomFolder\addSRoomDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff\SRoomFolder\addSRoomDialog.Designer.cs">
-      <DependentUpon>addSRoomDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\SRoomFolder\editSRoomDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff\SRoomFolder\editSRoomDialog.Designer.cs">
-      <DependentUpon>editSRoomDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\SRoomFolder\SRoomForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff\SRoomFolder\SRoomForm.Designer.cs">
-      <DependentUpon>SRoomForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\StaffDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff\StaffDashboard.Designer.cs">
+    <Compile Include="StaffDashboard.Designer.cs">
       <DependentUpon>StaffDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="startPage.cs">
@@ -248,37 +202,39 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Manager\MBookFolder\addDialogMBook.resx">
-      <DependentUpon>addDialogMBook.cs</DependentUpon>
+    <EmbeddedResource Include="BookFolder\addDialogBook.resx">
+      <DependentUpon>addDialogBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MBookFolder\MBookForm.resx">
-      <DependentUpon>MBookForm.cs</DependentUpon>
+    <EmbeddedResource Include="BookFolder\bookFormm.resx">
+      <DependentUpon>bookFormm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MBookFolder\editDialogMBook.resx">
-      <DependentUpon>editDialogMBook.cs</DependentUpon>
+    <EmbeddedResource Include="BookFolder\editDialogBook.resx">
+      <DependentUpon>editDialogBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\ManagerDasboard.resx">
+    <EmbeddedResource Include="ManagerDasboard.resx">
       <DependentUpon>ManagerDasboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MPaymentFolder\AddMPaymentDialog.resx">
-      <DependentUpon>AddMPaymentDialog.cs</DependentUpon>
+    <EmbeddedResource Include="PaymentFolder\editPaymentDialog.resx">
+      <DependentUpon>editPaymentDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MPaymentFolder\EditMPaymentDialog.resx">
-      <DependentUpon>EditMPaymentDialog.cs</DependentUpon>
+    <EmbeddedResource Include="PaymentFolder\paymentForm.resx">
+      <DependentUpon>paymentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MPaymentFolder\MPaymentForm.resx">
-      <DependentUpon>MPaymentForm.cs</DependentUpon>
+    <EmbeddedResource Include="RoomFolder\addRoomDialog.resx">
+      <DependentUpon>addRoomDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MRoomFolder\addMRoomDialog.resx">
-      <DependentUpon>addMRoomDialog.cs</DependentUpon>
+    <EmbeddedResource Include="RoomFolder\editRoomDialog.resx">
+      <DependentUpon>editRoomDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MRoomFolder\editMRoomDialog.resx">
-      <DependentUpon>editMRoomDialog.cs</DependentUpon>
+    <EmbeddedResource Include="RoomFolder\roomForm.resx">
+      <DependentUpon>roomForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MRoomFolder\MRoomForm.resx">
-      <DependentUpon>MRoomForm.cs</DependentUpon>
+    <EmbeddedResource Include="ReportsFolder\reportsForm.resx">
+      <DependentUpon>reportsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\MReportsFolder\MReportsForm.resx" />
+    <EmbeddedResource Include="StaffDashboard.resx">
+      <DependentUpon>StaffDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="startPage.resx">
       <DependentUpon>startPage.cs</DependentUpon>
     </EmbeddedResource>

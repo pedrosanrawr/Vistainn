@@ -88,7 +88,7 @@ namespace Vistainn
             this.staffLogInButton.Size = new System.Drawing.Size(180, 45);
             this.staffLogInButton.TabIndex = 12;
             this.staffLogInButton.Text = "LOG IN";
-            this.staffLogInButton.Click += new System.EventHandler(this.booknowButton_Click);
+            this.staffLogInButton.Click += new System.EventHandler(this.staffButton_Click);
             // 
             // label3
             // 
