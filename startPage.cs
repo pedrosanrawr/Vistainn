@@ -25,7 +25,7 @@ namespace Vistainn
         {
             //if (hotelEmailTextBox.Text == "vistainn@email.com" && hotelPasswordTextBox.Text == "12345678")
            // {
-                managerDashboard dashboard = new managerDashboard();
+                ManagerDashboard dashboard = new ManagerDashboard();
                 dashboard.Show();
                 this.Hide();
           //  }
@@ -49,7 +49,7 @@ namespace Vistainn
 
         private void manageLogInButton_Click(object sender, EventArgs e)
         {
-            managerDashboard managerDashboard = new managerDashboard();
+            ManagerDashboard managerDashboard = new ManagerDashboard();
             managerDashboard.Show();
             this.Hide();
         }
