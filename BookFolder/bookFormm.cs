@@ -55,6 +55,7 @@ namespace Vistainn
             }
         }
 
+        //add button click
         private void addBookButton_Click(object sender, EventArgs e)
         {
             addDialogBook addDialogMBook = new addDialogBook();
@@ -128,10 +129,12 @@ namespace Vistainn
                 {
                     conn.Open();
 
-                    string query = "SELECT * FROM booking";
+                    string query = "SELECT * FROM booking WHERE CONCAT(BookingId, FullName, PhoneNo, Email, RoomNo, " +
+                        "RoomType, Pax, CheckIn, CheckOut, AoName, AoPrice, AoQty, Status) LIKE @search";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
+
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
@@ -148,12 +151,72 @@ namespace Vistainn
             }
         }
 
-
         //search button - click
         private void searchButton_Click(object sender, EventArgs e)
         {
             string valueToSearch = searchTextBox.Text.ToString();
             filldvg2(valueToSearch);
         }
+
+        //delete button click
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (bookTable.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the selected rows?",
+                                                           "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                        {
+                            conn.Open();
+
+                            foreach (DataGridViewRow row in bookTable.SelectedRows)
+                            {
+                                if (!row.IsNewRow)
+                                {
+                                    string bookingId = row.Cells[0].Value.ToString();
+
+                                    string deletePaymentQuery = "DELETE FROM payment WHERE BookingId = @bookingId";
+                                    MySqlCommand deletePaymentCmd = new MySqlCommand(deletePaymentQuery, conn);
+                                    deletePaymentCmd.Parameters.AddWithValue("@bookingId", bookingId);
+                                    deletePaymentCmd.ExecuteNonQuery();
+
+                                    string deleteBookingQuery = "DELETE FROM booking WHERE BookingId = @bookingId";
+                                    MySqlCommand deleteBookingCmd = new MySqlCommand(deleteBookingQuery, conn);
+                                    deleteBookingCmd.Parameters.AddWithValue("@bookingId", bookingId);
+                                    deleteBookingCmd.ExecuteNonQuery();
+                                }
+                            }
+
+                            fillDGV();
+
+                            if (Application.OpenForms["paymentForm"] is paymentForm paymentForm)
+                            {
+                                paymentForm.LoadData();
+                            }
+
+                            MessageBox.Show("Selected bookings and payments deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (MySqlException sqlEx)
+                    {
+                        MessageBox.Show("Database error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred while deleting data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select at least one row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

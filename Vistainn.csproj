@@ -128,6 +128,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOnsFolder\AddAoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOnsFolder\AddAoDialog.Designer.cs">
+      <DependentUpon>AddAoDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddOnsFolder\AddOnsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOnsFolder\AddOnsForm.Designer.cs">
+      <DependentUpon>AddOnsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddOnsFolder\EditAoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOnsFolder\EditAoDialog.Designer.cs">
+      <DependentUpon>EditAoDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookFolder\addDialogBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +169,12 @@
     </Compile>
     <Compile Include="ManagerDasboard.Designer.cs">
       <DependentUpon>ManagerDasboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="managerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="managerProfile.Designer.cs">
+      <DependentUpon>managerProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="PaymentFolder\editPaymentDialog.cs">
       <SubType>Form</SubType>
@@ -194,6 +218,12 @@
     <Compile Include="StaffDashboard.Designer.cs">
       <DependentUpon>StaffDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="staffProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staffProfile.Designer.cs">
+      <DependentUpon>staffProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="startPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +232,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddOnsFolder\AddAoDialog.resx">
+      <DependentUpon>AddAoDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOnsFolder\AddOnsForm.resx">
+      <DependentUpon>AddOnsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOnsFolder\EditAoDialog.resx">
+      <DependentUpon>EditAoDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookFolder\addDialogBook.resx">
       <DependentUpon>addDialogBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerDasboard.resx">
       <DependentUpon>ManagerDasboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="managerProfile.resx">
+      <DependentUpon>managerProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentFolder\editPaymentDialog.resx">
       <DependentUpon>editPaymentDialog.cs</DependentUpon>
@@ -234,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StaffDashboard.resx">
       <DependentUpon>StaffDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staffProfile.resx">
+      <DependentUpon>staffProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="startPage.resx">
       <DependentUpon>startPage.cs</DependentUpon>

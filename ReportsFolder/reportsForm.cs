@@ -24,7 +24,7 @@ namespace Vistainn
         {
             reportTypeComboBox.Items.Add("Occupancy Report");
             reportTypeComboBox.Items.Add("Revenue Report");
-            reportTypeComboBox.SelectedIndex = 0; // to first item
+            reportTypeComboBox.SelectedIndex = 0;
         }
 
         // generate report button - clivk

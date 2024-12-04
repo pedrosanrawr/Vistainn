@@ -30,11 +30,13 @@
         {
             this.mainPanel = new System.Windows.Forms.Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.aoProfileButton = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.paymentButton = new Guna.UI2.WinForms.Guna2Button();
             this.bookButton = new Guna.UI2.WinForms.Guna2Button();
             this.roomButton = new Guna.UI2.WinForms.Guna2Button();
             this.reportsButton = new Guna.UI2.WinForms.Guna2Button();
+            this.profileButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +57,8 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.guna2Panel2.BorderRadius = 30;
             this.guna2Panel2.BorderThickness = 3;
+            this.guna2Panel2.Controls.Add(this.profileButton);
+            this.guna2Panel2.Controls.Add(this.aoProfileButton);
             this.guna2Panel2.Controls.Add(this.label1);
             this.guna2Panel2.Controls.Add(this.paymentButton);
             this.guna2Panel2.Controls.Add(this.bookButton);
@@ -66,6 +70,31 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1095, 165);
             this.guna2Panel2.TabIndex = 16;
+            // 
+            // aoProfileButton
+            // 
+            this.aoProfileButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.aoProfileButton.BackColor = System.Drawing.Color.Transparent;
+            this.aoProfileButton.BorderColor = System.Drawing.Color.Transparent;
+            this.aoProfileButton.BorderRadius = 18;
+            this.aoProfileButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aoProfileButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.aoProfileButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.aoProfileButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.aoProfileButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.aoProfileButton.FillColor = System.Drawing.Color.Transparent;
+            this.aoProfileButton.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.aoProfileButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aoProfileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.aoProfileButton.IndicateFocus = true;
+            this.aoProfileButton.Location = new System.Drawing.Point(720, 130);
+            this.aoProfileButton.Name = "aoProfileButton";
+            this.aoProfileButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.aoProfileButton.Size = new System.Drawing.Size(173, 48);
+            this.aoProfileButton.TabIndex = 20;
+            this.aoProfileButton.Text = "ADDONS";
+            this.aoProfileButton.TextOffset = new System.Drawing.Point(0, -5);
+            this.aoProfileButton.Click += new System.EventHandler(this.aoButton_Click);
             // 
             // label1
             // 
@@ -96,10 +125,10 @@
             this.paymentButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.paymentButton.IndicateFocus = true;
-            this.paymentButton.Location = new System.Drawing.Point(892, 130);
+            this.paymentButton.Location = new System.Drawing.Point(547, 130);
             this.paymentButton.Name = "paymentButton";
             this.paymentButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.paymentButton.Size = new System.Drawing.Size(137, 48);
+            this.paymentButton.Size = new System.Drawing.Size(173, 48);
             this.paymentButton.TabIndex = 19;
             this.paymentButton.Text = "PAYMENT";
             this.paymentButton.TextOffset = new System.Drawing.Point(0, -5);
@@ -121,10 +150,10 @@
             this.bookButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.bookButton.IndicateFocus = true;
-            this.bookButton.Location = new System.Drawing.Point(599, 130);
+            this.bookButton.Location = new System.Drawing.Point(374, 130);
             this.bookButton.Name = "bookButton";
             this.bookButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.bookButton.Size = new System.Drawing.Size(149, 48);
+            this.bookButton.Size = new System.Drawing.Size(173, 48);
             this.bookButton.TabIndex = 18;
             this.bookButton.Text = "BOOKINGS";
             this.bookButton.TextOffset = new System.Drawing.Point(0, -5);
@@ -146,10 +175,10 @@
             this.roomButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.roomButton.IndicateFocus = true;
-            this.roomButton.Location = new System.Drawing.Point(339, 130);
+            this.roomButton.Location = new System.Drawing.Point(201, 130);
             this.roomButton.Name = "roomButton";
             this.roomButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.roomButton.Size = new System.Drawing.Size(116, 48);
+            this.roomButton.Size = new System.Drawing.Size(173, 48);
             this.roomButton.TabIndex = 16;
             this.roomButton.Text = "ROOM";
             this.roomButton.TextOffset = new System.Drawing.Point(0, -5);
@@ -171,16 +200,41 @@
             this.reportsButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.reportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.reportsButton.IndicateFocus = true;
-            this.reportsButton.Location = new System.Drawing.Point(65, 130);
+            this.reportsButton.Location = new System.Drawing.Point(28, 130);
             this.reportsButton.Name = "reportsButton";
             this.reportsButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.reportsButton.Size = new System.Drawing.Size(130, 48);
+            this.reportsButton.Size = new System.Drawing.Size(173, 48);
             this.reportsButton.TabIndex = 15;
             this.reportsButton.Text = "REPORTS";
             this.reportsButton.TextOffset = new System.Drawing.Point(0, -5);
             this.reportsButton.Click += new System.EventHandler(this.reportsButton_Click);
             // 
-            // managerDashboard
+            // profileButton
+            // 
+            this.profileButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.profileButton.BackColor = System.Drawing.Color.Transparent;
+            this.profileButton.BorderColor = System.Drawing.Color.Transparent;
+            this.profileButton.BorderRadius = 18;
+            this.profileButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profileButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.profileButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.profileButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.profileButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.profileButton.FillColor = System.Drawing.Color.Transparent;
+            this.profileButton.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.profileButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.profileButton.IndicateFocus = true;
+            this.profileButton.Location = new System.Drawing.Point(893, 130);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.profileButton.Size = new System.Drawing.Size(173, 48);
+            this.profileButton.TabIndex = 23;
+            this.profileButton.Text = "PROFILE";
+            this.profileButton.TextOffset = new System.Drawing.Point(0, -5);
+            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
+            // 
+            // ManagerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,7 +242,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "managerDashboard";
+            this.Name = "ManagerDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VISTAINN";
             this.guna2Panel2.ResumeLayout(false);
@@ -205,5 +259,7 @@
         private Guna.UI2.WinForms.Guna2Button roomButton;
         private Guna.UI2.WinForms.Guna2Button reportsButton;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button aoProfileButton;
+        private Guna.UI2.WinForms.Guna2Button profileButton;
     }
 }

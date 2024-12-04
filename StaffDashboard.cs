@@ -46,5 +46,15 @@ namespace Vistainn.Staff
         {
             loadForm(new paymentForm());
         }
+
+        private void aoProfileButton_Click(object sender, EventArgs e)
+        {
+            loadForm(new AddOnsForm());
+        }
+
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+            loadForm(new staffProfile());
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace Vistainn.BookFolder
             LoadRoomTypeCB();
         }
 
+        //room no combo box
         private void LoadRoomNoCB(string selectedRoomType)
         {
             string query = "SELECT RoomNo FROM room WHERE RoomType = @RoomType";
@@ -42,7 +43,7 @@ namespace Vistainn.BookFolder
             con.Close();
         }
 
-        //populate room type in combo box
+        //room type combo box
         private void LoadRoomTypeCB()
         {
             string query = "SELECT RoomType from room GROUP BY RoomType";

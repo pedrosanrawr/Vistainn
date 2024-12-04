@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 using System.Windows.Forms;
-using System;
 using Vistainn.PaymentFolder;
 
 namespace Vistainn
@@ -19,7 +19,7 @@ namespace Vistainn
         // form - Load
         private void paymentForm_Load(object sender, EventArgs e)
         {
-            searchData("");
+            LoadData(); 
         }
 
         // load data - method
@@ -27,7 +27,9 @@ namespace Vistainn
         {
             try
             {
-                string query = "SELECT * FROM Payment";
+                string query = @" SELECT booking.BookingId, booking.FullName, payment.Amount, payment.PaymentMethod, payment.Status
+                FROM booking
+                LEFT JOIN payment ON booking.BookingId = payment.BookingId";
 
                 using (MySqlConnection con = new MySqlConnection(database.connectionString))
                 {
@@ -35,7 +37,7 @@ namespace Vistainn
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    paymentTable.DataSource = dt;
+                    paymentTable.DataSource = dt; 
                 }
             }
             catch (MySqlException sqlEx)
@@ -48,7 +50,8 @@ namespace Vistainn
             }
         }
 
-        // edit button click - open the edit dialog
+
+        // edit button click
         private void editButton_Click(object sender, EventArgs e)
         {
             editPaymentDialog editPaymentDialog = new editPaymentDialog();
@@ -77,36 +80,49 @@ namespace Vistainn
             }
         }
 
-        // refresh button click - reload data
+        // refresh button click
         private void refreshButton_Click(object sender, EventArgs e)
         {
             LoadData();
         }
 
         // search data - method
-        public void searchData(string ValueToSearch)
+        public void searchData(string valueToSearch)
         {
-            string query = "SELECT * " +
-                           "FROM payment " +
-                           "WHERE CONCAT(`BookingId`, `FullName`, `Amount`, `PaymentMethod`, `Status`) " +
-                           "LIKE '%" + ValueToSearch + "%'";
-
-            using (MySqlConnection con = new MySqlConnection(database.connectionString))
+            try
             {
-                con.Open();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                
-                adapter.Fill(dt);
-                paymentTable.DataSource = dt;
+                string query = @" SELECT booking.BookingId, booking.FullName, payment.Amount, payment.PaymentMethod, payment.Status 
+                FROM booking LEFT JOIN payment ON booking.BookingId = payment.BookingId
+                WHERE CONCAT(booking.BookingId, booking.FullName, payment.Amount, payment.PaymentMethod, payment.Status) 
+                LIKE @search";
+
+                using (MySqlConnection con = new MySqlConnection(database.connectionString))
+                {
+                    con.Open();
+
+                    MySqlCommand cmd = new MySqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%"); 
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);  
+                    paymentTable.DataSource = dt;  
+                }
+            }
+            catch (MySqlException sqlEx)
+            {
+                MessageBox.Show("Database error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading payment data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // search button click - search the data
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string valueToSearch = searchTextBox.Text.ToString();
-            searchData(valueToSearch);
+            string valueToSearch = searchTextBox.Text.Trim();  
+            searchData(valueToSearch);  
         }
     }
 }
