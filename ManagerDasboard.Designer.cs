@@ -30,13 +30,13 @@
         {
             this.mainPanel = new System.Windows.Forms.Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.profileButton = new Guna.UI2.WinForms.Guna2Button();
             this.aoProfileButton = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.paymentButton = new Guna.UI2.WinForms.Guna2Button();
             this.bookButton = new Guna.UI2.WinForms.Guna2Button();
             this.roomButton = new Guna.UI2.WinForms.Guna2Button();
             this.reportsButton = new Guna.UI2.WinForms.Guna2Button();
-            this.profileButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,31 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1095, 165);
             this.guna2Panel2.TabIndex = 16;
+            // 
+            // profileButton
+            // 
+            this.profileButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.profileButton.BackColor = System.Drawing.Color.Transparent;
+            this.profileButton.BorderColor = System.Drawing.Color.Transparent;
+            this.profileButton.BorderRadius = 18;
+            this.profileButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profileButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.profileButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.profileButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.profileButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.profileButton.FillColor = System.Drawing.Color.Transparent;
+            this.profileButton.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.profileButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.profileButton.IndicateFocus = true;
+            this.profileButton.Location = new System.Drawing.Point(893, 130);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.profileButton.Size = new System.Drawing.Size(173, 48);
+            this.profileButton.TabIndex = 23;
+            this.profileButton.Text = "MANAGER";
+            this.profileButton.TextOffset = new System.Drawing.Point(0, -5);
+            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
             // aoProfileButton
             // 
@@ -208,31 +233,6 @@
             this.reportsButton.Text = "REPORTS";
             this.reportsButton.TextOffset = new System.Drawing.Point(0, -5);
             this.reportsButton.Click += new System.EventHandler(this.reportsButton_Click);
-            // 
-            // profileButton
-            // 
-            this.profileButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.profileButton.BackColor = System.Drawing.Color.Transparent;
-            this.profileButton.BorderColor = System.Drawing.Color.Transparent;
-            this.profileButton.BorderRadius = 18;
-            this.profileButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profileButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.profileButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.profileButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.profileButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.profileButton.FillColor = System.Drawing.Color.Transparent;
-            this.profileButton.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.profileButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.profileButton.IndicateFocus = true;
-            this.profileButton.Location = new System.Drawing.Point(893, 130);
-            this.profileButton.Name = "profileButton";
-            this.profileButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.profileButton.Size = new System.Drawing.Size(173, 48);
-            this.profileButton.TabIndex = 23;
-            this.profileButton.Text = "PROFILE";
-            this.profileButton.TextOffset = new System.Drawing.Point(0, -5);
-            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
             // ManagerDashboard
             // 

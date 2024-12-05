@@ -80,7 +80,7 @@
             this.profileButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.profileButton.Size = new System.Drawing.Size(173, 48);
             this.profileButton.TabIndex = 22;
-            this.profileButton.Text = "PROFILE";
+            this.profileButton.Text = "STAFF";
             this.profileButton.TextOffset = new System.Drawing.Point(0, -5);
             this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
