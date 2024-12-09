@@ -41,9 +41,8 @@ namespace Vistainn.RoomFolder
         private void addButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(roomNoTextBox.Text) ||
-              string.IsNullOrWhiteSpace(roomTypeTextBox.Text) ||
+              string.IsNullOrWhiteSpace(roomTypeComboBox.Text) ||
               string.IsNullOrWhiteSpace(rateTextBox.Text) ||
-              string.IsNullOrWhiteSpace(availabilityComboBox.Text) ||
               string.IsNullOrWhiteSpace(bedroomTextBox.Text) ||
               string.IsNullOrWhiteSpace(bathroomTextBox.Text) ||
               string.IsNullOrWhiteSpace(kitchenTextBox.Text) ||
@@ -91,9 +90,9 @@ namespace Vistainn.RoomFolder
                     MySqlCommand cmd = new MySqlCommand("INSERT INTO `room`(`RoomNo`, `RoomType`, `Rate`, `Availability`, `Picture`, `Bedroom`,`Bathroom`, `Kitchen`, `Technology`, `General`, `RoomCapacity`) " +
                                                         "VALUES (@RoomNo, @RoomType, @Rate, @Availability , @Picture, @Bedroom ,@Bathroom, @Kitchen, @Technology, @General, @RoomCapacity)", conn);
                     cmd.Parameters.Add("@RoomNo", MySqlDbType.VarChar).Value = roomNoTextBox.Text;
-                    cmd.Parameters.Add("@RoomType", MySqlDbType.VarChar).Value = roomTypeTextBox.Text;
+                    cmd.Parameters.Add("@RoomType", MySqlDbType.VarChar).Value = roomTypeComboBox.Text;
                     cmd.Parameters.Add("@Rate", MySqlDbType.Double).Value = rateTextBox.Text;
-                    cmd.Parameters.Add("@Availability", MySqlDbType.VarChar).Value = availabilityComboBox.Text;
+                    cmd.Parameters.Add("@Availability", MySqlDbType.VarChar).Value = "Available";
                     cmd.Parameters.Add("@Picture", MySqlDbType.Blob).Value = img;
                     cmd.Parameters.Add("@Bedroom", MySqlDbType.VarChar).Value = bedroomTextBox.Text;
                     cmd.Parameters.Add("@Bathroom", MySqlDbType.VarChar).Value = bathroomTextBox.Text;

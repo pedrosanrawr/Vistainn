@@ -215,6 +215,7 @@
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MinimumSize = new System.Drawing.Size(1095, 165);
             this.Name = "StaffDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StaffDashboard";

@@ -26,22 +26,49 @@ namespace Vistainn
         //room form - load
         private void roomForm_Load(object sender, EventArgs e)
         {
-            fillDGV("");
+            fillDGV("", "");
         }
 
         //populate data
-        public void fillDGV(string valueToSearch)
+        public void fillDGV(string filter, string valueToSearch)
         {
             using (MySqlConnection conn = new MySqlConnection(database.connectionString))
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT * " +
-                    "FROM room " +
-                    "WHERE RoomId like @search or RoomNo LIKE @search OR RoomType LIKE @search OR Rate LIKE @search OR Availability LIKE @search", conn);
+                string query = "SELECT * FROM room";
+
+                // Modify the query based on the filter
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    // Apply the filter based on specific fields
+                    if (filter == "ID")
+                    {
+                        query += " WHERE RoomId LIKE @search";
+                    }
+                    else if (filter == "ROOM TYPE")
+                    {
+                        query += " WHERE RoomType LIKE @search";
+                    }
+                    else if (filter == "ROOM NUMBER")
+                    {
+                        query += " WHERE RoomNo LIKE @search";
+                    }
+                    else if (filter == "AVAILABILITY")
+                    {
+                        query += " WHERE Availability LIKE @search";
+                    }
+                }
+                else
+                {
+                    query += " WHERE RoomId LIKE @search OR RoomType LIKE @search OR RoomNo LIKE @search OR Availability LIKE @search";
+                }
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
+
                 roomTable.RowTemplate.Height = 60;
                 roomTable.AllowUserToAddRows = false;
                 roomTable.DataSource = dt;
@@ -60,7 +87,7 @@ namespace Vistainn
             addRoomDialog addRoomDialog = new addRoomDialog();
             addRoomDialog.OnDataAdded += (s, args) =>
             {
-                fillDGV("");
+                fillDGV("", "");
             };
             addRoomDialog.ShowDialog();
         }
@@ -88,7 +115,7 @@ namespace Vistainn
 
 
                 editRoomDialog.roomIdTextBox.Text = RoomId;
-                editRoomDialog.roomTypeTextBox.Text = RoomType;
+                editRoomDialog.roomTypeComboBox.Text = RoomType;
                 editRoomDialog.roomNoTextBox.Text = RoomNo;
                 editRoomDialog.rateTextBox.Text = Rate;
                 editRoomDialog.availabilityComboBox.Text = Availability;
@@ -102,7 +129,7 @@ namespace Vistainn
 
                 editRoomDialog.OnDataUpdated += (s, args) =>
                 {
-                    fillDGV("");
+                    fillDGV("", "");
                 };
 
                 editRoomDialog.ShowDialog();
@@ -116,14 +143,19 @@ namespace Vistainn
         //refresh button - click
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            fillDGV("");
+            fillDGV("", "");
         }
 
         //search button - click
         private void searchButton_Click(object sender, EventArgs e)
         {
-            fillDGV(searchTextBox.Text);
+            string filter = searchFilterComboBox.SelectedItem != null ? searchFilterComboBox.SelectedItem.ToString() : "";
+
+            string searchValue = searchTextBox.Text.Trim();
+
+            fillDGV(filter, searchValue);
         }
+
 
         //delete button
         private void deleteButton_Click(object sender, EventArgs e)
@@ -150,8 +182,7 @@ namespace Vistainn
                                     cmd.ExecuteNonQuery();
                                 }
                             }
-
-                            fillDGV("");
+                            fillDGV("", "");
                         }
                     }
                     catch (Exception ex)

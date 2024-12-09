@@ -53,15 +53,15 @@ namespace Vistainn
             this.label9 = new System.Windows.Forms.Label();
             this.managerPasswordTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.staffPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.viewCheckBox = new Guna.UI2.WinForms.Guna2CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.managerPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.viewCheckBoxManager = new Guna.UI2.WinForms.Guna2CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.logoPictureBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Shapes1 = new Guna.UI2.WinForms.Guna2Shapes();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.guna2CheckBox2 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.staffPanel.SuspendLayout();
             this.managerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -213,6 +213,7 @@ namespace Vistainn
             this.staffForgotPasswordLabel.TabStop = true;
             this.staffForgotPasswordLabel.Text = "FORGOT PASSWORD";
             this.staffForgotPasswordLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.staffForgotPasswordLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.staffForgotPasswordLinkLabel_LinkClicked);
             // 
             // managerLinkLabel
             // 
@@ -259,6 +260,7 @@ namespace Vistainn
             this.managerForgotPasswordLinkLabel.TabStop = true;
             this.managerForgotPasswordLinkLabel.Text = "FORGOT PASSWORD";
             this.managerForgotPasswordLinkLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.managerForgotPasswordLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.managerForgotPasswordLinkLabel_LinkClicked);
             // 
             // manageLogInButton
             // 
@@ -385,7 +387,7 @@ namespace Vistainn
             this.staffPanel.BackColor = System.Drawing.Color.Transparent;
             this.staffPanel.BorderRadius = 30;
             this.staffPanel.BorderThickness = 3;
-            this.staffPanel.Controls.Add(this.guna2CheckBox1);
+            this.staffPanel.Controls.Add(this.viewCheckBox);
             this.staffPanel.Controls.Add(this.label10);
             this.staffPanel.Controls.Add(this.staffLogInButton);
             this.staffPanel.Controls.Add(this.label6);
@@ -402,6 +404,25 @@ namespace Vistainn
             this.staffPanel.Name = "staffPanel";
             this.staffPanel.Size = new System.Drawing.Size(327, 374);
             this.staffPanel.TabIndex = 21;
+            // 
+            // viewCheckBox
+            // 
+            this.viewCheckBox.AutoSize = true;
+            this.viewCheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.viewCheckBox.CheckedState.BorderRadius = 2;
+            this.viewCheckBox.CheckedState.BorderThickness = 0;
+            this.viewCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.viewCheckBox.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.viewCheckBox.Location = new System.Drawing.Point(214, 156);
+            this.viewCheckBox.Name = "viewCheckBox";
+            this.viewCheckBox.Size = new System.Drawing.Size(53, 20);
+            this.viewCheckBox.TabIndex = 21;
+            this.viewCheckBox.Text = "VIEW";
+            this.viewCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.viewCheckBox.UncheckedState.BorderRadius = 2;
+            this.viewCheckBox.UncheckedState.BorderThickness = 0;
+            this.viewCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.viewCheckBox.CheckedChanged += new System.EventHandler(this.viewCheckBox_CheckedChanged);
             // 
             // label10
             // 
@@ -421,7 +442,7 @@ namespace Vistainn
             this.managerPanel.BackColor = System.Drawing.Color.Transparent;
             this.managerPanel.BorderRadius = 30;
             this.managerPanel.BorderThickness = 3;
-            this.managerPanel.Controls.Add(this.guna2CheckBox2);
+            this.managerPanel.Controls.Add(this.viewCheckBoxManager);
             this.managerPanel.Controls.Add(this.label11);
             this.managerPanel.Controls.Add(this.manageLogInButton);
             this.managerPanel.Controls.Add(this.label7);
@@ -438,6 +459,25 @@ namespace Vistainn
             this.managerPanel.Name = "managerPanel";
             this.managerPanel.Size = new System.Drawing.Size(327, 374);
             this.managerPanel.TabIndex = 22;
+            // 
+            // viewCheckBoxManager
+            // 
+            this.viewCheckBoxManager.AutoSize = true;
+            this.viewCheckBoxManager.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.viewCheckBoxManager.CheckedState.BorderRadius = 2;
+            this.viewCheckBoxManager.CheckedState.BorderThickness = 0;
+            this.viewCheckBoxManager.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.viewCheckBoxManager.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.viewCheckBoxManager.Location = new System.Drawing.Point(214, 156);
+            this.viewCheckBoxManager.Name = "viewCheckBoxManager";
+            this.viewCheckBoxManager.Size = new System.Drawing.Size(53, 20);
+            this.viewCheckBoxManager.TabIndex = 22;
+            this.viewCheckBoxManager.Text = "VIEW";
+            this.viewCheckBoxManager.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.viewCheckBoxManager.UncheckedState.BorderRadius = 2;
+            this.viewCheckBoxManager.UncheckedState.BorderThickness = 0;
+            this.viewCheckBoxManager.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.viewCheckBoxManager.CheckedChanged += new System.EventHandler(this.viewCheckBoxManager_CheckedChanged);
             // 
             // label11
             // 
@@ -512,42 +552,6 @@ namespace Vistainn
             this.label1.Text = "VISTAINN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2CheckBox1
-            // 
-            this.guna2CheckBox1.AutoSize = true;
-            this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.guna2CheckBox1.CheckedState.BorderRadius = 2;
-            this.guna2CheckBox1.CheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.guna2CheckBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.guna2CheckBox1.Location = new System.Drawing.Point(214, 156);
-            this.guna2CheckBox1.Name = "guna2CheckBox1";
-            this.guna2CheckBox1.Size = new System.Drawing.Size(53, 20);
-            this.guna2CheckBox1.TabIndex = 21;
-            this.guna2CheckBox1.Text = "VIEW";
-            this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.UncheckedState.BorderRadius = 2;
-            this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            // 
-            // guna2CheckBox2
-            // 
-            this.guna2CheckBox2.AutoSize = true;
-            this.guna2CheckBox2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.guna2CheckBox2.CheckedState.BorderRadius = 2;
-            this.guna2CheckBox2.CheckedState.BorderThickness = 0;
-            this.guna2CheckBox2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.guna2CheckBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.guna2CheckBox2.Location = new System.Drawing.Point(214, 156);
-            this.guna2CheckBox2.Name = "guna2CheckBox2";
-            this.guna2CheckBox2.Size = new System.Drawing.Size(53, 20);
-            this.guna2CheckBox2.TabIndex = 22;
-            this.guna2CheckBox2.Text = "VIEW";
-            this.guna2CheckBox2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox2.UncheckedState.BorderRadius = 2;
-            this.guna2CheckBox2.UncheckedState.BorderThickness = 0;
-            this.guna2CheckBox2.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            // 
             // startPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,10 +625,10 @@ namespace Vistainn
         private Label label4;
         private Label label5;
         private LinkLabel managerLinkLabel;
-        private LinkLabel staffForgotPasswordLabel;
+        public LinkLabel staffForgotPasswordLabel;
         private Label label6;
         private Label label7;
-        private LinkLabel managerForgotPasswordLinkLabel;
+        public LinkLabel managerForgotPasswordLinkLabel;
         private Guna.UI2.WinForms.Guna2Button manageLogInButton;
         private Label label8;
         private LinkLabel staffLinkLabel;
@@ -639,8 +643,8 @@ namespace Vistainn
         private Guna.UI2.WinForms.Guna2Shapes guna2Shapes1;
         private Label label2;
         private Label label1;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox2;
+        private Guna.UI2.WinForms.Guna2CheckBox viewCheckBox;
+        private Guna.UI2.WinForms.Guna2CheckBox viewCheckBoxManager;
     }
 }
 

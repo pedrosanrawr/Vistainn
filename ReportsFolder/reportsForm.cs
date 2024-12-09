@@ -18,19 +18,19 @@ namespace Vistainn
         {
             InitializeComponent();
         }
-        
+
         // form - load
         private void reportsForm_Load(object sender, EventArgs e)
         {
-            reportTypeComboBox.Items.Add("Occupancy Report");
-            reportTypeComboBox.Items.Add("Revenue Report");
-            reportTypeComboBox.SelectedIndex = 0;
+            startDatePicker.Value = DateTime.Now.AddDays(-60);
+            endDatePicker.Value = DateTime.Now.AddDays(60);
+
+            GenerateOccupancyReport(startDatePicker.Value, endDatePicker.Value);
         }
 
-        // generate report button - clivk
+        // generate report button - click
         private void generateReportButton_Click(object sender, EventArgs e)
         {
- 
             if (reportTypeComboBox.SelectedItem == null)
             {
                 MessageBox.Show("Please select a report type.");
@@ -56,7 +56,7 @@ namespace Vistainn
             reportDetailsTextBox.Text = $"Occupancy Report from {startDate.ToShortDateString()} to {endDate.ToShortDateString()} generated.";
         }
 
-        // generate revebue report
+        // generate revenue report
         public void GenerateRevenueReport(DateTime startDate, DateTime endDate)
         {
             string query = "SELECT RoomNo, SUM(Amount) AS TotalRevenue " +
@@ -114,6 +114,5 @@ namespace Vistainn
             chart.Series.Clear();
             reportDetailsTextBox.Text = "Report cleared. Select a report type and date range to regenerate.";
         }
-
     }
 }

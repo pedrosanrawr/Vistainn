@@ -37,8 +37,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
-      <HintPath>packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+      <HintPath>packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="CheckComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Common.CheckComboBox.1.0.0\lib\CheckComboBox.dll</HintPath>
@@ -67,8 +70,14 @@
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="MailKit, Version=4.8.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>packages\MailKit.4.8.0\lib\net48\MailKit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit, Version=4.8.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>packages\MimeKit.4.8.0\lib\net48\MimeKit.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=9.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.9.1.0\lib\net48\MySql.Data.dll</HintPath>
@@ -91,6 +100,9 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Formats.Asn1.8.0.1\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -105,10 +117,14 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Xaml" />
@@ -164,17 +180,42 @@
     <Compile Include="BookFolder\editDialogBook.Designer.cs">
       <DependentUpon>editDialogBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagerDasboard.cs">
+    <Compile Include="LogInFolder\changePasswordDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagerDasboard.Designer.cs">
+    <Compile Include="LogInFolder\changePasswordDialog.Designer.cs">
+      <DependentUpon>changePasswordDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInFolder\PasswordHashing.cs" />
+    <Compile Include="ManagerrFolder\addStaffDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerrFolder\addStaffDialog.Designer.cs">
+      <DependentUpon>addStaffDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerrFolder\editStaffDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerrFolder\editStaffDialog.Designer.cs">
+      <DependentUpon>editStaffDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerrFolder\ManagerDasboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerrFolder\ManagerDasboard.Designer.cs">
       <DependentUpon>ManagerDasboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="managerProfile.cs">
+    <Compile Include="ManagerrFolder\managerProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="managerProfile.Designer.cs">
+    <Compile Include="ManagerrFolder\managerProfile.Designer.cs">
       <DependentUpon>managerProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInFolder\otpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInFolder\otpDialog.Designer.cs">
+      <DependentUpon>otpDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="PaymentFolder\editPaymentDialog.cs">
       <SubType>Form</SubType>
@@ -212,22 +253,22 @@
     <Compile Include="ReportsFolder\reportsForm.Designer.cs">
       <DependentUpon>reportsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffDashboard.cs">
+    <Compile Include="staffFolder\StaffDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffDashboard.Designer.cs">
+    <Compile Include="staffFolder\StaffDashboard.Designer.cs">
       <DependentUpon>StaffDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="staffProfile.cs">
+    <Compile Include="staffFolder\staffProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="staffProfile.Designer.cs">
+    <Compile Include="staffFolder\staffProfile.Designer.cs">
       <DependentUpon>staffProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="startPage.cs">
+    <Compile Include="LogInFolder\startPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="startPage.Designer.cs">
+    <Compile Include="LogInFolder\startPage.Designer.cs">
       <DependentUpon>startPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -250,11 +291,23 @@
     <EmbeddedResource Include="BookFolder\editDialogBook.resx">
       <DependentUpon>editDialogBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagerDasboard.resx">
+    <EmbeddedResource Include="LogInFolder\changePasswordDialog.resx">
+      <DependentUpon>changePasswordDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerrFolder\addStaffDialog.resx">
+      <DependentUpon>addStaffDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerrFolder\editStaffDialog.resx">
+      <DependentUpon>editStaffDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerrFolder\ManagerDasboard.resx">
       <DependentUpon>ManagerDasboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="managerProfile.resx">
+    <EmbeddedResource Include="ManagerrFolder\managerProfile.resx">
       <DependentUpon>managerProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInFolder\otpDialog.resx">
+      <DependentUpon>otpDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentFolder\editPaymentDialog.resx">
       <DependentUpon>editPaymentDialog.cs</DependentUpon>
@@ -274,13 +327,13 @@
     <EmbeddedResource Include="ReportsFolder\reportsForm.resx">
       <DependentUpon>reportsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffDashboard.resx">
+    <EmbeddedResource Include="staffFolder\StaffDashboard.resx">
       <DependentUpon>StaffDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="staffProfile.resx">
+    <EmbeddedResource Include="staffFolder\staffProfile.resx">
       <DependentUpon>staffProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="startPage.resx">
+    <EmbeddedResource Include="LogInFolder\startPage.resx">
       <DependentUpon>startPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

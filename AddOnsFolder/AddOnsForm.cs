@@ -25,7 +25,7 @@ namespace Vistainn
         private void AddOnsForm_Load(object sender, EventArgs e)
         {
             fillDGV();
-            filldvg2("");
+            filldvg2("", "");
         }
 
         //populate table
@@ -60,7 +60,8 @@ namespace Vistainn
             AddAoDialog dlg = new AddAoDialog();
             dlg.OnDataAdded += (s, args) =>
             {
-                filldvg2("");
+                filldvg2("", ""
+                    );
             };
             dlg.ShowDialog();
         }
@@ -95,20 +96,32 @@ namespace Vistainn
             fillDGV();
         }
 
-        public void filldvg2(string valueToSearch)
+        public void filldvg2(string valueToSearch, string filterType)
         {
             try
             {
                 valueToSearch = valueToSearch.Trim();
 
-                string query = "SELECT * FROM addons WHERE AoName LIKE @search OR AoPrice LIKE @search";
+                string query = "SELECT * FROM addons WHERE ";
+
+                if (filterType == "ID" && !string.IsNullOrEmpty(valueToSearch))
+                {
+                    query += "AoId LIKE @search";
+                }
+                else if (filterType == "Item Name" && !string.IsNullOrEmpty(valueToSearch))
+                {
+                    query += "AoName LIKE @search";
+                }
+                else
+                {
+                    query += "(AoId LIKE @search OR AoName LIKE @search)";
+                }
 
                 using (MySqlConnection conn = new MySqlConnection(database.connectionString))
                 {
                     conn.Open();
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
-
                     cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
 
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -126,6 +139,7 @@ namespace Vistainn
                 MessageBox.Show("An error occurred while loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         //delete button click
         private void deleteButton_Click(object sender, EventArgs e)
@@ -154,7 +168,7 @@ namespace Vistainn
                                 }
                             }
 
-                            filldvg2("");
+                            filldvg2("", "");
                         }
                     }
                     catch (Exception ex)
@@ -172,8 +186,11 @@ namespace Vistainn
         //search button click
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string valueToSearch = searchTextBox.Text.ToString(); 
-            filldvg2(valueToSearch); 
+            string valueToSearch = searchTextBox.Text.Trim(); 
+            string filterType = searchFilterComboBox.SelectedItem != null ? searchFilterComboBox.SelectedItem.ToString() : "";
+
+            filldvg2(valueToSearch, filterType);
         }
+
     }
 }

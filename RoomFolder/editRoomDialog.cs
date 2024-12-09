@@ -42,7 +42,7 @@ namespace Vistainn.RoomFolder
         private void updateButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(roomNoTextBox.Text) ||
-                string.IsNullOrWhiteSpace(roomTypeTextBox.Text) ||
+                string.IsNullOrWhiteSpace(roomTypeComboBox.Text) ||
                 string.IsNullOrWhiteSpace(rateTextBox.Text) ||
                 string.IsNullOrWhiteSpace(availabilityComboBox.Text))
             {
@@ -65,7 +65,7 @@ namespace Vistainn.RoomFolder
                         " WHERE RoomId=@RoomId", conn);
 
                     cmd.Parameters.Add("@RoomId", MySqlDbType.Int32).Value = roomIdTextBox.Text;
-                    cmd.Parameters.Add("@RoomType", MySqlDbType.VarChar).Value = roomTypeTextBox.Text;
+                    cmd.Parameters.Add("@RoomType", MySqlDbType.VarChar).Value = roomTypeComboBox.Text;
                     cmd.Parameters.Add("@RoomNo", MySqlDbType.VarChar).Value = roomNoTextBox.Text;
                     cmd.Parameters.Add("@Rate", MySqlDbType.Double).Value = rateTextBox.Text;
                     cmd.Parameters.Add("@Availability", MySqlDbType.VarChar).Value = availabilityComboBox.Text;

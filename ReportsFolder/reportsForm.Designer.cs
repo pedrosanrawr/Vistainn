@@ -41,12 +41,9 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.chart = new LiveCharts.WinForms.CartesianChart();
             this.reportDetailsTextBox = new System.Windows.Forms.Label();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.logOutButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // refreshButton
@@ -97,6 +94,7 @@
             // 
             // guna2Panel4
             // 
+            this.guna2Panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel4.BorderRadius = 30;
             this.guna2Panel4.BorderThickness = 3;
@@ -116,12 +114,13 @@
             this.reportTypeComboBox.ForeColor = System.Drawing.Color.Black;
             this.reportTypeComboBox.FormattingEnabled = true;
             this.reportTypeComboBox.Items.AddRange(new object[] {
-            "Revenue Report",
-            "Occupancy Report"});
+            "Occupancy Report",
+            "Revenue Report"});
             this.reportTypeComboBox.Location = new System.Drawing.Point(53, 64);
             this.reportTypeComboBox.Name = "reportTypeComboBox";
             this.reportTypeComboBox.Size = new System.Drawing.Size(137, 24);
             this.reportTypeComboBox.TabIndex = 0;
+            this.reportTypeComboBox.Text = "Occupancy Report";
             // 
             // reportTypeLabel
             // 
@@ -138,6 +137,7 @@
             // 
             // endDateLabel
             // 
+            this.endDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.endDateLabel.AutoSize = true;
             this.endDateLabel.BackColor = System.Drawing.Color.Transparent;
             this.endDateLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -151,6 +151,7 @@
             // 
             // startDateLabel
             // 
+            this.startDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.startDateLabel.AutoSize = true;
             this.startDateLabel.BackColor = System.Drawing.Color.Transparent;
             this.startDateLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,6 +165,7 @@
             // 
             // endDatePicker
             // 
+            this.endDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.endDatePicker.CalendarFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endDatePicker.Location = new System.Drawing.Point(469, 35);
             this.endDatePicker.Name = "endDatePicker";
@@ -172,6 +174,7 @@
             // 
             // startDatePicker
             // 
+            this.startDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.startDatePicker.CalendarFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startDatePicker.Location = new System.Drawing.Point(186, 38);
             this.startDatePicker.Name = "startDatePicker";
@@ -180,6 +183,7 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderRadius = 30;
             this.guna2Panel3.BorderThickness = 3;
@@ -194,6 +198,9 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 30;
             this.guna2Panel1.BorderThickness = 3;
@@ -207,6 +214,9 @@
             // 
             // chart
             // 
+            this.chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chart.Location = new System.Drawing.Point(43, 39);
             this.chart.Name = "chart";
             this.chart.Size = new System.Drawing.Size(681, 311);
@@ -215,6 +225,7 @@
             // 
             // reportDetailsTextBox
             // 
+            this.reportDetailsTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.reportDetailsTextBox.AutoSize = true;
             this.reportDetailsTextBox.BackColor = System.Drawing.Color.Transparent;
             this.reportDetailsTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,48 +236,12 @@
             this.reportDetailsTextBox.TabIndex = 24;
             this.reportDetailsTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderRadius = 30;
-            this.guna2Panel2.BorderThickness = 3;
-            this.guna2Panel2.Controls.Add(this.logOutButton);
-            this.guna2Panel2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel2.Location = new System.Drawing.Point(875, 427);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(250, 78);
-            this.guna2Panel2.TabIndex = 25;
-            // 
-            // logOutButton
-            // 
-            this.logOutButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.logOutButton.BackColor = System.Drawing.Color.Transparent;
-            this.logOutButton.BorderColor = System.Drawing.Color.Transparent;
-            this.logOutButton.BorderRadius = 18;
-            this.logOutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logOutButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.logOutButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.logOutButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.logOutButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.logOutButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
-            this.logOutButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.logOutButton.Location = new System.Drawing.Point(42, 19);
-            this.logOutButton.Name = "logOutButton";
-            this.logOutButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.logOutButton.Size = new System.Drawing.Size(154, 41);
-            this.logOutButton.TabIndex = 16;
-            this.logOutButton.Text = "LOG OUT";
-            // 
             // reportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(1095, 517);
-            this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.reportDetailsTextBox);
             this.Controls.Add(this.endDatePicker);
             this.Controls.Add(this.endDateLabel);
@@ -278,11 +253,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "reportsForm";
             this.Text = "reportsForm";
+            this.Load += new System.EventHandler(this.reportsForm_Load);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,7 +277,5 @@
         private LiveCharts.WinForms.CartesianChart chart;
         private System.Windows.Forms.Label reportDetailsTextBox;
         private Guna.UI2.WinForms.Guna2Button refreshButton;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Button logOutButton;
     }
 }

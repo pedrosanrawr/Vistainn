@@ -87,26 +87,44 @@ namespace Vistainn
         }
 
         // search data - method
-        public void searchData(string valueToSearch)
+        public void searchData(string valueToSearch, string filterType)
         {
             try
             {
-                string query = @" SELECT booking.BookingId, booking.FullName, payment.Amount, payment.PaymentMethod, payment.Status 
-                FROM booking LEFT JOIN payment ON booking.BookingId = payment.BookingId
-                WHERE CONCAT(booking.BookingId, booking.FullName, payment.Amount, payment.PaymentMethod, payment.Status) 
-                LIKE @search";
+                string query = @"SELECT booking.BookingId, booking.FullName, payment.Amount, payment.PaymentMethod, payment.Status
+                         FROM booking
+                         LEFT JOIN payment ON booking.BookingId = payment.BookingId
+                         WHERE ";
+
+                if (filterType == "ID")
+                {
+                    query += "booking.BookingId LIKE @search";
+                }
+                else if (filterType == "Customer's Name")
+                {
+                    query += "booking.FullName LIKE @search";
+                }
+                else if (filterType == "Status")
+                {
+                    query += "payment.Status LIKE @search";
+                }
+
+                else
+                {
+                    query += @"CONCAT(booking.BookingId, booking.FullName, payment.Amount, payment.PaymentMethod, payment.Status) 
+                       LIKE @search";
+                }
 
                 using (MySqlConnection con = new MySqlConnection(database.connectionString))
                 {
                     con.Open();
-
                     MySqlCommand cmd = new MySqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%"); 
+                    cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
-                    adapter.Fill(dt);  
-                    paymentTable.DataSource = dt;  
+                    adapter.Fill(dt);
+                    paymentTable.DataSource = dt;
                 }
             }
             catch (MySqlException sqlEx)
@@ -121,8 +139,11 @@ namespace Vistainn
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string valueToSearch = searchTextBox.Text.Trim();  
-            searchData(valueToSearch);  
+            string valueToSearch = searchTextBox.Text.Trim(); 
+            string filterType = searchFilterComboBox.SelectedItem != null ? searchFilterComboBox.SelectedItem.ToString() : ""; 
+
+            searchData(valueToSearch, filterType);
         }
+
     }
 }

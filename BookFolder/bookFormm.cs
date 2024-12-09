@@ -26,7 +26,7 @@ namespace Vistainn
         private void bookForm_Load(object sender, EventArgs e)
         {
             fillDGV();
-            filldvg2("");
+            filldvg2("", "");
         }
 
         //populate table
@@ -62,7 +62,7 @@ namespace Vistainn
             addDialogMBook.OnDataAdded += (s, args) =>
             {
                 fillDGV();
-                filldvg2("");
+                filldvg2("", "");
             };
             addDialogMBook.ShowDialog();
         }
@@ -121,18 +121,38 @@ namespace Vistainn
         }
 
         //search data - method
-        public void filldvg2(string valueToSearch)
+        public void filldvg2(string valueToSearch, string filterType)
         {
             try
             {
+                valueToSearch = valueToSearch.Trim();
+
+                string query = "";
+                MySqlCommand cmd;
+
+                if (filterType == "ID" && !string.IsNullOrEmpty(valueToSearch))
+                {
+                    query = "SELECT * FROM booking WHERE BookingId LIKE @search";
+                }
+                else if (filterType == "Customer's Name" && !string.IsNullOrEmpty(valueToSearch))
+                {
+                    query = "SELECT * FROM booking WHERE FullName LIKE @search";
+                }
+                else if (filterType == "Room Number" && !string.IsNullOrEmpty(valueToSearch))
+                {
+                    query = "SELECT * FROM booking WHERE RoomNo LIKE @search";
+                }
+                else
+                {
+                    query = "SELECT * FROM booking WHERE CONCAT(BookingId, FullName, PhoneNo, Email, RoomNo, " +
+                            "RoomType, Pax, CheckIn, CheckOut, AoName, AoPrice, AoQty, Status) LIKE @search";
+                }
+
                 using (MySqlConnection conn = new MySqlConnection(database.connectionString))
                 {
                     conn.Open();
 
-                    string query = "SELECT * FROM booking WHERE CONCAT(BookingId, FullName, PhoneNo, Email, RoomNo, " +
-                        "RoomType, Pax, CheckIn, CheckOut, AoName, AoPrice, AoQty, Status) LIKE @search";
-
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
 
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -154,8 +174,10 @@ namespace Vistainn
         //search button - click
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string valueToSearch = searchTextBox.Text.ToString();
-            filldvg2(valueToSearch);
+            string valueToSearch = searchTextBox.Text.ToString(); 
+            string filterType = searchFilterComboBox.SelectedItem != null ? searchFilterComboBox.SelectedItem.ToString() : ""; 
+
+            filldvg2(valueToSearch, filterType);
         }
 
         //delete button click
@@ -217,6 +239,5 @@ namespace Vistainn
                 MessageBox.Show("You must select at least one row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }
