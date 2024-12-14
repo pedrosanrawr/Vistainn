@@ -1,5 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Vistainn.Staff;
 
@@ -7,13 +7,14 @@ namespace Vistainn
 {
     public partial class startPage : Form
     {
-        private readonly Database database = new Database();
+        Database database = new MySqlDatabase();  
 
         public startPage()
         {
             InitializeComponent();
         }
 
+        //staff button - click
         private void staffButton_Click(object sender, EventArgs e)
         {
             UserAccount.SetAccount(staffEmailTextBox.Text, staffPasswordTextBox.Text);
@@ -30,7 +31,7 @@ namespace Vistainn
             }
         }
 
-        // Manager login - button click
+        //manager log in button - click
         private void manageLogInButton_Click(object sender, EventArgs e)
         {
             UserAccount.SetAccount(managerEmailTextBox.Text, managerPasswordTextBox.Text);
@@ -47,18 +48,20 @@ namespace Vistainn
             }
         }
 
+        //log in validation - method
         private bool ValidateLogin(string role)
         {
             string tableName = role == "staff" ? "staff" : "manager";
             string query = $"SELECT Password, Salt FROM {tableName} WHERE Email = @Email";
 
-            using (var con = new MySqlConnection(database.connectionString))
+            var parameters = new Dictionary<string, object>
             {
-                con.Open();
-                var command = new MySqlCommand(query, con);
-                command.Parameters.AddWithValue("@Email", UserAccount.Email);
+                { "@Email", UserAccount.Email }
+            };
 
-                using (var reader = command.ExecuteReader())
+            try
+            {
+                using (var reader = database.ExecuteReader(query, parameters))
                 {
                     if (reader.Read())
                     {
@@ -69,10 +72,15 @@ namespace Vistainn
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error validating login: {ex.Message}");
+            }
 
             return false;
         }
 
+        //staff forgot pass link label - click
         private void staffForgotPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string staffEmail = staffEmailTextBox.Text;
@@ -87,6 +95,7 @@ namespace Vistainn
             otp.ShowDialog();
         }
 
+        //manager forgot pass link label - click
         private void managerForgotPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string managerEmail = managerEmailTextBox.Text;
@@ -101,29 +110,34 @@ namespace Vistainn
             otp.ShowDialog();
         }
 
-        private void managerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //manager link label - click
+        private void managerLinkLabel_LinkClicked(object sender, EventArgs e)
         {
             managerPanel.Show();
             staffPanel.Hide();
         }
 
-        private void staffLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //staff link label - click
+        private void staffLinkLabel_LinkClicked(object sender, EventArgs e)
         {
             staffPanel.Show();
             managerPanel.Hide();
         }
 
+        //view check box staff - click
         private void viewCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             staffPasswordTextBox.PasswordChar = viewCheckBox.Checked ? '\0' : '•';
         }
 
+        //view check box manager - click
         private void viewCheckBoxManager_CheckedChanged(object sender, EventArgs e)
         {
             managerPasswordTextBox.PasswordChar = viewCheckBoxManager.Checked ? '\0' : '•';
         }
     }
 
+    //user account class
     public static class UserAccount
     {
         public static string Email { get; set; }

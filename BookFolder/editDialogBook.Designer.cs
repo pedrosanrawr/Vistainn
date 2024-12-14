@@ -109,7 +109,7 @@ namespace Vistainn.BookFolder
             this.guna2Panel3.Controls.Add(this.label4);
             this.guna2Panel3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(-1, -38);
+            this.guna2Panel3.Location = new System.Drawing.Point(0, -39);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(498, 144);
             this.guna2Panel3.TabIndex = 68;
@@ -313,6 +313,16 @@ namespace Vistainn.BookFolder
             this.roomTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.roomTypeComboBox.IntegralHeight = false;
             this.roomTypeComboBox.ItemHeight = 30;
+            this.roomTypeComboBox.Items.AddRange(new object[] {
+            "Single Room",
+            "Deluxe Room",
+            "Loft Room",
+            "Studio Room",
+            "Executive Room",
+            "Premium Room",
+            "Penthouse",
+            "Junior Suite",
+            "Grand Room"});
             this.roomTypeComboBox.Location = new System.Drawing.Point(294, 399);
             this.roomTypeComboBox.Name = "roomTypeComboBox";
             this.roomTypeComboBox.Size = new System.Drawing.Size(152, 36);
@@ -521,11 +531,21 @@ namespace Vistainn.BookFolder
             0,
             0,
             0});
+            this.paxNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.paxNumericUpDown.Name = "paxNumericUpDown";
             this.paxNumericUpDown.Size = new System.Drawing.Size(57, 29);
             this.paxNumericUpDown.TabIndex = 123;
             this.paxNumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.paxNumericUpDown.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.paxNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // aoQuantityTextBox
             // 

@@ -11,6 +11,7 @@ namespace Vistainn
         private string userEmail;
         private bool isManager;
 
+        //constructor
         public otpDialog(string email, bool isManager)
         {
             InitializeComponent();
@@ -18,15 +19,16 @@ namespace Vistainn
             this.isManager = isManager;
         }
 
+        //load otp form
         private void otpDialog_Load(object sender, EventArgs e)
         {
             otpTextLabel.Text = $"SEND A CODE TO {userEmail}";
             sendLinkLabel.Text = "SEND OTP";
         }
 
+        //send link label - click
         private void sendLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Generate and send OTP if it's not already generated or resend it if it has been
             generatedOtp = GenerateOtp();
             SendOtpToEmail(userEmail, generatedOtp);
 
@@ -34,12 +36,14 @@ namespace Vistainn
             sendLinkLabel.Text = "RESEND OTP";
         }
 
+        //generate otp - method
         private string GenerateOtp()
         {
             Random rand = new Random();
             return rand.Next(100000, 999999).ToString();
         }
 
+        //send otp to email - method
         private void SendOtpToEmail(string email, string otp)
         {
             try
@@ -59,6 +63,7 @@ namespace Vistainn
             }
         }
 
+        //submit button - click
         private void submitButton_Click(object sender, EventArgs e)
         {
             string otp = otpTextBox.Text;
@@ -82,6 +87,7 @@ namespace Vistainn
             }
         }
 
+        //verify otp - method
         private bool VerifyOtp(string enteredOtp)
         {
             return enteredOtp == generatedOtp;

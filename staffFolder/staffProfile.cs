@@ -1,25 +1,29 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Vistainn
 {
     public partial class staffProfile : Form
     {
-        Database database = new Database();
+        Database database = new MySqlDatabase();
+
         public staffProfile()
         {
             InitializeComponent();
         }
 
+        //load staff profile form
         private void staffProfile_Load(object sender, EventArgs e)
         {
             emailLabel.Text = UserAccount.Email;
-            oldPassTextBox.PasswordChar = '•';  
+            oldPassTextBox.PasswordChar = '•';
             newPassTextBox.PasswordChar = '•';
             rNewPassTextBox.PasswordChar = '•';
         }
 
+        //log out button - click
         private void logOutButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -32,22 +36,24 @@ namespace Vistainn
             }
         }
 
+        //view pass check box
         private void viewPasswordChange_CheckedChanged(object sender, EventArgs e)
         {
             if (viewPasswordChange.Checked)
             {
-                oldPassTextBox.PasswordChar = '\0';  
+                oldPassTextBox.PasswordChar = '\0';
                 newPassTextBox.PasswordChar = '\0';
                 rNewPassTextBox.PasswordChar = '\0';
             }
             else
             {
-                oldPassTextBox.PasswordChar = '•';  
+                oldPassTextBox.PasswordChar = '•';
                 newPassTextBox.PasswordChar = '•';
                 rNewPassTextBox.PasswordChar = '•';
             }
         }
 
+        //change button click
         private void changeButton_Click(object sender, EventArgs e)
         {
             string oldPassword = oldPassTextBox.Text;
@@ -91,60 +97,51 @@ namespace Vistainn
             }
         }
 
+        //verify old password - method
         private bool VerifyOldPassword(string oldPassword)
         {
             string query = "SELECT Password, Salt FROM staff WHERE Email = @Email";
-
-            using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+            var parameters = new Dictionary<string, object>
             {
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Email", UserAccount.Email);
+                { "@Email", UserAccount.Email }
+            };
 
-                    var reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        string storedHash = reader["Password"].ToString();
-                        string storedSalt = reader["Salt"].ToString();
+            var reader = database.ExecuteReader(query, parameters);
+            if (reader.Read())
+            {
+                string storedHash = reader["Password"].ToString();
+                string storedSalt = reader["Salt"].ToString();
 
-                        return PasswordHashing.VerifyPassword(oldPassword, storedHash, storedSalt);
-                    }
-                    else
-                    {
-                        return false; 
-                    }
-                }
+                return PasswordHashing.VerifyPassword(oldPassword, storedHash, storedSalt);
+            }
+            else
+            {
+                return false;
             }
         }
 
+        //update pass - method
         private bool UpdatePasswordInDatabase(string newPassword)
         {
             var (hashedPassword, salt) = PasswordHashing.HashPassword(newPassword);
 
             string query = "UPDATE staff SET Password = @Password, Salt = @Salt WHERE Email = @Email";
-
-            using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+            var parameters = new Dictionary<string, object>
             {
-                try
-                {
-                    conn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Email", UserAccount.Email);
-                        cmd.Parameters.AddWithValue("@Password", hashedPassword); 
-                        cmd.Parameters.AddWithValue("@Salt", salt); 
+                { "@Email", UserAccount.Email },
+                { "@Password", hashedPassword },
+                { "@Salt", salt }
+            };
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        return rowsAffected > 0;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error updating password: " + ex.Message);
-                    return false;
-                }
+            try
+            {
+                int rowsAffected = database.ExecuteNonQuery(query, parameters);
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating password: " + ex.Message);
+                return false;
             }
         }
     }

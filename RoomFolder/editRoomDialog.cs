@@ -16,7 +16,7 @@ namespace Vistainn.RoomFolder
     public partial class editRoomDialog : Form
     {
         roomForm roomForm = new roomForm();
-        Database database = new Database();
+        Database database = new MySqlDatabase(); 
         public event EventHandler OnDataUpdated;
 
         public editRoomDialog()
@@ -38,7 +38,7 @@ namespace Vistainn.RoomFolder
             }
         }
 
-        // update button - click
+        //update button - click
         private void updateButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(roomNoTextBox.Text) ||
@@ -52,36 +52,44 @@ namespace Vistainn.RoomFolder
 
             if (roomPhotoPictureBox.Image != null)
             {
-                using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                byte[] img = null;
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    conn.Open();
-                    MemoryStream ms = new MemoryStream();
                     roomPhotoPictureBox.Image.Save(ms, roomPhotoPictureBox.Image.RawFormat);
-                    byte[] img = ms.ToArray();
+                    img = ms.ToArray();
+                }
 
-                    MySqlCommand cmd = new MySqlCommand("UPDATE room SET RoomId=@roomId, RoomType=@RoomType, RoomNo=@RoomNo, " +
-                        "Rate=@Rate, Availability=@Availability, Picture=@Picture, Bathroom=@Bathroom, Bedroom=@Bedroom, " +
-                        "Kitchen=@Kitchen, Technology=@Technology, General=@General, RoomCapacity=@RoomCapacity" +
-                        " WHERE RoomId=@RoomId", conn);
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@RoomId", roomIdTextBox.Text },
+                    { "@RoomType", roomTypeComboBox.Text },
+                    { "@RoomNo", roomNoTextBox.Text },
+                    { "@Rate", rateTextBox.Text },
+                    { "@Availability", availabilityComboBox.Text },
+                    { "@Picture", img },
+                    { "@Bathroom", bathroomTextBox.Text },
+                    { "@Bedroom", bedroomTextBox.Text },
+                    { "@Kitchen", kitchenTextBox.Text },
+                    { "@Technology", technologyTextBox.Text },
+                    { "@General", generalTextBox.Text },
+                    { "@RoomCapacity", roomCapacityNumericUpDown.Text }
+                };
 
-                    cmd.Parameters.Add("@RoomId", MySqlDbType.Int32).Value = roomIdTextBox.Text;
-                    cmd.Parameters.Add("@RoomType", MySqlDbType.VarChar).Value = roomTypeComboBox.Text;
-                    cmd.Parameters.Add("@RoomNo", MySqlDbType.VarChar).Value = roomNoTextBox.Text;
-                    cmd.Parameters.Add("@Rate", MySqlDbType.Double).Value = rateTextBox.Text;
-                    cmd.Parameters.Add("@Availability", MySqlDbType.VarChar).Value = availabilityComboBox.Text;
-                    cmd.Parameters.Add("@Picture", MySqlDbType.Blob).Value = img;
-                    cmd.Parameters.Add("@Bathroom", MySqlDbType.VarChar).Value = bathroomTextBox.Text;
-                    cmd.Parameters.Add("@Bedroom", MySqlDbType.VarChar).Value = bedroomTextBox.Text;
-                    cmd.Parameters.Add("@Kitchen", MySqlDbType.VarChar).Value = kitchenTextBox.Text;
-                    cmd.Parameters.Add("@Technology", MySqlDbType.VarChar).Value = technologyTextBox.Text;
-                    cmd.Parameters.Add("@General", MySqlDbType.VarChar).Value = generalTextBox.Text;
-                    cmd.Parameters.Add("@RoomCapacity", MySqlDbType.VarChar).Value = roomCapacityNumericUpDown.Text;
+                string query = "UPDATE room SET RoomType=@RoomType, RoomNo=@RoomNo, Rate=@Rate, Availability=@Availability, " +
+                               "Picture=@Picture, Bathroom=@Bathroom, Bedroom=@Bedroom, Kitchen=@Kitchen, Technology=@Technology, " +
+                               "General=@General, RoomCapacity=@RoomCapacity WHERE RoomId=@RoomId";
 
-                    cmd.ExecuteNonQuery();
+                int rowsAffected = database.ExecuteNonQuery(query, parameters);
+
+                if (rowsAffected > 0)
+                {
                     OnDataUpdated?.Invoke(this, EventArgs.Empty);
-
                     MessageBox.Show("Room information has been updated successfully.");
-                    this.Close(); 
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update room information.");
                 }
             }
             else

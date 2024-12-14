@@ -14,7 +14,7 @@ namespace Vistainn
 {
     public partial class AddOnsForm : Form
     {
-        Database database = new Database();
+        Database database = new MySqlDatabase();
 
         public AddOnsForm()
         {
@@ -33,15 +33,15 @@ namespace Vistainn
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                using (IDbConnection conn = database.CreateConnection())
                 {
-                    conn.Open();
+                    database.OpenConnection(conn);
 
                     string query = "SELECT * FROM addons";
+                    IDbCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = query;
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                    MySqlDataAdapter adp = new MySqlDataAdapter((MySqlCommand)cmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
 
@@ -54,18 +54,18 @@ namespace Vistainn
             }
         }
 
-        //add button click
+        //add button - click
         private void addBookButton_Click(object sender, EventArgs e)
         {
             AddAoDialog dlg = new AddAoDialog();
             dlg.OnDataAdded += (s, args) =>
             {
-                filldvg2("", ""
-                    );
+                filldvg2("", "");
             };
             dlg.ShowDialog();
         }
 
+        //edit button - click
         private void editButton_Click(object sender, EventArgs e)
         {
             if (aoTable.SelectedRows.Count > 0)
@@ -90,12 +90,13 @@ namespace Vistainn
             }
         }
 
-        //refresh button click
+        //refresh button - click
         private void refreshButton_Click(object sender, EventArgs e)
         {
             fillDGV();
         }
 
+        //populate search dgv
         public void filldvg2(string valueToSearch, string filterType)
         {
             try
@@ -108,7 +109,7 @@ namespace Vistainn
                 {
                     query += "AoId LIKE @search";
                 }
-                else if (filterType == "Item Name" && !string.IsNullOrEmpty(valueToSearch))
+                else if (filterType == "ITEM NAME" && !string.IsNullOrEmpty(valueToSearch))
                 {
                     query += "AoName LIKE @search";
                 }
@@ -117,16 +118,21 @@ namespace Vistainn
                     query += "(AoId LIKE @search OR AoName LIKE @search)";
                 }
 
-                using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                using (IDbConnection conn = database.CreateConnection())
                 {
-                    conn.Open();
+                    database.OpenConnection(conn);
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
+                    IDbCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = query;
+                    IDbDataParameter param = cmd.CreateParameter();
+                    param.ParameterName = "@search";
+                    param.Value = "%" + valueToSearch + "%";
+                    cmd.Parameters.Add(param);
 
-                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                    MySqlDataAdapter adp = new MySqlDataAdapter((MySqlCommand)cmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
+
                     aoTable.DataSource = dt;
                 }
             }
@@ -140,8 +146,7 @@ namespace Vistainn
             }
         }
 
-
-        //delete button click
+        //delete button - click
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (aoTable.SelectedRows.Count > 0)
@@ -151,18 +156,22 @@ namespace Vistainn
                 {
                     try
                     {
-                        using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                        using (IDbConnection conn = database.CreateConnection())
                         {
-                            conn.Open();
+                            database.OpenConnection(conn);
+
                             foreach (DataGridViewRow row in aoTable.SelectedRows)
                             {
                                 if (!row.IsNewRow)
                                 {
                                     int AoId = Convert.ToInt32(row.Cells["AoId"].Value);
 
-                                    MySqlCommand cmd = new MySqlCommand("DELETE from addons" +
-                                        " WHERE AoId=@AoId", conn);
-                                    cmd.Parameters.Add("@AoId", MySqlDbType.Int32).Value = AoId;
+                                    IDbCommand cmd = conn.CreateCommand();
+                                    cmd.CommandText = "DELETE FROM addons WHERE AoId = @AoId";
+                                    IDbDataParameter param = cmd.CreateParameter();
+                                    param.ParameterName = "@AoId";
+                                    param.Value = AoId;
+                                    cmd.Parameters.Add(param);
 
                                     cmd.ExecuteNonQuery();
                                 }
@@ -183,14 +192,13 @@ namespace Vistainn
             }
         }
 
-        //search button click
+        //search button - click
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string valueToSearch = searchTextBox.Text.Trim(); 
+            string valueToSearch = searchTextBox.Text.Trim();
             string filterType = searchFilterComboBox.SelectedItem != null ? searchFilterComboBox.SelectedItem.ToString() : "";
 
             filldvg2(valueToSearch, filterType);
         }
-
     }
 }

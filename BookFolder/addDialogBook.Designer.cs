@@ -155,11 +155,21 @@
             0,
             0,
             0});
+            this.paxNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.paxNumericUpDown.Name = "paxNumericUpDown";
             this.paxNumericUpDown.Size = new System.Drawing.Size(57, 29);
             this.paxNumericUpDown.TabIndex = 158;
             this.paxNumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.paxNumericUpDown.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.paxNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label14
             // 
@@ -364,6 +374,16 @@
             this.roomTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.roomTypeComboBox.IntegralHeight = false;
             this.roomTypeComboBox.ItemHeight = 30;
+            this.roomTypeComboBox.Items.AddRange(new object[] {
+            "Single Room",
+            "Deluxe Room",
+            "Loft Room",
+            "Studio Room",
+            "Executive Room",
+            "Premium Room",
+            "Penthouse",
+            "Junior Suite",
+            "Grand Room"});
             this.roomTypeComboBox.Location = new System.Drawing.Point(294, 399);
             this.roomTypeComboBox.Name = "roomTypeComboBox";
             this.roomTypeComboBox.Size = new System.Drawing.Size(152, 36);
@@ -509,7 +529,7 @@
             this.label3.Text = "CUSTOMER NAME*";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // addDialogMBook
+            // addDialogBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -541,7 +561,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "addDialogMBook";
+            this.Name = "addDialogBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ADD BOOKINGS";
             this.guna2Panel3.ResumeLayout(false);

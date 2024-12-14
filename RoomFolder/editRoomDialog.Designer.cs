@@ -88,11 +88,21 @@
             0,
             0,
             0});
+            this.roomCapacityNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.roomCapacityNumericUpDown.Name = "roomCapacityNumericUpDown";
             this.roomCapacityNumericUpDown.Size = new System.Drawing.Size(97, 29);
             this.roomCapacityNumericUpDown.TabIndex = 186;
             this.roomCapacityNumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.roomCapacityNumericUpDown.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.roomCapacityNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label8
             // 

@@ -1,28 +1,23 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Guna.UI2.WinForms;
-using MySql.Data.MySqlClient;
 using Vistainn.BookFolder;
 
 namespace Vistainn
 {
     public partial class bookFormm : Form
     {
-        Database database = new Database();
+        Database database = new MySqlDatabase();
 
         public bookFormm()
         {
             InitializeComponent();
         }
 
-        //book form - load
+        //load book form
         private void bookForm_Load(object sender, EventArgs e)
         {
             fillDGV();
@@ -34,15 +29,15 @@ namespace Vistainn
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                using (IDbConnection conn = database.CreateConnection())
                 {
-                    conn.Open();
+                    database.OpenConnection(conn);
 
                     string query = "SELECT * FROM booking";
+                    IDbCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = query;
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                    MySqlDataAdapter adp = new MySqlDataAdapter((MySqlCommand)cmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
 
@@ -55,7 +50,7 @@ namespace Vistainn
             }
         }
 
-        //add button click
+        //add button - click
         private void addBookButton_Click(object sender, EventArgs e)
         {
             addDialogBook addDialogMBook = new addDialogBook();
@@ -67,7 +62,6 @@ namespace Vistainn
             addDialogMBook.ShowDialog();
         }
 
-
         //edit button - click
         private void editButton_Click(object sender, EventArgs e)
         {
@@ -75,19 +69,19 @@ namespace Vistainn
             {
                 editBookDialog editBookDialog = new editBookDialog();
 
-                string BookingId = bookTable.SelectedRows[0].Cells[0].Value + string.Empty;
-                string FullName = bookTable.SelectedRows[0].Cells[1].Value + string.Empty;
-                string PhoneNo = bookTable.SelectedRows[0].Cells[2].Value + string.Empty;
-                string Email = bookTable.SelectedRows[0].Cells[3].Value + string.Empty;
-                string RoomNo = bookTable.SelectedRows[0].Cells[4].Value + string.Empty;
-                string RoomType = bookTable.SelectedRows[0].Cells[5].Value + string.Empty;
-                string Pax = bookTable.SelectedRows[0].Cells[6].Value + string.Empty;
-                string CheckIn = bookTable.SelectedRows[0].Cells[7].Value + string.Empty;
-                string CheckOut = bookTable.SelectedRows[0].Cells[8].Value + string.Empty;
-                string AoName = bookTable.SelectedRows[0].Cells[9].Value + string.Empty;
-                string AoPrice = bookTable.SelectedRows[0].Cells[10].Value + string.Empty;
-                string AoQty = bookTable.SelectedRows[0].Cells[11].Value + string.Empty;
-                string Status = bookTable.SelectedRows[0].Cells[12].Value + string.Empty;
+                string BookingId = bookTable.SelectedRows[0].Cells[0].Value.ToString();
+                string FullName = bookTable.SelectedRows[0].Cells[1].Value.ToString();
+                string PhoneNo = bookTable.SelectedRows[0].Cells[2].Value.ToString();
+                string Email = bookTable.SelectedRows[0].Cells[3].Value.ToString();
+                string RoomNo = bookTable.SelectedRows[0].Cells[4].Value.ToString();
+                string RoomType = bookTable.SelectedRows[0].Cells[5].Value.ToString();
+                string Pax = bookTable.SelectedRows[0].Cells[6].Value.ToString();
+                string CheckIn = bookTable.SelectedRows[0].Cells[7].Value.ToString();
+                string CheckOut = bookTable.SelectedRows[0].Cells[8].Value.ToString();
+                string AoName = bookTable.SelectedRows[0].Cells[9].Value.ToString();
+                string AoPrice = bookTable.SelectedRows[0].Cells[10].Value.ToString();
+                string AoQty = bookTable.SelectedRows[0].Cells[11].Value.ToString();
+                string Status = bookTable.SelectedRows[0].Cells[12].Value.ToString();
 
                 editBookDialog.bookingIdTextBox.Text = BookingId;
                 editBookDialog.fullNameTextBox.Text = FullName;
@@ -113,57 +107,57 @@ namespace Vistainn
             }
         }
 
-
         //refresh button - click
         private void refreshButton_Click(object sender, EventArgs e)
         {
             fillDGV();
         }
 
-        //search data - method
+        //search table
         public void filldvg2(string valueToSearch, string filterType)
         {
             try
             {
                 valueToSearch = valueToSearch.Trim();
-
                 string query = "";
-                MySqlCommand cmd;
+                IDbCommand cmd;
 
-                if (filterType == "ID" && !string.IsNullOrEmpty(valueToSearch))
+                if (filterType == "ID")
                 {
                     query = "SELECT * FROM booking WHERE BookingId LIKE @search";
                 }
-                else if (filterType == "Customer's Name" && !string.IsNullOrEmpty(valueToSearch))
+                else if (filterType == "CUSTOMER'S NAME")
                 {
                     query = "SELECT * FROM booking WHERE FullName LIKE @search";
                 }
-                else if (filterType == "Room Number" && !string.IsNullOrEmpty(valueToSearch))
+                else if (filterType == "ROOM NUMBER")
                 {
                     query = "SELECT * FROM booking WHERE RoomNo LIKE @search";
                 }
                 else
                 {
-                    query = "SELECT * FROM booking WHERE CONCAT(BookingId, FullName, PhoneNo, Email, RoomNo, " +
-                            "RoomType, Pax, CheckIn, CheckOut, AoName, AoPrice, AoQty, Status) LIKE @search";
+                    query = "SELECT * FROM booking WHERE CONCAT(BookingId, FullName, PhoneNo, Email, RoomNo, RoomType, " +
+                            "Pax, CheckIn, CheckOut, AoName, AoPrice, AoQty, Status) LIKE @search";
                 }
 
-                using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                using (IDbConnection conn = database.CreateConnection())
                 {
-                    conn.Open();
+                    database.OpenConnection(conn);
 
-                    cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = query;
 
-                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                    IDbDataParameter searchParam = cmd.CreateParameter();
+                    searchParam.ParameterName = "@search";
+                    searchParam.Value = "%" + valueToSearch + "%";  
+                    cmd.Parameters.Add(searchParam);
+
+                    MySqlDataAdapter adp = new MySqlDataAdapter((MySqlCommand)cmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
+
                     bookTable.DataSource = dt;
                 }
-            }
-            catch (MySqlException sqlEx)
-            {
-                MessageBox.Show("Database error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -174,13 +168,13 @@ namespace Vistainn
         //search button - click
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string valueToSearch = searchTextBox.Text.ToString(); 
-            string filterType = searchFilterComboBox.SelectedItem != null ? searchFilterComboBox.SelectedItem.ToString() : ""; 
+            string valueToSearch = searchTextBox.Text.ToString();
+            string filterType = searchFilterComboBox.SelectedItem != null ? searchFilterComboBox.SelectedItem.ToString() : "";
 
             filldvg2(valueToSearch, filterType);
         }
 
-        //delete button click
+        //delete button - click
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (bookTable.SelectedRows.Count > 0)
@@ -192,9 +186,9 @@ namespace Vistainn
                 {
                     try
                     {
-                        using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                        using (IDbConnection conn = database.CreateConnection())
                         {
-                            conn.Open();
+                            database.OpenConnection(conn);
 
                             foreach (DataGridViewRow row in bookTable.SelectedRows)
                             {
@@ -203,13 +197,23 @@ namespace Vistainn
                                     string bookingId = row.Cells[0].Value.ToString();
 
                                     string deletePaymentQuery = "DELETE FROM payment WHERE BookingId = @bookingId";
-                                    MySqlCommand deletePaymentCmd = new MySqlCommand(deletePaymentQuery, conn);
-                                    deletePaymentCmd.Parameters.AddWithValue("@bookingId", bookingId);
+                                    IDbCommand deletePaymentCmd = conn.CreateCommand();
+                                    deletePaymentCmd.CommandText = deletePaymentQuery;
+
+                                    IDbDataParameter deletePaymentParam = deletePaymentCmd.CreateParameter();
+                                    deletePaymentParam.ParameterName = "@bookingId";
+                                    deletePaymentParam.Value = bookingId;
+                                    deletePaymentCmd.Parameters.Add(deletePaymentParam);
                                     deletePaymentCmd.ExecuteNonQuery();
 
                                     string deleteBookingQuery = "DELETE FROM booking WHERE BookingId = @bookingId";
-                                    MySqlCommand deleteBookingCmd = new MySqlCommand(deleteBookingQuery, conn);
-                                    deleteBookingCmd.Parameters.AddWithValue("@bookingId", bookingId);
+                                    IDbCommand deleteBookingCmd = conn.CreateCommand();
+                                    deleteBookingCmd.CommandText = deleteBookingQuery;
+
+                                    IDbDataParameter deleteBookingParam = deleteBookingCmd.CreateParameter();
+                                    deleteBookingParam.ParameterName = "@bookingId";
+                                    deleteBookingParam.Value = bookingId;
+                                    deleteBookingCmd.Parameters.Add(deleteBookingParam);
                                     deleteBookingCmd.ExecuteNonQuery();
                                 }
                             }
@@ -223,10 +227,6 @@ namespace Vistainn
 
                             MessageBox.Show("Selected bookings and payments deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                    }
-                    catch (MySqlException sqlEx)
-                    {
-                        MessageBox.Show("Database error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch (Exception ex)
                     {

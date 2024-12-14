@@ -16,72 +16,67 @@ namespace Vistainn
 {
     public partial class roomForm : Form
     {
-        Database database = new Database();
+        Database database = new MySqlDatabase(); 
 
         public roomForm()
         {
             InitializeComponent();
         }
 
-        //room form - load
+        //load room form
         private void roomForm_Load(object sender, EventArgs e)
         {
             fillDGV("", "");
         }
 
-        //populate data
+        //populate table
         public void fillDGV(string filter, string valueToSearch)
         {
-            using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+            string query = "SELECT * FROM room";
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+
+            if (!string.IsNullOrEmpty(filter))
             {
-                string query = "SELECT * FROM room";
-
-                // Modify the query based on the filter
-                if (!string.IsNullOrEmpty(filter))
+                if (filter == "ID")
                 {
-                    // Apply the filter based on specific fields
-                    if (filter == "ID")
-                    {
-                        query += " WHERE RoomId LIKE @search";
-                    }
-                    else if (filter == "ROOM TYPE")
-                    {
-                        query += " WHERE RoomType LIKE @search";
-                    }
-                    else if (filter == "ROOM NUMBER")
-                    {
-                        query += " WHERE RoomNo LIKE @search";
-                    }
-                    else if (filter == "AVAILABILITY")
-                    {
-                        query += " WHERE Availability LIKE @search";
-                    }
+                    query += " WHERE RoomId LIKE @search";
                 }
-                else
+                else if (filter == "ROOM TYPE")
                 {
-                    query += " WHERE RoomId LIKE @search OR RoomType LIKE @search OR RoomNo LIKE @search OR Availability LIKE @search";
+                    query += " WHERE RoomType LIKE @search";
                 }
-
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
-
-                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                roomTable.RowTemplate.Height = 60;
-                roomTable.AllowUserToAddRows = false;
-                roomTable.DataSource = dt;
-
-                DataGridViewImageColumn imgcol = new DataGridViewImageColumn
+                else if (filter == "ROOM NUMBER")
                 {
-                    ImageLayout = DataGridViewImageCellLayout.Stretch
-                };
-                imgcol = (DataGridViewImageColumn)roomTable.Columns[5];
+                    query += " WHERE RoomNo LIKE @search";
+                }
+                else if (filter == "AVAILABILITY")
+                {
+                    query += " WHERE Availability LIKE @search";
+                }
+                parameters.Add("@search", "%" + valueToSearch + "%");
             }
+            else
+            {
+                query += " WHERE RoomId LIKE @search OR RoomType LIKE @search OR RoomNo LIKE @search OR Availability LIKE @search";
+                parameters.Add("@search", "%" + valueToSearch + "%");
+            }
+
+            IDataReader reader = database.ExecuteReader(query, parameters);
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+
+            roomTable.RowTemplate.Height = 60;
+            roomTable.AllowUserToAddRows = false;
+            roomTable.DataSource = dt;
+
+            DataGridViewImageColumn imgcol = new DataGridViewImageColumn
+            {
+                ImageLayout = DataGridViewImageCellLayout.Stretch
+            };
+            imgcol = (DataGridViewImageColumn)roomTable.Columns[5];
         }
 
-        //add button - click
+        //add buttom - click
         private void addButton_Click(object sender, EventArgs e)
         {
             addRoomDialog addRoomDialog = new addRoomDialog();
@@ -112,7 +107,6 @@ namespace Vistainn
                 string Technology = roomTable.SelectedRows[0].Cells[9].Value + string.Empty;
                 string General = roomTable.SelectedRows[0].Cells[10].Value + string.Empty;
                 string RoomCapacity = roomTable.SelectedRows[0].Cells[11].Value + string.Empty;
-
 
                 editRoomDialog.roomIdTextBox.Text = RoomId;
                 editRoomDialog.roomTypeComboBox.Text = RoomType;
@@ -150,14 +144,11 @@ namespace Vistainn
         private void searchButton_Click(object sender, EventArgs e)
         {
             string filter = searchFilterComboBox.SelectedItem != null ? searchFilterComboBox.SelectedItem.ToString() : "";
-
             string searchValue = searchTextBox.Text.Trim();
-
             fillDGV(filter, searchValue);
         }
 
-
-        //delete button
+        //delete button - click
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (roomTable.SelectedRows.Count > 0)
@@ -167,23 +158,23 @@ namespace Vistainn
                 {
                     try
                     {
-                        using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                        List<int> roomIdsToDelete = new List<int>();
+                        foreach (DataGridViewRow row in roomTable.SelectedRows)
                         {
-                            conn.Open();
-                            foreach (DataGridViewRow row in roomTable.SelectedRows)
+                            if (!row.IsNewRow)
                             {
-                                if (!row.IsNewRow)
-                                {
-                                    int roomId = Convert.ToInt32(row.Cells["RoomId"].Value);
-
-                                    MySqlCommand cmd = new MySqlCommand("DELETE from room WHERE RoomId=@roomId", conn);
-                                    cmd.Parameters.Add("@roomId", MySqlDbType.Int32).Value = roomId;
-
-                                    cmd.ExecuteNonQuery();
-                                }
+                                roomIdsToDelete.Add(Convert.ToInt32(row.Cells["RoomId"].Value));
                             }
-                            fillDGV("", "");
                         }
+
+                        string query = "DELETE FROM room WHERE RoomId = @roomId";
+                        foreach (int roomId in roomIdsToDelete)
+                        {
+                            var parameters = new Dictionary<string, object> { { "@roomId", roomId } };
+                            database.ExecuteNonQuery(query, parameters);
+                        }
+
+                        fillDGV("", "");
                     }
                     catch (Exception ex)
                     {

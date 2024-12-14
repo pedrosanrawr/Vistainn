@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Vistainn
 {
     public partial class reportsForm : Form
     {
-        // database instance
-        Database database = new Database();
+        Database database = new MySqlDatabase(); 
 
         public reportsForm()
         {
             InitializeComponent();
         }
 
-        // form - load
+        //load reports form
         private void reportsForm_Load(object sender, EventArgs e)
         {
             startDatePicker.Value = DateTime.Now.AddDays(-60);
@@ -28,7 +25,7 @@ namespace Vistainn
             GenerateOccupancyReport(startDatePicker.Value, endDatePicker.Value);
         }
 
-        // generate report button - click
+        //generate report button - click
         private void generateReportButton_Click(object sender, EventArgs e)
         {
             if (reportTypeComboBox.SelectedItem == null)
@@ -47,7 +44,7 @@ namespace Vistainn
                 GenerateRevenueReport(startDate, endDate);
         }
 
-        // generate occupancy report
+        //generate occupancy report - click
         public void GenerateOccupancyReport(DateTime startDate, DateTime endDate)
         {
             string query = "SELECT RoomNo, COUNT(*) AS Bookings FROM booking WHERE CheckIn BETWEEN @StartDate AND @EndDate GROUP BY RoomNo";
@@ -56,7 +53,7 @@ namespace Vistainn
             reportDetailsTextBox.Text = $"Occupancy Report from {startDate.ToShortDateString()} to {endDate.ToShortDateString()} generated.";
         }
 
-        // generate revenue report
+        //generate revenue report - method
         public void GenerateRevenueReport(DateTime startDate, DateTime endDate)
         {
             string query = "SELECT RoomNo, SUM(Amount) AS TotalRevenue " +
@@ -67,22 +64,24 @@ namespace Vistainn
             reportDetailsTextBox.Text = $"Revenue Report from {startDate.ToShortDateString()} to {endDate.ToShortDateString()} generated.";
         }
 
-        // get data - method
+        //get data - method
         private DataTable GetData(string query, DateTime startDate, DateTime endDate)
         {
-            MySqlConnection con = new MySqlConnection(database.connectionString);
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@StartDate", startDate);
-            cmd.Parameters.AddWithValue("@EndDate", endDate);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            con.Close();
-            return dt;
+            var parameters = new Dictionary<string, object>
+            {
+                { "@StartDate", startDate },
+                { "@EndDate", endDate }
+            };
+
+            using (var reader = database.ExecuteReader(query, parameters))
+            {
+                DataTable dt = new DataTable();
+                dt.Load(reader); 
+                return dt;
+            }
         }
 
-        // populate chart - method
+        //populate chart - method
         public void PopulateChart(string seriesTitle, DataTable data)
         {
             chart.Series.Clear();
@@ -93,7 +92,7 @@ namespace Vistainn
             {
                 Title = seriesTitle,
                 Values = new ChartValues<double>(),
-                Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(198, 144, 36)) // Color
+                Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(198, 144, 36))
             };
 
             var labels = new List<string>();
@@ -108,7 +107,7 @@ namespace Vistainn
             chart.AxisY.Add(new Axis { Title = seriesTitle });
         }
 
-        // refresh button - click
+        //refresh button - click
         private void refreshButton_Click(object sender, EventArgs e)
         {
             chart.Series.Clear();

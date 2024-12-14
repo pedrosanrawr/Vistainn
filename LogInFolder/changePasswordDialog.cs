@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -8,16 +9,20 @@ namespace Vistainn
     {
         private string userEmail;
         private bool isManager;
+        Database database = new MySqlDatabase();
 
+        //constructor
         public changePasswordDialog(string email, bool isManager = true)
         {
             InitializeComponent();
             this.userEmail = email;
             this.isManager = isManager;
+
             newPasswordTextBox.PasswordChar = '•';
             confirmPasswordTextBox.PasswordChar = '•';
         }
 
+        //submit button - click
         private void submitButton_Click(object sender, EventArgs e)
         {
             string newPassword = newPasswordTextBox.Text;
@@ -48,6 +53,7 @@ namespace Vistainn
             this.Close();
         }
 
+        //update password - method
         private void UpdatePasswordInDatabase(string email, string hashedPassword, string salt, string table)
         {
             if (table != "staff" && table != "manager")
@@ -58,25 +64,24 @@ namespace Vistainn
 
             string query = $"UPDATE {table} SET Password = @Password, Salt = @Salt WHERE Email = @Email";
 
+            var parameters = new Dictionary<string, object>
+            {
+                { "@Email", email },
+                { "@Password", hashedPassword },
+                { "@Salt", salt }
+            };
+
             try
             {
-                using (MySqlConnection con = new MySqlConnection(new Database().connectionString))
-                {
-                    con.Open();
-                    var command = new MySqlCommand(query, con);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", hashedPassword);
-                    command.Parameters.AddWithValue("@Salt", salt);
+                int rowsAffected = database.ExecuteNonQuery(query, parameters);
 
-                    int rowsAffected = command.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Password successfully updated.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to update the password. Please check the email.");
-                    }
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Password successfully updated.");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update the password. Please check the email.");
                 }
             }
             catch (Exception ex)
@@ -85,11 +90,13 @@ namespace Vistainn
             }
         }
 
+        //cancel button - click
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //view checkbox - click
         private void viewCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             newPasswordTextBox.PasswordChar = viewCheckBox.Checked ? '\0' : '•';

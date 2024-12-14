@@ -1,20 +1,12 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using Vistainn;
 
 namespace Vistainn.AddOnsFolder
 {
     public partial class AddAoDialog : Form
     {
-        Database database = new Database();
+        Database database = new MySqlDatabase();
         public event EventHandler OnDataAdded;
 
         public AddAoDialog()
@@ -22,23 +14,20 @@ namespace Vistainn.AddOnsFolder
             InitializeComponent();
         }
 
-        //add button
+        //update button - click
         private void updateButton_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+            string query = "INSERT INTO addons (AoName, AoPrice) VALUES (@AoName, @AoPrice)";
+
+            int rowsAffected = database.ExecuteNonQuery(query);
+
+            if (rowsAffected > 0)
             {
-                conn.Open();
-
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO addons(AoName, AoPrice) VALUES (@AoName, @AoPrice)", conn);
-                cmd.Parameters.Add("@AoName", MySqlDbType.VarChar).Value = itemNameTextBox.Text;
-                cmd.Parameters.Add("@AoPrice", MySqlDbType.VarChar).Value = priceTextBox.Text;
-
-
-                cmd.ExecuteNonQuery();
-
-                OnDataAdded?.Invoke(this, EventArgs.Empty);
-
                 MessageBox.Show("New item has been added successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Failed to add new item.");
             }
         }
     }

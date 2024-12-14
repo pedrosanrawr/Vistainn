@@ -1,19 +1,13 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vistainn.AddOnsFolder
 {
     public partial class EditAoDialog : Form
     {
-        Database database = new Database();
+        Database database = new MySqlDatabase();
         public event Action OnDataUpdated;
 
         public EditAoDialog()
@@ -21,25 +15,46 @@ namespace Vistainn.AddOnsFolder
             InitializeComponent();
         }
 
-        //edit button
+        //edit button - click
         private void updateButton_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+            try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("UPDATE addons SET AoId=@AoId, AoName=@AoName, AoPrice=@AoPrice WHERE AoId=@AoId", conn);
+                using (IDbConnection conn = database.CreateConnection())
+                {
+                    database.OpenConnection(conn);
 
-                cmd.Parameters.Add("@AoId", MySqlDbType.Int32).Value = int.Parse(aoIdTextBox.Text);
-                cmd.Parameters.Add("@AoName", MySqlDbType.VarChar).Value = aoNameTextBox.Text;
-                cmd.Parameters.Add("@AoPrice", MySqlDbType.VarChar).Value = aoPriceTextBox.Text;
+                    string query = "UPDATE addons SET AoId = @AoId, AoName = @AoName, AoPrice = @AoPrice WHERE AoId = @AoId";
+                    IDbCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = query;
 
-                cmd.ExecuteNonQuery();
+                    var paramAoId = cmd.CreateParameter();
+                    paramAoId.ParameterName = "@AoId";
+                    paramAoId.Value = int.Parse(aoIdTextBox.Text);
+                    cmd.Parameters.Add(paramAoId);
+
+                    var paramAoName = cmd.CreateParameter();
+                    paramAoName.ParameterName = "@AoName";
+                    paramAoName.Value = aoNameTextBox.Text;
+                    cmd.Parameters.Add(paramAoName);
+
+                    var paramAoPrice = cmd.CreateParameter();
+                    paramAoPrice.ParameterName = "@AoPrice";
+                    paramAoPrice.Value = aoPriceTextBox.Text;
+                    cmd.Parameters.Add(paramAoPrice);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                OnDataUpdated?.Invoke();
+
+                MessageBox.Show("The item has updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-
-            OnDataUpdated?.Invoke();
-
-            MessageBox.Show("The item has updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating item: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -1,12 +1,14 @@
 ﻿using MySql.Data.MySqlClient;
-using System.Windows.Forms;
 using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Vistainn.PaymentFolder
 {
     public partial class editPaymentDialog : Form
     {
-        public event Action dataUpdated;
+        public event Action DataUpdated;
+        Database database = new MySqlDatabase();
 
         public editPaymentDialog()
         {
@@ -18,34 +20,31 @@ namespace Vistainn.PaymentFolder
         {
             try
             {
-                Database database = new Database();
                 string query = "UPDATE payment " +
                                "SET BookingId = @BookingId, FullName = @FullName, Amount = @Amount, PaymentMethod = @PaymentMethod, Status = @Status " +
                                "WHERE BookingId = @BookingId";
 
-                using (MySqlConnection con = new MySqlConnection(database.connectionString))
+                var parameters = new Dictionary<string, object>
                 {
-                    con.Open();
-                    MySqlCommand cmd = new MySqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@BookingId", this.bookingIdTextBox.Text);
-                    cmd.Parameters.AddWithValue("@FullName", this.FullNameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@Amount", this.AmountTextBox.Text);
-                    cmd.Parameters.AddWithValue("@PaymentMethod", this.paymentMethodComboBox.Text);
-                    cmd.Parameters.AddWithValue("@Status", this.StatusComboBox.Text);
+                    { "@BookingId", this.bookingIdTextBox.Text },
+                    { "@FullName", this.FullNameTextBox.Text },
+                    { "@Amount", this.AmountTextBox.Text },
+                    { "@PaymentMethod", this.paymentMethodComboBox.Text },
+                    { "@Status", this.StatusComboBox.Text }
+                };
 
-                    cmd.ExecuteNonQuery();
-                }
-
-                dataUpdated?.Invoke();
+                database.ExecuteNonQuery(query, parameters);
+                DataUpdated?.Invoke();
 
                 this.Close();
-
-                MessageBox.Show("Payment Record Has Been Updated");
+                MessageBox.Show("Payment record has been updated.");
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show("Error updating payment: " + ex.Message);
             }
         }
+
     }
 }

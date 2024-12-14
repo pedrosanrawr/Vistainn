@@ -1,68 +1,54 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Vistainn.RoomFolder;
 
 namespace Vistainn.BookFolder
 {
     public partial class addDialogBook : Form
     {
-        Database database = new Database();
+        private Database database = new MySqlDatabase();
         public event EventHandler OnDataAdded;
 
         public addDialogBook()
         {
             InitializeComponent();
-            LoadRoomTypeCB();
         }
 
-        //room no combo box
+        //load room no combo box - method
         private void LoadRoomNoCB(string selectedRoomType)
         {
             string query = "SELECT RoomNo FROM room WHERE RoomType = @RoomType";
-            MySqlConnection con = new MySqlConnection(database.connectionString);
-            con.Open();
-            MySqlCommand command = new MySqlCommand(query, con);
-            command.Parameters.AddWithValue("@RoomType", selectedRoomType);
-            MySqlDataReader reader = command.ExecuteReader();
-            List<string> roomNo = new List<string>();
-            while (reader.Read())
+            try
             {
-                roomNo.Add(reader["RoomNo"].ToString());
+                using (IDbConnection con = database.CreateConnection())
+                {
+                    database.OpenConnection(con);
+                    IDbCommand command = con.CreateCommand();
+                    command.CommandText = query;
+                    AddParameter(command, "@RoomType", selectedRoomType);
+
+                    List<string> roomNo = new List<string>();
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            roomNo.Add(reader["RoomNo"].ToString());
+                        }
+                    }
+
+                    roomNoComboBox.Items.Clear();
+                    roomNoComboBox.Items.AddRange(roomNo.ToArray());
+                }
             }
-            roomNoComboBox.Items.Clear();
-            roomNoComboBox.Items.AddRange(roomNo.ToArray());
-            con.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading room numbers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        //room type combo box
-        private void LoadRoomTypeCB()
-        {
-            string query = "SELECT RoomType from room GROUP BY RoomType";
-            MySqlConnection con = new MySqlConnection(database.connectionString);
-            con.Open();
-            MySqlCommand command = new MySqlCommand(query, con);
-            MySqlDataReader reader = command.ExecuteReader();
-            List<string> roomType = new List<string>();
-            while (reader.Read())
-            {
-                roomType.Add(reader["RoomType"].ToString());
-            }
-            roomTypeComboBox.Items.Clear();
-            roomTypeComboBox.Items.AddRange(roomType.ToArray());
-            con.Close();
-        }
-
-
-        //room type combo box - event
+        //selected room type change - method
         private void roomTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedRoomType = roomTypeComboBox.SelectedItem.ToString();
@@ -73,11 +59,11 @@ namespace Vistainn.BookFolder
         private void addButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(fullNameTextBox.Text) ||
-              string.IsNullOrWhiteSpace(phoneNoTextBox.Text) ||
-              string.IsNullOrWhiteSpace(emailTextBox.Text) ||
-              string.IsNullOrWhiteSpace(roomNoComboBox.Text) ||
-              string.IsNullOrWhiteSpace(roomTypeComboBox.Text) ||
-              string.IsNullOrWhiteSpace(paxNumericUpDown.Text))
+                string.IsNullOrWhiteSpace(phoneNoTextBox.Text) ||
+                string.IsNullOrWhiteSpace(emailTextBox.Text) ||
+                string.IsNullOrWhiteSpace(roomNoComboBox.Text) ||
+                string.IsNullOrWhiteSpace(roomTypeComboBox.Text) ||
+                string.IsNullOrWhiteSpace(paxNumericUpDown.Text))
             {
                 MessageBox.Show("Please fill all the important fields before inserting.");
                 return;
@@ -95,35 +81,72 @@ namespace Vistainn.BookFolder
                 {
                     conn.Open();
 
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO `booking`(`FullName`, `PhoneNo`, `Email`, `RoomNo`, `RoomType`, `Pax`,`CheckIn`, `CheckOut`, `AoName`, `AoPrice`, `AoQty`, `Status`) " +
-                                                        "VALUES (@FullName, @PhoneNo, @Email, @RoomNo , @RoomType, @Pax ,@CheckIn, @CheckOut, @AoName, @AoPrice, @AoQty, @Status)", conn);
+                    using (var transaction = conn.BeginTransaction())
+                    {
+                        MySqlCommand cmdBooking = new MySqlCommand(
+                            "INSERT INTO `booking`(`FullName`, `PhoneNo`, `Email`, `RoomNo`, `RoomType`, `Pax`, `CheckIn`, `CheckOut`, `AoName`, `AoPrice`, `AoQty`, `Status`) " +
+                            "VALUES (@FullName, @PhoneNo, @Email, @RoomNo, @RoomType, @Pax, @CheckIn, @CheckOut, @AoName, @AoPrice, @AoQty, @Status)", conn, transaction);
 
-                    cmd.Parameters.Add("@FullName", MySqlDbType.VarChar).Value = fullNameTextBox.Text;
-                    cmd.Parameters.Add("@PhoneNo", MySqlDbType.VarChar).Value = phoneNoTextBox.Text;
-                    cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = emailTextBox.Text;
-                    cmd.Parameters.Add("@RoomNo", MySqlDbType.VarChar).Value = roomNoComboBox.Text;
-                    cmd.Parameters.Add("@RoomType", MySqlDbType.VarChar).Value = roomTypeComboBox.Text;
-                    cmd.Parameters.Add("@Pax", MySqlDbType.VarChar).Value = paxNumericUpDown.Text;
-                    cmd.Parameters.Add("@CheckIn", MySqlDbType.Date).Value = checkInDateTimePicker.Value;
-                    cmd.Parameters.Add("@CheckOut", MySqlDbType.Date).Value = checkOutDateTimePicker.Value;
-                    cmd.Parameters.Add("@AoName", MySqlDbType.VarChar).Value = aoNameTextBox.Text;
-                    cmd.Parameters.Add("@AoPrice", MySqlDbType.VarChar).Value = aoPriceTextBox.Text;
-                    cmd.Parameters.Add("@AoQty", MySqlDbType.VarChar).Value = aoQuantityTextBox.Text;
-                    cmd.Parameters.Add("@Status", MySqlDbType.VarChar).Value = statusComboBox.Text;
+                        AddParameter(cmdBooking);
 
+                        cmdBooking.ExecuteNonQuery();
+                        int bookingId = Convert.ToInt32(cmdBooking.LastInsertedId);
 
-                    cmd.ExecuteNonQuery();
+                        MySqlCommand cmdPayment = new MySqlCommand(
+                            "INSERT INTO `payment`(`BookingId`, `FullName`, `Amount`, `PaymentMethod`, `Status`) " +
+                            "VALUES (@BookingId, @FullName, @Amount, @PaymentMethod, @Status)", conn, transaction);
 
+                        AddParameter(cmdPayment, bookingId);
 
-                    OnDataAdded?.Invoke(this, EventArgs.Empty);
+                        cmdPayment.ExecuteNonQuery();
 
-                    MessageBox.Show("Book information has been added successfully.");
+                        transaction.Commit();
+
+                        OnDataAdded?.Invoke(this, EventArgs.Empty);
+                        MessageBox.Show("Booking and payment information has been added successfully.");
+                    }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        //booking parameter
+        private void AddParameter(MySqlCommand cmd)
+        {
+            cmd.Parameters.AddWithValue("@FullName", fullNameTextBox.Text);
+            cmd.Parameters.AddWithValue("@PhoneNo", phoneNoTextBox.Text);
+            cmd.Parameters.AddWithValue("@Email", emailTextBox.Text);
+            cmd.Parameters.AddWithValue("@RoomNo", roomNoComboBox.Text);
+            cmd.Parameters.AddWithValue("@RoomType", roomTypeComboBox.Text);
+            cmd.Parameters.AddWithValue("@Pax", paxNumericUpDown.Value);
+            cmd.Parameters.AddWithValue("@CheckIn", checkInDateTimePicker.Value);
+            cmd.Parameters.AddWithValue("@CheckOut", checkOutDateTimePicker.Value);
+            cmd.Parameters.AddWithValue("@AoName", aoNameTextBox.Text);
+            cmd.Parameters.AddWithValue("@AoPrice", decimal.TryParse(aoPriceTextBox.Text, out var aoPrice) ? aoPrice : 0);
+            cmd.Parameters.AddWithValue("@AoQty", int.TryParse(aoQuantityTextBox.Text, out var aoQty) ? aoQty : 0);
+            cmd.Parameters.AddWithValue("@Status", statusComboBox.Text);
+        }
+
+        //payment parameter
+        private void AddParameter(MySqlCommand cmd, int bookingId)
+        {
+            cmd.Parameters.AddWithValue("@BookingId", bookingId);
+            cmd.Parameters.AddWithValue("@FullName", fullNameTextBox.Text);
+            cmd.Parameters.AddWithValue("@Amount", DBNull.Value); 
+            cmd.Parameters.AddWithValue("@PaymentMethod", DBNull.Value);
+            cmd.Parameters.AddWithValue("@Status", "Pending"); 
+        }
+
+        //load room no parameter
+        private void AddParameter(IDbCommand cmd, string parameterName, object value)
+        {
+            IDbDataParameter param = cmd.CreateParameter();
+            param.ParameterName = parameterName;
+            param.Value = value ?? DBNull.Value;
+            cmd.Parameters.Add(param);
         }
     }
 }

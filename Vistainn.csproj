@@ -180,6 +180,7 @@
     <Compile Include="BookFolder\editDialogBook.Designer.cs">
       <DependentUpon>editDialogBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database.cs" />
     <Compile Include="LogInFolder\changePasswordDialog.cs">
       <SubType>Form</SubType>
     </Compile>

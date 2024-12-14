@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -7,65 +8,60 @@ namespace Vistainn
 {
     public partial class managerProfile : Form
     {
-        Database database = new Database();
+        Database database = new MySqlDatabase();
 
         public managerProfile()
         {
             InitializeComponent();
         }
 
+        //load manager profile
         private void managerProfile_Load(object sender, EventArgs e)
         {
             emailLabel.Text = UserAccount.Email;
-            fillDGV("");
-
+            FillDGV("");
             oldPassTextBox.PasswordChar = '•';
             newPassTextBox.PasswordChar = '•';
             rNewPasswordTextBox.PasswordChar = '•';
         }
 
-
-        // populate - method
-        public void fillDGV(string valueToSearch)
+        //populate table - method
+        public void FillDGV(string valueToSearch)
         {
             string query = "SELECT * FROM staff WHERE StaffId LIKE @search OR StaffName LIKE @search OR Email LIKE @search";
-            using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+            var parameters = new Dictionary<string, object>
             {
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@search", "%" + valueToSearch + "%");
+                { "@search", "%" + valueToSearch + "%" }
+            };
 
-                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    try
-                    {
-                        adp.Fill(dt);
-                        staffTable.DataSource = dt;
+            try
+            {
+                var reader = database.ExecuteReader(query, parameters);
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                staffTable.DataSource = dt;
 
-                        // Hide Password and Salt columns
-                        staffTable.Columns["Password"].Visible = false;
-                        staffTable.Columns["Salt"].Visible = false;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error while fetching data: " + ex.Message);
-                    }
-                }
+                staffTable.Columns["Password"].Visible = false;
+                staffTable.Columns["Salt"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error while fetching data: " + ex.Message);
             }
         }
 
-        // add staff - button click
+        //add staff button - click
         private void addButton_Click(object sender, EventArgs e)
         {
-            addStaffDialog addStaffDialog = new addStaffDialog();
+            addStaffDialog addStaffDialog = new addStaffDialog(database);
             addStaffDialog.OnDataAdded += (s, args) =>
             {
-                fillDGV("");
+                FillDGV("");
             };
             addStaffDialog.ShowDialog();
         }
 
-        // edit staff - button click
+        //edit staff button - click
         private void editButton_Click(object sender, EventArgs e)
         {
             if (staffTable.SelectedRows.Count > 0)
@@ -75,7 +71,6 @@ namespace Vistainn
                 string name = selectedRow.Cells[1].Value.ToString();
                 string email = selectedRow.Cells[2].Value.ToString();
 
-                // open edit staff then populate
                 editStaffDialog editStaffDialog = new editStaffDialog
                 {
                     staffIdTextBox = { Text = staffId },
@@ -85,7 +80,7 @@ namespace Vistainn
 
                 editStaffDialog.OnDataUpdated += (s, args) =>
                 {
-                    fillDGV("");
+                    FillDGV("");
                 };
 
                 editStaffDialog.ShowDialog();
@@ -96,19 +91,19 @@ namespace Vistainn
             }
         }
 
-        // refresh - button click
+        //refresh button - click
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            fillDGV("");
+            FillDGV("");
         }
 
-        // seach - button click
+        //search button - click
         private void searchButton_Click(object sender, EventArgs e)
         {
-            fillDGV(searchTextBox.Text);
+            FillDGV(searchTextBox.Text);
         }
 
-        // delete - button click
+        //delete button - click
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (staffTable.SelectedRows.Count > 0)
@@ -118,21 +113,21 @@ namespace Vistainn
                 {
                     try
                     {
-                        using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+                        foreach (DataGridViewRow row in staffTable.SelectedRows)
                         {
-                            conn.Open();
-                            foreach (DataGridViewRow row in staffTable.SelectedRows)
+                            if (!row.IsNewRow)
                             {
-                                if (!row.IsNewRow)
+                                int staffId = Convert.ToInt32(row.Cells["StaffId"].Value);
+                                string query = "DELETE FROM staff WHERE StaffId = @StaffId";
+                                var parameters = new Dictionary<string, object>
                                 {
-                                    int staffId = Convert.ToInt32(row.Cells["StaffId"].Value);
-                                    MySqlCommand cmd = new MySqlCommand("DELETE FROM staff WHERE StaffId = @StaffId", conn);
-                                    cmd.Parameters.Add("@StaffId", MySqlDbType.Int32).Value = staffId;
-                                    cmd.ExecuteNonQuery();
-                                }
+                                    { "@StaffId", staffId }
+                                };
+
+                                database.ExecuteNonQuery(query, parameters);
                             }
-                            fillDGV("");
                         }
+                        FillDGV("");
                     }
                     catch (Exception ex)
                     {
@@ -146,7 +141,7 @@ namespace Vistainn
             }
         }
 
-        // log out - button click
+        //log out button - click
         private void logOutButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -159,6 +154,7 @@ namespace Vistainn
             }
         }
 
+        //view password checkbox - click
         private void viewPasswordChange_CheckedChanged(object sender, EventArgs e)
         {
             if (viewPasswordChange.Checked)
@@ -175,13 +171,13 @@ namespace Vistainn
             }
         }
 
+        //update button - click
         private void updateButton_Click(object sender, EventArgs e)
         {
             string oldPassword = oldPassTextBox.Text;
             string newPassword = newPassTextBox.Text;
             string confirmPassword = rNewPasswordTextBox.Text;
 
-            // Validate the inputs
             if (string.IsNullOrWhiteSpace(oldPassword) || string.IsNullOrWhiteSpace(newPassword) || string.IsNullOrWhiteSpace(confirmPassword))
             {
                 MessageBox.Show("All fields are required.");
@@ -221,58 +217,49 @@ namespace Vistainn
             }
         }
 
+        //verify old password - click
         private bool VerifyOldPassword(string oldPassword)
         {
             string query = "SELECT Password, Salt FROM manager WHERE Email = @Email";
-
-            using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+            var parameters = new Dictionary<string, object>
             {
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                { "@Email", UserAccount.Email }
+            };
+
+            using (var reader = database.ExecuteReader(query, parameters))
+            {
+                if (reader.Read())
                 {
-                    cmd.Parameters.AddWithValue("@Email", UserAccount.Email);
+                    string storedHash = reader["Password"].ToString();
+                    string storedSalt = reader["Salt"].ToString();
 
-                    var reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        string storedHash = reader["Password"].ToString();
-                        string storedSalt = reader["Salt"].ToString();
-
-                        // Verify the entered password with the stored hash and salt
-                        return PasswordHashing.VerifyPassword(oldPassword, storedHash, storedSalt);
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return PasswordHashing.VerifyPassword(oldPassword, storedHash, storedSalt);
                 }
             }
+
+            return false;
         }
 
+        //update pass - method
         private bool UpdatePasswordInDatabase(string hashedPassword, string salt)
         {
             string query = "UPDATE manager SET Password = @Password, Salt = @Salt WHERE Email = @Email";
-
-            using (MySqlConnection conn = new MySqlConnection(database.connectionString))
+            var parameters = new Dictionary<string, object>
             {
-                try
-                {
-                    conn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Email", UserAccount.Email);
-                        cmd.Parameters.AddWithValue("@Password", hashedPassword);
-                        cmd.Parameters.AddWithValue("@Salt", salt);
+                { "@Email", UserAccount.Email },
+                { "@Password", hashedPassword },
+                { "@Salt", salt }
+            };
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        return rowsAffected > 0;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error updating password: " + ex.Message);
-                    return false;
-                }
+            try
+            {
+                int rowsAffected = database.ExecuteNonQuery(query, parameters);
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating password: " + ex.Message);
+                return false;
             }
         }
     }
