@@ -4,12 +4,23 @@ using System.Windows.Forms;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.Drawing.Printing;
+using System.Drawing;
+using System.IO;
+using System.Xml.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using LiveCharts.WinForms;
+using LiveCharts.Definitions.Charts;
+
+
 
 namespace Vistainn
 {
     public partial class reportsForm : Form
     {
-        Database database = new MySqlDatabase(); 
+        Database database = new MySqlDatabase();
 
         public reportsForm()
         {
@@ -76,7 +87,7 @@ namespace Vistainn
             using (var reader = database.ExecuteReader(query, parameters))
             {
                 DataTable dt = new DataTable();
-                dt.Load(reader); 
+                dt.Load(reader);
                 return dt;
             }
         }
@@ -112,6 +123,55 @@ namespace Vistainn
         {
             chart.Series.Clear();
             reportDetailsTextBox.Text = "Report cleared. Select a report type and date range to regenerate.";
+        }
+
+        //pdf link label - click
+        private void pdfLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (chart.Series.Count > 0)
+            {
+                ExportChartToPdf(chart, "chart_output.pdf", "Revenue Report", "This chart shows revenue trends over the selected period.", startDatePicker.Value, endDatePicker.Value);
+            }
+            else
+            {
+                MessageBox.Show("No data available to export.");
+            }
+        }
+
+        //export to pdf - method
+        public void ExportChartToPdf(LiveCharts.WinForms.CartesianChart cartesianChart, string fileName, string reportType, string reportSummary, DateTime startDate, DateTime endDate)
+        {
+            string downloadsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\";
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string pdfFilePath = Path.Combine(downloadsFolderPath, $"{fileName}_{timestamp}.pdf");
+
+            using (FileStream fs = new FileStream(pdfFilePath, FileMode.Create))
+            {
+                Document document = new Document(PageSize.A4, 36, 36, 72, 72);
+                PdfWriter.GetInstance(document, fs);
+
+                document.Open();
+
+                Paragraph reportDetails = new Paragraph($"Report Type: {reportType}\nReport Date: {DateTime.Now:yyyy-MM-dd}\nDate Range: {startDate.ToShortDateString()} - {endDate.ToShortDateString()}\n\n", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14));
+                document.Add(reportDetails);
+
+                Bitmap bitmap = new Bitmap(cartesianChart.Width, cartesianChart.Height);
+                cartesianChart.DrawToBitmap(bitmap, new System.Drawing.Rectangle(0, 0, cartesianChart.Width, cartesianChart.Height));
+                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(bitmap, ImageFormat.Png);
+
+                img.ScaleToFit(document.PageSize.Width - 72, document.PageSize.Height - 72);
+                img.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
+
+                document.Add(img);
+
+                Paragraph summary = new Paragraph(reportSummary, FontFactory.GetFont(FontFactory.HELVETICA, 12));
+                summary.SpacingBefore = 20;
+                document.Add(summary);
+
+                document.Close();
+            }
+
+            MessageBox.Show($"Chart exported to PDF successfully at {pdfFilePath}");
         }
     }
 }

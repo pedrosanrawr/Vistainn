@@ -41,6 +41,7 @@
             this.startDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.endDateLabel = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pdfLinkLabel = new System.Windows.Forms.LinkLabel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -107,7 +108,7 @@
             this.refreshButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.refreshButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.refreshButton.Location = new System.Drawing.Point(50, 170);
+            this.refreshButton.Location = new System.Drawing.Point(50, 136);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.refreshButton.Size = new System.Drawing.Size(208, 54);
@@ -130,7 +131,7 @@
             this.generateReportButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.generateReportButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generateReportButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.generateReportButton.Location = new System.Drawing.Point(50, 67);
+            this.generateReportButton.Location = new System.Drawing.Point(50, 52);
             this.generateReportButton.Name = "generateReportButton";
             this.generateReportButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.generateReportButton.Size = new System.Drawing.Size(208, 54);
@@ -262,6 +263,7 @@
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderRadius = 30;
             this.guna2Panel3.BorderThickness = 3;
+            this.guna2Panel3.Controls.Add(this.pdfLinkLabel);
             this.guna2Panel3.Controls.Add(this.refreshButton);
             this.guna2Panel3.Controls.Add(this.generateReportButton);
             this.guna2Panel3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
@@ -274,6 +276,22 @@
             this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.guna2Panel3.Size = new System.Drawing.Size(309, 294);
             this.guna2Panel3.TabIndex = 36;
+            // 
+            // pdfLinkLabel
+            // 
+            this.pdfLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.pdfLinkLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pdfLinkLabel.AutoSize = true;
+            this.pdfLinkLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdfLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.pdfLinkLabel.Location = new System.Drawing.Point(80, 233);
+            this.pdfLinkLabel.Name = "pdfLinkLabel";
+            this.pdfLinkLabel.Size = new System.Drawing.Size(149, 22);
+            this.pdfLinkLabel.TabIndex = 37;
+            this.pdfLinkLabel.TabStop = true;
+            this.pdfLinkLabel.Text = "EXPORT TO PDF";
+            this.pdfLinkLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.pdfLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.pdfLinkLabel_LinkClicked);
             // 
             // reportsForm
             // 
@@ -293,6 +311,7 @@
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -311,5 +330,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker startDatePicker;
         private System.Windows.Forms.Label endDateLabel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        public System.Windows.Forms.LinkLabel pdfLinkLabel;
     }
 }
