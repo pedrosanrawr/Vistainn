@@ -8,7 +8,7 @@ namespace Vistainn.BookFolder
 {
     public partial class addDialogBook : Form
     {
-        private Database database = new MySqlDatabase();
+        Database database = new MySqlDatabase();
         public event EventHandler OnDataAdded;
 
         public addDialogBook()

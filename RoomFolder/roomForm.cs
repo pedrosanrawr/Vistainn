@@ -73,7 +73,7 @@ namespace Vistainn
             {
                 ImageLayout = DataGridViewImageCellLayout.Stretch
             };
-            imgcol = (DataGridViewImageColumn)roomTable.Columns[5];
+            imgcol = (DataGridViewImageColumn)roomTable.Columns[11];
         }
 
         //add buttom - click
@@ -99,14 +99,14 @@ namespace Vistainn
                 string RoomNo = roomTable.SelectedRows[0].Cells[2].Value + string.Empty;
                 string Rate = roomTable.SelectedRows[0].Cells[3].Value + string.Empty;
                 string Availability = roomTable.SelectedRows[0].Cells[4].Value + string.Empty;
-                byte[] Picture = (byte[])roomTable.SelectedRows[0].Cells[5].Value;
+                string Bathroom = roomTable.SelectedRows[0].Cells[5].Value + string.Empty;
+                string Bedroom = roomTable.SelectedRows[0].Cells[6].Value + string.Empty;
+                string Kitchen = roomTable.SelectedRows[0].Cells[7].Value + string.Empty;
+                string Technology = roomTable.SelectedRows[0].Cells[8].Value + string.Empty;
+                string General = roomTable.SelectedRows[0].Cells[9].Value + string.Empty;
+                string RoomCapacity = roomTable.SelectedRows[0].Cells[10].Value + string.Empty;
+                byte[] Picture = (byte[])roomTable.SelectedRows[0].Cells[11].Value;
                 MemoryStream ms = new MemoryStream(Picture);
-                string Bathroom = roomTable.SelectedRows[0].Cells[6].Value + string.Empty;
-                string Bedroom = roomTable.SelectedRows[0].Cells[7].Value + string.Empty;
-                string Kitchen = roomTable.SelectedRows[0].Cells[8].Value + string.Empty;
-                string Technology = roomTable.SelectedRows[0].Cells[9].Value + string.Empty;
-                string General = roomTable.SelectedRows[0].Cells[10].Value + string.Empty;
-                string RoomCapacity = roomTable.SelectedRows[0].Cells[11].Value + string.Empty;
 
                 editRoomDialog.roomIdTextBox.Text = RoomId;
                 editRoomDialog.roomTypeComboBox.Text = RoomType;

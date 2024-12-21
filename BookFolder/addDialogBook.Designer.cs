@@ -1,4 +1,6 @@
-﻿namespace Vistainn.BookFolder
+﻿using System;
+
+namespace Vistainn.BookFolder
 {
     partial class addDialogBook
     {
@@ -29,9 +31,7 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.addButton = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.aoQuantityTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.paxNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
@@ -56,9 +56,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.fullNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -73,19 +75,6 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "ADD BOOKINGS";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderRadius = 30;
-            this.guna2Panel3.BorderThickness = 3;
-            this.guna2Panel3.Controls.Add(this.label4);
-            this.guna2Panel3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(1, -40);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(498, 144);
-            this.guna2Panel3.TabIndex = 132;
             // 
             // addButton
             // 
@@ -109,19 +98,6 @@
             this.addButton.TabIndex = 31;
             this.addButton.Text = "ADD";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderRadius = 30;
-            this.guna2Panel1.BorderThickness = 3;
-            this.guna2Panel1.Controls.Add(this.addButton);
-            this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(-3, 614);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(502, 144);
-            this.guna2Panel1.TabIndex = 133;
             // 
             // aoQuantityTextBox
             // 
@@ -334,7 +310,7 @@
             this.checkOutDateTimePicker.BackColor = System.Drawing.Color.Transparent;
             this.checkOutDateTimePicker.BorderRadius = 10;
             this.checkOutDateTimePicker.Checked = true;
-            this.checkOutDateTimePicker.FillColor = System.Drawing.Color.DimGray;
+            this.checkOutDateTimePicker.FillColor = System.Drawing.Color.White;
             this.checkOutDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.checkOutDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.checkOutDateTimePicker.Location = new System.Drawing.Point(56, 341);
@@ -343,14 +319,14 @@
             this.checkOutDateTimePicker.Name = "checkOutDateTimePicker";
             this.checkOutDateTimePicker.Size = new System.Drawing.Size(390, 30);
             this.checkOutDateTimePicker.TabIndex = 147;
-            this.checkOutDateTimePicker.Value = new System.DateTime(2024, 11, 16, 9, 16, 16, 375);
+            this.checkOutDateTimePicker.Value = new System.DateTime(2024, 12, 22, 8, 26, 28, 179);
             // 
             // checkInDateTimePicker
             // 
             this.checkInDateTimePicker.BackColor = System.Drawing.Color.Transparent;
             this.checkInDateTimePicker.BorderRadius = 10;
             this.checkInDateTimePicker.Checked = true;
-            this.checkInDateTimePicker.FillColor = System.Drawing.Color.DimGray;
+            this.checkInDateTimePicker.FillColor = System.Drawing.Color.White;
             this.checkInDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.checkInDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.checkInDateTimePicker.Location = new System.Drawing.Point(56, 285);
@@ -359,7 +335,7 @@
             this.checkInDateTimePicker.Name = "checkInDateTimePicker";
             this.checkInDateTimePicker.Size = new System.Drawing.Size(390, 30);
             this.checkInDateTimePicker.TabIndex = 146;
-            this.checkInDateTimePicker.Value = new System.DateTime(2024, 11, 16, 9, 16, 16, 375);
+            this.checkInDateTimePicker.Value = new System.DateTime(2024, 12, 21, 8, 26, 28, 210);
             // 
             // roomTypeComboBox
             // 
@@ -529,6 +505,30 @@
             this.label3.Text = "CUSTOMER NAME*";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel3.BorderThickness = 3;
+            this.guna2Panel3.Controls.Add(this.label4);
+            this.guna2Panel3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.guna2Panel3.Location = new System.Drawing.Point(1, -40);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(498, 144);
+            this.guna2Panel3.TabIndex = 132;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.BorderThickness = 3;
+            this.guna2Panel1.Controls.Add(this.addButton);
+            this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.guna2Panel1.Location = new System.Drawing.Point(-3, 614);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(502, 144);
+            this.guna2Panel1.TabIndex = 133;
+            // 
             // addDialogBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,10 +564,10 @@
             this.Name = "addDialogBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ADD BOOKINGS";
+            ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -575,9 +575,7 @@
 
         #endregion
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Button addButton;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2TextBox aoQuantityTextBox;
         public Guna.UI2.WinForms.Guna2NumericUpDown paxNumericUpDown;
         private System.Windows.Forms.Label label14;
@@ -602,5 +600,7 @@
         private System.Windows.Forms.Label label5;
         public Guna.UI2.WinForms.Guna2TextBox fullNameTextBox;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }

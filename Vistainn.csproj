@@ -180,6 +180,12 @@
     <Compile Include="BookFolder\editDialogBook.Designer.cs">
       <DependentUpon>editDialogBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="createStaffFolder\createStaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createStaffFolder\createStaffForm.Designer.cs">
+      <DependentUpon>createStaffForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="LogInFolder\changePasswordDialog.cs">
       <SubType>Form</SubType>
@@ -188,16 +194,16 @@
       <DependentUpon>changePasswordDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="LogInFolder\PasswordHashing.cs" />
-    <Compile Include="ManagerrFolder\addStaffDialog.cs">
+    <Compile Include="createStaffFolder\addStaffDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagerrFolder\addStaffDialog.Designer.cs">
+    <Compile Include="createStaffFolder\addStaffDialog.Designer.cs">
       <DependentUpon>addStaffDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagerrFolder\editStaffDialog.cs">
+    <Compile Include="createStaffFolder\editStaffDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagerrFolder\editStaffDialog.Designer.cs">
+    <Compile Include="createStaffFolder\editStaffDialog.Designer.cs">
       <DependentUpon>editStaffDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagerrFolder\ManagerDasboard.cs">
@@ -292,13 +298,16 @@
     <EmbeddedResource Include="BookFolder\editDialogBook.resx">
       <DependentUpon>editDialogBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="createStaffFolder\createStaffForm.resx">
+      <DependentUpon>createStaffForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogInFolder\changePasswordDialog.resx">
       <DependentUpon>changePasswordDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagerrFolder\addStaffDialog.resx">
+    <EmbeddedResource Include="createStaffFolder\addStaffDialog.resx">
       <DependentUpon>addStaffDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagerrFolder\editStaffDialog.resx">
+    <EmbeddedResource Include="createStaffFolder\editStaffDialog.resx">
       <DependentUpon>editStaffDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerrFolder\ManagerDasboard.resx">

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using System;
 
 namespace Vistainn
 {
-    partial class roomForm
+    partial class createStafForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,19 +35,10 @@ namespace Vistainn
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.roomTable = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.RoomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Availability = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bathroom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bedroom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kitchen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Technology = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.General = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
+            this.staffTable = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.StaffId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.searchFilterComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,28 +49,27 @@ namespace Vistainn
             this.refreshButton = new Guna.UI2.WinForms.Guna2Button();
             this.editButton = new Guna.UI2.WinForms.Guna2Button();
             this.addButton = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.roomTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffTable)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // roomTable
+            // staffTable
             // 
-            this.roomTable.AllowUserToAddRows = false;
-            this.roomTable.AllowUserToDeleteRows = false;
-            this.roomTable.AllowUserToResizeColumns = false;
-            this.roomTable.AllowUserToResizeRows = false;
+            this.staffTable.AllowUserToAddRows = false;
+            this.staffTable.AllowUserToDeleteRows = false;
+            this.staffTable.AllowUserToResizeColumns = false;
+            this.staffTable.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(193)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
-            this.roomTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.roomTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.staffTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.staffTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.roomTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.roomTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
+            this.staffTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -88,21 +77,12 @@ namespace Vistainn
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roomTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.roomTable.ColumnHeadersHeight = 25;
-            this.roomTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RoomId,
-            this.RoomNo,
-            this.RoomType,
-            this.Rate,
-            this.RoomCapacity,
-            this.Availability,
-            this.Bathroom,
-            this.Bedroom,
-            this.Kitchen,
-            this.Technology,
-            this.General,
-            this.Picture});
+            this.staffTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.staffTable.ColumnHeadersHeight = 25;
+            this.staffTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StaffId,
+            this.StaffName,
+            this.Email});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,12 +90,12 @@ namespace Vistainn
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.roomTable.DefaultCellStyle = dataGridViewCellStyle3;
-            this.roomTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
-            this.roomTable.Location = new System.Drawing.Point(12, 12);
-            this.roomTable.Name = "roomTable";
-            this.roomTable.ReadOnly = true;
-            this.roomTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.staffTable.DefaultCellStyle = dataGridViewCellStyle3;
+            this.staffTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
+            this.staffTable.Location = new System.Drawing.Point(12, 12);
+            this.staffTable.Name = "staffTable";
+            this.staffTable.ReadOnly = true;
+            this.staffTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,133 +103,55 @@ namespace Vistainn
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roomTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.roomTable.RowHeadersVisible = false;
-            this.roomTable.RowHeadersWidth = 40;
-            this.roomTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.roomTable.RowTemplate.Height = 30;
-            this.roomTable.Size = new System.Drawing.Size(981, 665);
-            this.roomTable.TabIndex = 1;
-            this.roomTable.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Turquoise;
-            this.roomTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(193)))), ((int)(((byte)(190)))));
-            this.roomTable.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomTable.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.roomTable.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.roomTable.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
-            this.roomTable.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
-            this.roomTable.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
-            this.roomTable.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.roomTable.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.roomTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomTable.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
-            this.roomTable.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.roomTable.ThemeStyle.HeaderStyle.Height = 25;
-            this.roomTable.ThemeStyle.ReadOnly = true;
-            this.roomTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
-            this.roomTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.roomTable.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.roomTable.ThemeStyle.RowsStyle.Height = 30;
-            this.roomTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.roomTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
+            this.staffTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.staffTable.RowHeadersVisible = false;
+            this.staffTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.staffTable.RowTemplate.Height = 30;
+            this.staffTable.Size = new System.Drawing.Size(981, 665);
+            this.staffTable.TabIndex = 120;
+            this.staffTable.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Turquoise;
+            this.staffTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(193)))), ((int)(((byte)(190)))));
+            this.staffTable.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffTable.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.staffTable.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.staffTable.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
+            this.staffTable.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
+            this.staffTable.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
+            this.staffTable.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.staffTable.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.staffTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffTable.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
+            this.staffTable.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.staffTable.ThemeStyle.HeaderStyle.Height = 25;
+            this.staffTable.ThemeStyle.ReadOnly = true;
+            this.staffTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
+            this.staffTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.staffTable.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.staffTable.ThemeStyle.RowsStyle.Height = 30;
+            this.staffTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.staffTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             // 
-            // RoomId
+            // StaffId
             // 
-            this.RoomId.DataPropertyName = "RoomId";
-            this.RoomId.HeaderText = "ROOM ID";
-            this.RoomId.Name = "RoomId";
-            this.RoomId.ReadOnly = true;
-            this.RoomId.Width = 89;
+            this.StaffId.DataPropertyName = "StaffId";
+            this.StaffId.HeaderText = "STAFF ID";
+            this.StaffId.Name = "StaffId";
+            this.StaffId.ReadOnly = true;
             // 
-            // RoomNo
+            // StaffName
             // 
-            this.RoomNo.DataPropertyName = "RoomNo";
-            this.RoomNo.HeaderText = "ROOM NUMBER";
-            this.RoomNo.Name = "RoomNo";
-            this.RoomNo.ReadOnly = true;
-            this.RoomNo.Width = 129;
+            this.StaffName.DataPropertyName = "StaffName";
+            this.StaffName.HeaderText = "STAFF NAME";
+            this.StaffName.Name = "StaffName";
+            this.StaffName.ReadOnly = true;
             // 
-            // RoomType
+            // Email
             // 
-            this.RoomType.DataPropertyName = "RoomType";
-            this.RoomType.HeaderText = "ROOM TYPE";
-            this.RoomType.Name = "RoomType";
-            this.RoomType.ReadOnly = true;
-            this.RoomType.Width = 104;
-            // 
-            // Rate
-            // 
-            this.Rate.DataPropertyName = "Rate";
-            this.Rate.HeaderText = "RATE";
-            this.Rate.Name = "Rate";
-            this.Rate.ReadOnly = true;
-            this.Rate.Width = 61;
-            // 
-            // RoomCapacity
-            // 
-            this.RoomCapacity.DataPropertyName = "RoomCapacity";
-            this.RoomCapacity.HeaderText = "ROOM CAPACITY";
-            this.RoomCapacity.Name = "RoomCapacity";
-            this.RoomCapacity.ReadOnly = true;
-            this.RoomCapacity.Width = 141;
-            // 
-            // Availability
-            // 
-            this.Availability.DataPropertyName = "Availability";
-            this.Availability.HeaderText = "AVAILABILITY";
-            this.Availability.Name = "Availability";
-            this.Availability.ReadOnly = true;
-            this.Availability.Width = 115;
-            // 
-            // Bathroom
-            // 
-            this.Bathroom.DataPropertyName = "Bathroom";
-            this.Bathroom.HeaderText = "BATHROOM";
-            this.Bathroom.Name = "Bathroom";
-            this.Bathroom.ReadOnly = true;
-            this.Bathroom.Width = 105;
-            // 
-            // Bedroom
-            // 
-            this.Bedroom.DataPropertyName = "Bedroom";
-            this.Bedroom.HeaderText = "BEDROOM";
-            this.Bedroom.Name = "Bedroom";
-            this.Bedroom.ReadOnly = true;
-            this.Bedroom.Width = 96;
-            // 
-            // Kitchen
-            // 
-            this.Kitchen.DataPropertyName = "Kitchen";
-            this.Kitchen.HeaderText = "KITCHEN";
-            this.Kitchen.Name = "Kitchen";
-            this.Kitchen.ReadOnly = true;
-            this.Kitchen.Width = 84;
-            // 
-            // Technology
-            // 
-            this.Technology.DataPropertyName = "Technology";
-            this.Technology.HeaderText = "TECHNOLOGY";
-            this.Technology.Name = "Technology";
-            this.Technology.ReadOnly = true;
-            this.Technology.Width = 119;
-            // 
-            // General
-            // 
-            this.General.DataPropertyName = "General";
-            this.General.HeaderText = "GENERAL";
-            this.General.Name = "General";
-            this.General.ReadOnly = true;
-            this.General.Width = 89;
-            // 
-            // Picture
-            // 
-            this.Picture.DataPropertyName = "Picture";
-            this.Picture.HeaderText = "PICTURE";
-            this.Picture.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Picture.Name = "Picture";
-            this.Picture.ReadOnly = true;
-            this.Picture.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Picture.Width = 80;
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "EMAIL";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
             // 
             // guna2Panel3
             // 
@@ -270,7 +172,7 @@ namespace Vistainn
             this.guna2Panel3.ShadowDecoration.Enabled = true;
             this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.guna2Panel3.Size = new System.Drawing.Size(309, 246);
-            this.guna2Panel3.TabIndex = 19;
+            this.guna2Panel3.TabIndex = 121;
             // 
             // searchFilterComboBox
             // 
@@ -287,9 +189,8 @@ namespace Vistainn
             this.searchFilterComboBox.ItemHeight = 30;
             this.searchFilterComboBox.Items.AddRange(new object[] {
             "ID",
-            "ROOM TYPE",
-            "ROOM NUMBER",
-            "AVAILABILITY"});
+            "CUSTOMER\'S NAME",
+            "ROOM  NUMBER"});
             this.searchFilterComboBox.Location = new System.Drawing.Point(60, 180);
             this.searchFilterComboBox.Name = "searchFilterComboBox";
             this.searchFilterComboBox.Size = new System.Drawing.Size(189, 36);
@@ -376,7 +277,7 @@ namespace Vistainn
             this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.guna2Panel1.Size = new System.Drawing.Size(309, 413);
-            this.guna2Panel1.TabIndex = 17;
+            this.guna2Panel1.TabIndex = 122;
             // 
             // deleteButton
             // 
@@ -392,7 +293,7 @@ namespace Vistainn
             this.deleteButton.FillColor = System.Drawing.Color.DarkRed;
             this.deleteButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.deleteButton.Location = new System.Drawing.Point(50, 225);
+            this.deleteButton.Location = new System.Drawing.Point(49, 225);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.deleteButton.Size = new System.Drawing.Size(208, 54);
@@ -414,7 +315,7 @@ namespace Vistainn
             this.refreshButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.refreshButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.refreshButton.Location = new System.Drawing.Point(50, 317);
+            this.refreshButton.Location = new System.Drawing.Point(51, 317);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.refreshButton.Size = new System.Drawing.Size(208, 54);
@@ -436,7 +337,7 @@ namespace Vistainn
             this.editButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.editButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.editButton.Location = new System.Drawing.Point(50, 133);
+            this.editButton.Location = new System.Drawing.Point(49, 133);
             this.editButton.Name = "editButton";
             this.editButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.editButton.Size = new System.Drawing.Size(208, 54);
@@ -458,7 +359,7 @@ namespace Vistainn
             this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.addButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.addButton.Location = new System.Drawing.Point(50, 41);
+            this.addButton.Location = new System.Drawing.Point(51, 41);
             this.addButton.Name = "addButton";
             this.addButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.addButton.Size = new System.Drawing.Size(208, 54);
@@ -466,21 +367,19 @@ namespace Vistainn
             this.addButton.Text = "ADD";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // roomForm
+            // createStafForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(1334, 689);
-            this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.roomTable);
+            this.Controls.Add(this.guna2Panel3);
+            this.Controls.Add(this.staffTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "roomForm";
-            this.Text = "roomForm";
-            this.Load += new System.EventHandler(this.roomForm_Load);
-            this.Resize += new System.EventHandler(this.roomForm_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.roomTable)).EndInit();
+            this.Name = "createStafForm";
+            this.Text = "bookForm";
+            this.Load += new System.EventHandler(this.createStafForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.staffTable)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
@@ -488,44 +387,21 @@ namespace Vistainn
 
         }
 
-
-        private void roomForm_Resize(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.roomTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            }
-            else
-            {
-                this.roomTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            }
-        }
-
         #endregion
 
-        public Guna.UI2.WinForms.Guna2DataGridView roomTable;
+        public Guna.UI2.WinForms.Guna2DataGridView staffTable;
+        private DataGridViewTextBoxColumn StaffId;
+        private DataGridViewTextBoxColumn StaffName;
+        private DataGridViewTextBoxColumn Email;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        public Guna.UI2.WinForms.Guna2ComboBox searchFilterComboBox;
+        private Label label8;
         private Guna.UI2.WinForms.Guna2Button searchButton;
         private Guna.UI2.WinForms.Guna2TextBox searchTextBox;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Button deleteButton;
+        private Guna.UI2.WinForms.Guna2Button refreshButton;
         private Guna.UI2.WinForms.Guna2Button editButton;
         private Guna.UI2.WinForms.Guna2Button addButton;
-        private Guna.UI2.WinForms.Guna2Button refreshButton;
-        private Guna.UI2.WinForms.Guna2Button deleteButton;
-        private Label label8;
-        public Guna.UI2.WinForms.Guna2ComboBox searchFilterComboBox;
-        private Guna.UI2.WinForms.Guna2DataGridViewStyler guna2DataGridViewStyler1;
-        private DataGridViewTextBoxColumn RoomId;
-        private DataGridViewTextBoxColumn RoomNo;
-        private DataGridViewTextBoxColumn RoomType;
-        private DataGridViewTextBoxColumn Rate;
-        private DataGridViewTextBoxColumn RoomCapacity;
-        private DataGridViewTextBoxColumn Availability;
-        private DataGridViewTextBoxColumn Bathroom;
-        private DataGridViewTextBoxColumn Bedroom;
-        private DataGridViewTextBoxColumn Kitchen;
-        private DataGridViewTextBoxColumn Technology;
-        private DataGridViewTextBoxColumn General;
-        private DataGridViewImageColumn Picture;
     }
 }

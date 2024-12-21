@@ -49,7 +49,6 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderRadius = 30;
             this.guna2Panel1.BorderThickness = 3;
             this.guna2Panel1.Controls.Add(this.updateButton);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
@@ -85,7 +84,6 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderRadius = 30;
             this.guna2Panel3.BorderThickness = 3;
             this.guna2Panel3.Controls.Add(this.label4);
             this.guna2Panel3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
@@ -276,7 +274,7 @@
             this.paymentMethodComboBox.Size = new System.Drawing.Size(152, 36);
             this.paymentMethodComboBox.TabIndex = 130;
             // 
-            // EditMPaymentDialog
+            // editPaymentDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -294,7 +292,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel3);
-            this.Name = "EditMPaymentDialog";
+            this.Name = "editPaymentDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EDIT PAYMENT";
             this.guna2Panel1.ResumeLayout(false);

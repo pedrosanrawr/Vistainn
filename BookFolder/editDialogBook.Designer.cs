@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace Vistainn.BookFolder
 {
@@ -68,7 +69,6 @@ namespace Vistainn.BookFolder
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderRadius = 30;
             this.guna2Panel1.BorderThickness = 3;
             this.guna2Panel1.Controls.Add(this.updateButton);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
@@ -104,7 +104,6 @@ namespace Vistainn.BookFolder
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderRadius = 30;
             this.guna2Panel3.BorderThickness = 3;
             this.guna2Panel3.Controls.Add(this.label4);
             this.guna2Panel3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
@@ -334,7 +333,7 @@ namespace Vistainn.BookFolder
             this.checkInDateTimePicker.BackColor = System.Drawing.Color.Transparent;
             this.checkInDateTimePicker.BorderRadius = 10;
             this.checkInDateTimePicker.Checked = true;
-            this.checkInDateTimePicker.FillColor = System.Drawing.Color.DimGray;
+            this.checkInDateTimePicker.FillColor = System.Drawing.Color.White;
             this.checkInDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.checkInDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.checkInDateTimePicker.Location = new System.Drawing.Point(56, 285);
@@ -343,14 +342,14 @@ namespace Vistainn.BookFolder
             this.checkInDateTimePicker.Name = "checkInDateTimePicker";
             this.checkInDateTimePicker.Size = new System.Drawing.Size(390, 30);
             this.checkInDateTimePicker.TabIndex = 109;
-            this.checkInDateTimePicker.Value = new System.DateTime(2024, 11, 16, 9, 16, 16, 375);
+            this.checkInDateTimePicker.Value = new System.DateTime(2024, 12, 21, 8, 34, 39, 225);
             // 
             // checkOutDateTimePicker
             // 
             this.checkOutDateTimePicker.BackColor = System.Drawing.Color.Transparent;
             this.checkOutDateTimePicker.BorderRadius = 10;
             this.checkOutDateTimePicker.Checked = true;
-            this.checkOutDateTimePicker.FillColor = System.Drawing.Color.DimGray;
+            this.checkOutDateTimePicker.FillColor = System.Drawing.Color.White;
             this.checkOutDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.checkOutDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.checkOutDateTimePicker.Location = new System.Drawing.Point(56, 341);
@@ -359,7 +358,7 @@ namespace Vistainn.BookFolder
             this.checkOutDateTimePicker.Name = "checkOutDateTimePicker";
             this.checkOutDateTimePicker.Size = new System.Drawing.Size(390, 30);
             this.checkOutDateTimePicker.TabIndex = 110;
-            this.checkOutDateTimePicker.Value = new System.DateTime(2024, 11, 16, 9, 16, 16, 375);
+            this.checkOutDateTimePicker.Value = new System.DateTime(2024, 12, 22, 8, 34, 39, 258);
             // 
             // phoneNoTextBox
             // 

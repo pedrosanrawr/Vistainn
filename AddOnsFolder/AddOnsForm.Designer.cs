@@ -58,7 +58,7 @@
             this.aoTable.AllowUserToResizeColumns = false;
             this.aoTable.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(193)))), ((int)(((byte)(190)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
@@ -69,7 +69,7 @@
             this.aoTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -82,7 +82,7 @@
             this.AoPrice});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
@@ -102,12 +102,12 @@
             this.aoTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.aoTable.RowHeadersVisible = false;
             this.aoTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.aoTable.RowTemplate.Height = 20;
-            this.aoTable.Size = new System.Drawing.Size(843, 493);
+            this.aoTable.RowTemplate.Height = 30;
+            this.aoTable.Size = new System.Drawing.Size(981, 665);
             this.aoTable.TabIndex = 118;
             this.aoTable.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Turquoise;
             this.aoTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(193)))), ((int)(((byte)(190)))));
-            this.aoTable.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aoTable.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aoTable.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
             this.aoTable.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.aoTable.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
@@ -115,16 +115,16 @@
             this.aoTable.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             this.aoTable.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.aoTable.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.aoTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aoTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aoTable.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             this.aoTable.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.aoTable.ThemeStyle.HeaderStyle.Height = 25;
             this.aoTable.ThemeStyle.ReadOnly = false;
             this.aoTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             this.aoTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.aoTable.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aoTable.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aoTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.aoTable.ThemeStyle.RowsStyle.Height = 20;
+            this.aoTable.ThemeStyle.RowsStyle.Height = 30;
             this.aoTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.aoTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             // 
@@ -162,9 +162,13 @@
             this.guna2Panel1.Controls.Add(this.editButton);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(875, 239);
+            this.guna2Panel1.Location = new System.Drawing.Point(1013, 264);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(250, 266);
+            this.guna2Panel1.ShadowDecoration.BorderRadius = 30;
+            this.guna2Panel1.ShadowDecoration.Depth = 15;
+            this.guna2Panel1.ShadowDecoration.Enabled = true;
+            this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.guna2Panel1.Size = new System.Drawing.Size(309, 413);
             this.guna2Panel1.TabIndex = 120;
             // 
             // deleteButton
@@ -172,7 +176,7 @@
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteButton.BackColor = System.Drawing.Color.Transparent;
             this.deleteButton.BorderColor = System.Drawing.Color.Transparent;
-            this.deleteButton.BorderRadius = 18;
+            this.deleteButton.BorderRadius = 25;
             this.deleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.deleteButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -181,10 +185,10 @@
             this.deleteButton.FillColor = System.Drawing.Color.DarkRed;
             this.deleteButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.deleteButton.Location = new System.Drawing.Point(39, 140);
+            this.deleteButton.Location = new System.Drawing.Point(50, 225);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.deleteButton.Size = new System.Drawing.Size(154, 41);
+            this.deleteButton.Size = new System.Drawing.Size(208, 54);
             this.deleteButton.TabIndex = 19;
             this.deleteButton.Text = "DELETE";
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
@@ -194,7 +198,7 @@
             this.addBookButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.addBookButton.BackColor = System.Drawing.Color.Transparent;
             this.addBookButton.BorderColor = System.Drawing.Color.Transparent;
-            this.addBookButton.BorderRadius = 18;
+            this.addBookButton.BorderRadius = 25;
             this.addBookButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addBookButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addBookButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -203,10 +207,10 @@
             this.addBookButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.addBookButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBookButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.addBookButton.Location = new System.Drawing.Point(39, 20);
+            this.addBookButton.Location = new System.Drawing.Point(50, 41);
             this.addBookButton.Name = "addBookButton";
             this.addBookButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.addBookButton.Size = new System.Drawing.Size(154, 41);
+            this.addBookButton.Size = new System.Drawing.Size(208, 54);
             this.addBookButton.TabIndex = 16;
             this.addBookButton.Text = "ADD";
             this.addBookButton.Click += new System.EventHandler(this.addBookButton_Click);
@@ -216,7 +220,7 @@
             this.refreshButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.refreshButton.BackColor = System.Drawing.Color.Transparent;
             this.refreshButton.BorderColor = System.Drawing.Color.Transparent;
-            this.refreshButton.BorderRadius = 18;
+            this.refreshButton.BorderRadius = 25;
             this.refreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.refreshButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.refreshButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -225,10 +229,10 @@
             this.refreshButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.refreshButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.refreshButton.Location = new System.Drawing.Point(39, 200);
+            this.refreshButton.Location = new System.Drawing.Point(50, 317);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.refreshButton.Size = new System.Drawing.Size(154, 41);
+            this.refreshButton.Size = new System.Drawing.Size(208, 54);
             this.refreshButton.TabIndex = 15;
             this.refreshButton.Text = "RESFRESH";
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
@@ -238,7 +242,7 @@
             this.editButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.editButton.BackColor = System.Drawing.Color.Transparent;
             this.editButton.BorderColor = System.Drawing.Color.Transparent;
-            this.editButton.BorderRadius = 18;
+            this.editButton.BorderRadius = 25;
             this.editButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.editButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -247,10 +251,10 @@
             this.editButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.editButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.editButton.Location = new System.Drawing.Point(39, 80);
+            this.editButton.Location = new System.Drawing.Point(50, 133);
             this.editButton.Name = "editButton";
             this.editButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.editButton.Size = new System.Drawing.Size(154, 41);
+            this.editButton.Size = new System.Drawing.Size(208, 54);
             this.editButton.TabIndex = 14;
             this.editButton.Text = "EDIT";
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
@@ -267,15 +271,19 @@
             this.guna2Panel3.Controls.Add(this.searchTextBox);
             this.guna2Panel3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(875, 12);
+            this.guna2Panel3.Location = new System.Drawing.Point(1013, 12);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(247, 221);
+            this.guna2Panel3.ShadowDecoration.BorderRadius = 30;
+            this.guna2Panel3.ShadowDecoration.Depth = 15;
+            this.guna2Panel3.ShadowDecoration.Enabled = true;
+            this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.guna2Panel3.Size = new System.Drawing.Size(309, 246);
             this.guna2Panel3.TabIndex = 121;
             // 
             // searchFilterComboBox
             // 
             this.searchFilterComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.searchFilterComboBox.BorderRadius = 10;
+            this.searchFilterComboBox.BorderRadius = 15;
             this.searchFilterComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.searchFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.searchFilterComboBox.DropDownWidth = 105;
@@ -287,21 +295,22 @@
             this.searchFilterComboBox.ItemHeight = 30;
             this.searchFilterComboBox.Items.AddRange(new object[] {
             "ID",
-            "ITEM NAME"});
-            this.searchFilterComboBox.Location = new System.Drawing.Point(39, 158);
+            "CUSTOMER\'S NAME",
+            "ROOM  NUMBER"});
+            this.searchFilterComboBox.Location = new System.Drawing.Point(60, 180);
             this.searchFilterComboBox.Name = "searchFilterComboBox";
-            this.searchFilterComboBox.Size = new System.Drawing.Size(154, 36);
+            this.searchFilterComboBox.Size = new System.Drawing.Size(189, 36);
             this.searchFilterComboBox.TabIndex = 157;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.label8.Location = new System.Drawing.Point(36, 140);
+            this.label8.Location = new System.Drawing.Point(60, 158);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 15);
+            this.label8.Size = new System.Drawing.Size(56, 19);
             this.label8.TabIndex = 156;
             this.label8.Text = "FILTER:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -322,10 +331,10 @@
             this.searchButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.searchButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.searchButton.Location = new System.Drawing.Point(39, 80);
+            this.searchButton.Location = new System.Drawing.Point(60, 90);
             this.searchButton.Name = "searchButton";
             this.searchButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.searchButton.Size = new System.Drawing.Size(154, 36);
+            this.searchButton.Size = new System.Drawing.Size(189, 42);
             this.searchButton.TabIndex = 15;
             this.searchButton.Text = "SEARCH";
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
@@ -334,7 +343,7 @@
             // 
             this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.searchTextBox.BorderRadius = 15;
+            this.searchTextBox.BorderRadius = 18;
             this.searchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.searchTextBox.DefaultText = "";
             this.searchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -343,15 +352,16 @@
             this.searchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.searchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.searchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.searchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.searchTextBox.Location = new System.Drawing.Point(39, 25);
+            this.searchTextBox.Location = new System.Drawing.Point(60, 30);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.PasswordChar = '\0';
-            this.searchTextBox.PlaceholderText = "";
+            this.searchTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.searchTextBox.PlaceholderText = "ENTER TEXT HERE";
             this.searchTextBox.SelectedText = "";
-            this.searchTextBox.Size = new System.Drawing.Size(154, 36);
+            this.searchTextBox.Size = new System.Drawing.Size(189, 42);
             this.searchTextBox.TabIndex = 15;
             // 
             // AddOnsForm
@@ -359,10 +369,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.ClientSize = new System.Drawing.Size(1095, 517);
+            this.ClientSize = new System.Drawing.Size(1334, 689);
             this.Controls.Add(this.guna2Panel3);
-            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.aoTable);
+            this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddOnsForm";
             this.Text = "AddOnsForm";

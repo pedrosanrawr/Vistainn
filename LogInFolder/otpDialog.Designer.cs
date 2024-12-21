@@ -81,9 +81,9 @@
             this.otpTextLabel.BackColor = System.Drawing.Color.Transparent;
             this.otpTextLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otpTextLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.otpTextLabel.Location = new System.Drawing.Point(127, 117);
+            this.otpTextLabel.Location = new System.Drawing.Point(61, 107);
             this.otpTextLabel.Name = "otpTextLabel";
-            this.otpTextLabel.Size = new System.Drawing.Size(385, 17);
+            this.otpTextLabel.Size = new System.Drawing.Size(516, 24);
             this.otpTextLabel.TabIndex = 25;
             this.otpTextLabel.Text = "SEND CODE TO [EMAIL]";
             this.otpTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,15 +92,15 @@
             // 
             this.sendLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.sendLinkLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.sendLinkLabel.AutoSize = true;
             this.sendLinkLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.sendLinkLabel.Location = new System.Drawing.Point(277, 161);
+            this.sendLinkLabel.Location = new System.Drawing.Point(238, 161);
             this.sendLinkLabel.Name = "sendLinkLabel";
-            this.sendLinkLabel.Size = new System.Drawing.Size(84, 17);
+            this.sendLinkLabel.Size = new System.Drawing.Size(162, 18);
             this.sendLinkLabel.TabIndex = 26;
             this.sendLinkLabel.TabStop = true;
             this.sendLinkLabel.Text = "SEND CODE";
+            this.sendLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.sendLinkLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.sendLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.sendLinkLabel_LinkClicked);
             // 

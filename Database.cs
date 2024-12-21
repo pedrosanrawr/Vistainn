@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace Vistainn
@@ -16,23 +17,31 @@ namespace Vistainn
 
         public int ExecuteNonQuery(string query, Dictionary<string, object> parameters = null)
         {
-            using (var conn = CreateConnection())
+            try
             {
-                OpenConnection(conn); 
-                using (var cmd = conn.CreateCommand())
+                using (var conn = CreateConnection())
                 {
-                    cmd.CommandText = query;
-
-                    if (parameters != null)
+                    OpenConnection(conn);
+                    using (var cmd = conn.CreateCommand())
                     {
-                        foreach (var param in parameters)
-                        {
-                            cmd.Parameters.Add(new MySqlParameter(param.Key, param.Value));
-                        }
-                    }
+                        cmd.CommandText = query;
 
-                    return cmd.ExecuteNonQuery();
+                        if (parameters != null)
+                        {
+                            foreach (var param in parameters)
+                            {
+                                cmd.Parameters.Add(new MySqlParameter(param.Key, param.Value));
+                            }
+                        }
+
+                        return cmd.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error executing query: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
         }
 

@@ -61,8 +61,12 @@ namespace Vistainn
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-
             loadForm(new managerProfile());
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            loadForm(new createStafForm());
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Vistainn
             generatedOtp = GenerateOtp();
             SendOtpToEmail(userEmail, generatedOtp);
 
-            MessageBox.Show(generatedOtp == null ? "OTP has been sent to your email." : "OTP has been resent to your email.");
+            MessageBox.Show("OTP has been sent to your email.");
             sendLinkLabel.Text = "RESEND OTP";
         }
 

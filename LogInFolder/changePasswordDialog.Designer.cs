@@ -180,10 +180,11 @@
             // viewCheckBox
             // 
             this.viewCheckBox.AutoSize = true;
-            this.viewCheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.viewCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.viewCheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.viewCheckBox.CheckedState.BorderRadius = 2;
             this.viewCheckBox.CheckedState.BorderThickness = 0;
-            this.viewCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.viewCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.viewCheckBox.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.viewCheckBox.Location = new System.Drawing.Point(294, 241);
             this.viewCheckBox.Name = "viewCheckBox";
@@ -194,6 +195,7 @@
             this.viewCheckBox.UncheckedState.BorderRadius = 2;
             this.viewCheckBox.UncheckedState.BorderThickness = 0;
             this.viewCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.viewCheckBox.UseVisualStyleBackColor = false;
             this.viewCheckBox.CheckedChanged += new System.EventHandler(this.viewCheckBox_CheckedChanged);
             // 
             // changePasswordDialog

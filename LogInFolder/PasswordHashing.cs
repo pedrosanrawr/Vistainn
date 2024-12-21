@@ -4,7 +4,7 @@ using System.Text;
 
 public static class PasswordHashing
 {
-    public static (string hashedPassword, string salt) HashPassword(string password)
+    public static(string hashedPassword, string salt) HashPassword(string password)
     {
         using (var rng = new RNGCryptoServiceProvider())
         {
