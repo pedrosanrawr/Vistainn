@@ -125,12 +125,36 @@ namespace Vistainn
             reportDetailsTextBox.Text = "Report cleared. Select a report type and date range to regenerate.";
         }
 
-        //pdf link label - click
+        //link label - click
         private void pdfLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (chart.Series.Count > 0)
             {
-                ExportChartToPdf(chart, "chart_output.pdf", "Revenue Report", "This chart shows revenue trends over the selected period.", startDatePicker.Value, endDatePicker.Value);
+                string reportType = reportTypeComboBox.SelectedItem?.ToString();
+                string reportSummary = "";
+
+                if (reportType == "Occupancy Report")
+                {
+                    reportSummary = "This chart shows occupancy trends over the selected period.";
+                }
+                else if (reportType == "Revenue Report")
+                {
+                    reportSummary = "This chart shows revenue trends over the selected period.";
+                }
+                else
+                {
+                    MessageBox.Show("Invalid report type selected.");
+                    return;
+                }
+
+                ExportChartToPdf(
+                    chart,
+                    "chart_output",
+                    reportType,
+                    reportSummary,
+                    startDatePicker.Value,
+                    endDatePicker.Value
+                );
             }
             else
             {
@@ -141,6 +165,37 @@ namespace Vistainn
         //export to pdf - method
         public void ExportChartToPdf(LiveCharts.WinForms.CartesianChart cartesianChart, string fileName, string reportType, string reportSummary, DateTime startDate, DateTime endDate)
         {
+            double highestValue = 0;
+            double lowestValue = double.MaxValue;
+            double totalValue = 0;
+            string highestRoom = "";
+            string lowestRoom = "";
+
+            if (cartesianChart.Series.Count > 0)
+            {
+                var series = cartesianChart.Series[0] as ColumnSeries;
+                if (series != null && series.Values.Count > 0)
+                {
+                    for (int i = 0; i < series.Values.Count; i++)
+                    {
+                        double value = Convert.ToDouble(series.Values[i]);
+                        totalValue += value;
+
+                        if (value > highestValue)
+                        {
+                            highestValue = value;
+                            highestRoom = cartesianChart.AxisX[0].Labels[i];
+                        }
+
+                        if (value < lowestValue)
+                        {
+                            lowestValue = value;
+                            lowestRoom = cartesianChart.AxisX[0].Labels[i];
+                        }
+                    }
+                }
+            }
+
             string downloadsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\";
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             string pdfFilePath = Path.Combine(downloadsFolderPath, $"{fileName}_{timestamp}.pdf");
@@ -152,7 +207,11 @@ namespace Vistainn
 
                 document.Open();
 
-                Paragraph reportDetails = new Paragraph($"Report Type: {reportType}\nReport Date: {DateTime.Now:yyyy-MM-dd}\nDate Range: {startDate.ToShortDateString()} - {endDate.ToShortDateString()}\n\n", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14));
+                Paragraph reportDetails = new Paragraph(
+                    $"Report Type: {reportType}\n" +
+                    $"Report Date: {DateTime.Now:yyyy-MM-dd}\n" +
+                    $"Date Range: {startDate.ToShortDateString()} - {endDate.ToShortDateString()}\n\n",
+                    FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14));
                 document.Add(reportDetails);
 
                 Bitmap bitmap = new Bitmap(cartesianChart.Width, cartesianChart.Height);
@@ -161,10 +220,14 @@ namespace Vistainn
 
                 img.ScaleToFit(document.PageSize.Width - 72, document.PageSize.Height - 72);
                 img.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
-
                 document.Add(img);
 
-                Paragraph summary = new Paragraph(reportSummary, FontFactory.GetFont(FontFactory.HELVETICA, 12));
+                Paragraph summary = new Paragraph(
+                    $"{reportSummary}\n\n" +
+                    $"Total {reportType}: {totalValue:F2}\n" +
+                    $"Highest {reportType}: {highestValue:F2} (Room: {highestRoom})\n" +
+                    $"Lowest {reportType}: {lowestValue:F2} (Room: {lowestRoom})",
+                    FontFactory.GetFont(FontFactory.HELVETICA, 12));
                 summary.SpacingBefore = 20;
                 document.Add(summary);
 
